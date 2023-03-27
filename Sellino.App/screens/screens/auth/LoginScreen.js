@@ -38,7 +38,7 @@ function LoginScreen({ navigation }) {
           </View>
           <View style={[styles.flexItem, styles.flexEnd]}>
             <>
-              <Text style={styles.registerText}>Er du ny på Sellino? 🌱</Text>
+              <Text style={styles.registerText}>Ny på Sellino? 🌱</Text>
               <SlButton 
                 buttonText='Opret en bruger' 
                 onButtonPress={() => navigation.navigate('Register')}

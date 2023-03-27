@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.Domain\\Sellino.Domain.csproj": {}
+    "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Domain\\Sellino.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.Domain\\Sellino.Domain.csproj": {
+    "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Domain\\Sellino.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.Domain\\Sellino.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Domain\\Sellino.Domain.csproj",
         "projectName": "Sellino.Domain",
-        "projectPath": "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.Domain\\Sellino.Domain.csproj",
-        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Domain\\Sellino.Domain.csproj",
+        "packagesPath": "C:\\Users\\Frederik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Frederik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

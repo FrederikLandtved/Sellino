@@ -3902,19 +3902,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bruger\\.nuget\\packages\\": {}
+    "C:\\Users\\Frederik\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.API\\Sellino.API.csproj",
+      "projectUniqueName": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.API\\Sellino.API.csproj",
       "projectName": "Sellino.API",
-      "projectPath": "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.API\\Sellino.API.csproj",
-      "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.API\\obj\\",
+      "projectPath": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.API\\Sellino.API.csproj",
+      "packagesPath": "C:\\Users\\Frederik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Frederik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3928,11 +3928,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.Domain\\Sellino.Domain.csproj": {
-              "projectPath": "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.Domain\\Sellino.Domain.csproj"
+            "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Domain\\Sellino.Domain.csproj": {
+              "projectPath": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Domain\\Sellino.Domain.csproj"
             },
-            "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.Service\\Sellino.Service.csproj": {
-              "projectPath": "C:\\Users\\Bruger\\Desktop\\SellinoProd\\Sellino\\Sellino.Service\\Sellino.Service.csproj"
+            "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Service\\Sellino.Service.csproj": {
+              "projectPath": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Service\\Sellino.Service.csproj"
             }
           }
         }
@@ -3999,7 +3999,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

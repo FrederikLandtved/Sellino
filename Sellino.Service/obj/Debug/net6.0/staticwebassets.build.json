@@ -1,20 +1,20 @@
 {
   "Version": 1,
-  "Hash": "YuSxm8WiALU9H1ZNt5EoyLAgHrw/qoNc/0e3PKudtLM=",
+  "Hash": "wv8nkKPqhr5Nctt1Vn4U0BBWymP79jM6L1cHRszpGUc=",
   "Source": "Sellino.Service",
   "BasePath": "_content/Sellino.Service",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\Bruger\\source\\repos\\Sellino\\Sellino.Domain\\Sellino.Domain.csproj",
+      "Identity": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Domain\\Sellino.Domain.csproj",
       "Version": 2,
       "Source": "Sellino.Domain",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     }
   ],

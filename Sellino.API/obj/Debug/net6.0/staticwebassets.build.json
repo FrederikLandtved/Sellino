@@ -1,31 +1,31 @@
 {
   "Version": 1,
-  "Hash": "milr5d9xlABoAPeN1UQEcvnPoTjSkPSR1rEHTd+ohrw=",
+  "Hash": "UMIV4THKokbPwd/p/p5BGyo/Ih3Dc6FjIdd4QBbvCk0=",
   "Source": "Sellino.API",
   "BasePath": "_content/Sellino.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\Bruger\\source\\repos\\Sellino\\Sellino.Domain\\Sellino.Domain.csproj",
+      "Identity": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Domain\\Sellino.Domain.csproj",
       "Version": 2,
       "Source": "Sellino.Domain",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     },
     {
-      "Identity": "C:\\Users\\Bruger\\source\\repos\\Sellino\\Sellino.Service\\Sellino.Service.csproj",
+      "Identity": "C:\\Users\\Frederik\\Dev\\SellinoProd\\Sellino.Service\\Sellino.Service.csproj",
       "Version": 2,
       "Source": "Sellino.Service",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     }
   ],

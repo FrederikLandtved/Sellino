@@ -10,5 +10,7 @@ namespace Sellino.Domain.Interfaces
         Task<Profile> GetProfile(Guid profileToken);
         Task<bool> UpdateProfile(Profile profile);
         Task<bool> DeleteProfile(Guid profileToken);
+
+        Task<bool> CreateProfileAccessForUser(int profileId, int userId, int createdByUserId);
     }
 }

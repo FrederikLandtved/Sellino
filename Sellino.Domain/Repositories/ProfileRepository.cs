@@ -8,10 +8,11 @@ namespace Sellino.Domain.Repositories
     public class ProfileRepository : IProfileRepository
     {
         ProfileDbContext _profileRepository;
-
-        public ProfileRepository(ProfileDbContext db)
+        UserProfileDbContext _userProfileDb;
+        public ProfileRepository(ProfileDbContext db, UserProfileDbContext userProfileDb)
         {
             _profileRepository = db;
+            _userProfileDb = userProfileDb;
         }
 
         public async Task<int> CreateProfile(Profile profile)
@@ -57,6 +58,22 @@ namespace Sellino.Domain.Repositories
             await _profileRepository.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task<bool> CreateProfileAccessForUser(int profileId, int userId, int createdByUserId)
+        {
+            bool profileAccessWasCreated = false;
+
+            if(profileId > 0 && userId > 0 && createdByUserId > 0)
+            {
+                UserProfile userProfile = new UserProfile { UserId = userId, ProfileId = profileId, CreatedByUserId = createdByUserId };
+                await _userProfileDb.AddAsync(userProfile);
+                await _userProfileDb.SaveChangesAsync();
+
+                profileAccessWasCreated = true;
+            }
+
+            return profileAccessWasCreated;
         }
 
     }

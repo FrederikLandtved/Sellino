@@ -69,5 +69,10 @@ namespace Sellino.Service.Services
 
             return await _profileRepository.UpdateProfile(profileToUpdate);
         }
+
+        public async Task<bool> CreateProfileAccessForUser(int profileId, int userId, int createdByUserId)
+        {
+            return await _profileRepository.CreateProfileAccessForUser(profileId, userId, createdByUserId);
+        }
     }
 }

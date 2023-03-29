@@ -37,6 +37,8 @@ builder.Services.AddDbContext<ProfileDbContext>(options => options.UseSqlServer(
 builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 
+builder.Services.AddDbContext<UserProfileDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(UserProfileDbContext).Assembly.FullName)));
+
 builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
 

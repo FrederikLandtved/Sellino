@@ -97,5 +97,19 @@ namespace Sellino.API.Controllers
             await _profileService.UpdateProfile(profileModel);
             return Ok();
         }
+
+        [HttpPost]
+        [Route("/UserProfiles")]
+        public async Task<IActionResult> CreateUserProfile([FromBody] UserProfileModel model)
+        {
+            int createdByUserId = 11;
+            bool userProfileAccessWasCreated = await _profileService.CreateProfileAccessForUser(model.ProfileId, model.UserId, createdByUserId);
+
+            if(userProfileAccessWasCreated)
+                return Ok(new { Message = ErrorConstants.Created });
+
+            return BadRequest();
+
+        }
     }
 }

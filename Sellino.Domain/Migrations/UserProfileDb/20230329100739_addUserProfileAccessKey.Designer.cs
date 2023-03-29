@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sellino.Domain.Context;
 
@@ -10,9 +11,11 @@ using Sellino.Domain.Context;
 namespace Sellino.Domain.Migrations.UserProfileDb
 {
     [DbContext(typeof(UserProfileDbContext))]
-    partial class UserProfileDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230329100739_addUserProfileAccessKey")]
+    partial class addUserProfileAccessKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

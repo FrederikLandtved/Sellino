@@ -45,7 +45,7 @@ namespace Sellino.API.Controllers
             if (profile != null)
                 return Ok(JsonSerializer.Serialize(profile));
 
-            return BadRequest(new { Error = ErrorConstants.NotFound });
+            return BadRequest(new { Error = ResponseConstants.NotFound });
         }
 
         [HttpGet]
@@ -60,7 +60,7 @@ namespace Sellino.API.Controllers
             if (profile != null && userHasAccess)
                 return Ok(JsonSerializer.Serialize(profile));
 
-            return BadRequest(new { Error = ErrorConstants.NotFound });
+            return BadRequest(new { Error = ResponseConstants.NotFound });
         }
 
         [HttpPost]
@@ -106,7 +106,7 @@ namespace Sellino.API.Controllers
             bool userProfileAccessWasCreated = await _profileService.CreateProfileAccessForUser(model.ProfileId, model.UserId, createdByUserId);
 
             if(userProfileAccessWasCreated)
-                return Ok(new { Message = ErrorConstants.Created });
+                return Ok(new { Message = ResponseConstants.Created });
 
             return BadRequest();
 

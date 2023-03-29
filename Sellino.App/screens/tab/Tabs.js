@@ -6,6 +6,7 @@ import ExploreStackScreen from './ExploreStackScreen';
 import HomeStackScreen from './HomeStackScreen';
 import ProfileStackScreen from './ProfileStackScreen';
 import ThemeContext from '../context/ThemeContext';
+import { mainColors } from '../constants/Colors';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -17,7 +18,6 @@ function Tabs() {
             <Tab.Navigator 
                 activeColor="white"
                 inactiveColor="#ABBFD0"
-                barStyle={{ backgroundColor: '#30608C' }}
                 shifting={true}
                 labeled={true}
             >
@@ -25,7 +25,7 @@ function Tabs() {
                     name="Forside" 
                     component={ HomeStackScreen }
                     options={{
-                        tabBarColor: '#30608C',
+                        tabBarColor: mainColors.headerColorPrimary,
                         tabBarIcon: ({ focused }) => (
                             <FontAwesomeIcon style={{marginTop: 3}} icon={faHome} color={ focused ? "white" : "#ABBFD0"}/>
                         )
@@ -35,7 +35,7 @@ function Tabs() {
                     name="Explore" 
                     component={ ExploreStackScreen } 
                     options={{
-                        tabBarColor: '#30608C',
+                        tabBarColor: mainColors.headerColorPrimary,
                         tabBarIcon: ({ focused }) => (
                             <FontAwesomeIcon style={{marginTop: 3}} icon={faSearch} color={ focused ? "white" : "#ABBFD0"}/>
                         )

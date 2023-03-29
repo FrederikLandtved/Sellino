@@ -1,20 +1,16 @@
 import { Text, View, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ProductGroupHorizontal from './components/product/ProductGroupHorizontal';
-import { LinearGradient } from 'expo-linear-gradient';
 import { mainColors } from './constants/Colors';
 import ProductListItem from './components/product/ProductListItem';
 
 function HomeScreen({ navigation }) {
     return (
         <ScrollView style={styles.pageContainer}>
-          <LinearGradient
+          <View
             style={styles.header}
-            colors={[mainColors.headerColorPrimary, mainColors.headerColorSecondary]}
-            start={{ x: 0, y: 0.5 }}
-            end={{ x: 1, y: 0.5 }}
           >
-              <SafeAreaView>
+              <SafeAreaView style={{ marginBottom: -20 }}>
                 <View style={styles.greetingContainer}>
                   <Text style={styles.greeting}>Velkommen tilbage, Frederik!</Text>
                   <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
@@ -23,24 +19,26 @@ function HomeScreen({ navigation }) {
                 </View>
                 <ProductGroupHorizontal 
                   headline="Nyt fra dem, du følger"
-                  headlineColor="#FFFFFF"
+                  headlineColor={ mainColors.headerColorPrimary }
+                  shadow
                 >
                 </ProductGroupHorizontal>
               </SafeAreaView>
-          </LinearGradient>
-
-          <ProductListItem 
-            profileName="Skrå Studio" 
-            profileBio="Handmade ceramics from Denmark  💚🌿"
-            profileImage="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-            productImage="https://remixbysofie.b-cdn.net/wp-content/uploads/2021/11/Sandkaas-keramik-kopper-1_web.jpg"
-          />
-          <ProductListItem 
-            profileName="Jacob Dolleris" 
-            profileBio="Handmade ceramics from Denmark  💚🌿"
-            profileImage="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-            productImage="https://i.pinimg.com/originals/32/d1/9b/32d19b93d83009f58138620657f66308.jpg"
-          />
+          </View>
+          <View style={styles.productsContainer}>
+            <ProductListItem 
+              profileName="Skrå Studio" 
+              profileBio="Handmade ceramics from Denmark  💚🌿"
+              profileImage="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+              productImage="https://remixbysofie.b-cdn.net/wp-content/uploads/2021/11/Sandkaas-keramik-kopper-1_web.jpg"
+            />
+            <ProductListItem 
+              profileName="Jacob Dolleris" 
+              profileBio="Handmade ceramics from Denmark  💚🌿"
+              profileImage="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+              productImage="https://i.pinimg.com/originals/32/d1/9b/32d19b93d83009f58138620657f66308.jpg"
+            />
+          </View>
         </ScrollView>
     );
 }
@@ -48,7 +46,7 @@ function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   pageContainer: {
     height: '100%',
-    backgroundColor: mainColors.headerColorPrimary
+    backgroundColor: mainColors.bgColorSecondary
   },
   header: {
     width: '100%',
@@ -68,8 +66,14 @@ const styles = StyleSheet.create({
     borderRadius: 100
   },
   greeting: {
-    color: 'white', 
-    fontSize: 14
+    color: mainColors.headerColorPrimary, 
+    fontSize: 16,
+    fontWeight: 500,
+    marginTop: 10
+  },
+  productsContainer: {
+    paddingLeft: 15,
+    paddingRight: 15
   }
 });
 

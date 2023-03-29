@@ -58,11 +58,12 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   headlineText: {
-    fontSize: 18,
-    marginBottom: 10,
+    fontSize: 19,
+    marginBottom: 15,
     color: 'white',
     marginLeft: 15,
-    fontWeight: '500'
+    fontWeight: '500',
+    fontWeight: 600
   },
   container: {
     flex: 1,

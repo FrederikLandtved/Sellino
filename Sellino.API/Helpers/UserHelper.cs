@@ -13,10 +13,14 @@ namespace Sellino.API.Helpers
 
         public int GetUserId()
         {
-            var user = _httpContextAccessor.HttpContext.User;
-            string userIdClaim = user.Claims.First(x => x.Type == ClaimConstants.UserId).Value;
-            
             int userId = 0;
+
+            var user = _httpContextAccessor.HttpContext.User;
+
+            if (!user.Claims.Any())
+                return userId;
+
+            string userIdClaim = user.Claims.First(x => x.Type == ClaimConstants.UserId).Value;  
             int.TryParse(userIdClaim, out userId);
             
             return userId;

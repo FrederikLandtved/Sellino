@@ -12,5 +12,6 @@
         public DateTimeOffset DateModified { get; set; }
         public DateTimeOffset DateDeleted { get; set; }
         public bool IsDeleted { get; set; }
+        public bool UserCanEdit { get; set; }
     }
 }

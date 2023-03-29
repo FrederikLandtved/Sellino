@@ -74,5 +74,16 @@ namespace Sellino.Service.Services
         {
             return await _profileRepository.CreateProfileAccessForUser(profileId, userId, createdByUserId);
         }
+
+        public async Task<bool> DeleteProfileAccessForUser(int profileId, int userId)
+        {
+            return await _profileRepository.DeleteProfileAccessForUser(profileId, userId);
+        }
+
+        public async Task<bool> UserHasAccess(int profileId, int userId)
+        {
+            return await _profileRepository.UserHasAccess(profileId, userId);
+        }
+
     }
 }

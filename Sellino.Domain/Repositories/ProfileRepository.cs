@@ -76,5 +76,31 @@ namespace Sellino.Domain.Repositories
             return profileAccessWasCreated;
         }
 
+        public async Task<bool> DeleteProfileAccessForUser(int profileId, int userId)
+        {
+            bool profileAccessWasDeleted = false;
+
+            if (profileId > 0 && userId > 0)
+            {
+                UserProfile userProfile = _userProfileDb.UserProfiles.Where(x => x.UserId == userId && x.ProfileId == profileId).First();
+                _userProfileDb.UserProfiles.Remove(userProfile);
+                _userProfileDb.SaveChanges();
+
+                profileAccessWasDeleted = true;
+            }
+
+            return profileAccessWasDeleted;
+        }
+
+        public async Task<bool> UserHasAccess(int profileId, int userId)
+        {
+            bool userHasAccess = false;
+
+            if (profileId > 0 && userId > 0)
+                userHasAccess = await _userProfileDb.UserProfiles.Where(x => x.ProfileId == profileId && x.UserId == userId).AnyAsync();
+
+            return userHasAccess;
+        }
+
     }
 }

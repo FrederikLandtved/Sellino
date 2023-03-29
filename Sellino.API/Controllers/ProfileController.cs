@@ -29,8 +29,6 @@ namespace Sellino.API.Controllers
         [Route("/Profiles/")]
         public async Task<IActionResult> GetAll()
         {
-            var userId = _userHelper.GetUserId();
-
             var profiles = JsonSerializer.Serialize(await _profileService.GetProfiles());
 
             return Ok(profiles);
@@ -52,13 +50,14 @@ namespace Sellino.API.Controllers
         [Route("/Profiles/Edit/{profileToken}")]
         public async Task<IActionResult> GetProfileForEdit(Guid profileToken)
         {
+            int userId = _userHelper.GetUserId();
             ProfileModel profile = await _profileService.GetProfile(profileToken);
 
-            // Todo: Check if user has access to editing this profile
-            bool userHasAccess = true;
+            if(profile != null)
+                profile.UserCanEdit = await _profileService.UserHasAccess(profile.ProfileId, userId);
 
-            if (profile != null && userHasAccess)
-                return Ok(JsonSerializer.Serialize(profile));
+            if (profile != null)
+                return Ok(JsonSerializer.Serialize(new { profile }));
 
             return BadRequest(new { Error = ResponseConstants.NotFound });
         }
@@ -107,6 +106,18 @@ namespace Sellino.API.Controllers
 
             if(userProfileAccessWasCreated)
                 return Ok(new { Message = ResponseConstants.Created });
+
+            return BadRequest();
+        }
+
+        [HttpDelete]
+        [Route("/UserProfiles")]
+        public async Task<IActionResult> DeleteUserProfile([FromBody] UserProfileModel model)
+        {
+            bool userProfileWasDeleted = await _profileService.DeleteProfileAccessForUser(model.ProfileId, model.UserId);
+
+            if (userProfileWasDeleted)
+                return Ok(new { Message = ResponseConstants.Deleted });
 
             return BadRequest();
 

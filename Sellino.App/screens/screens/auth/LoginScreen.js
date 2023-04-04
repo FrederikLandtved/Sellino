@@ -4,8 +4,43 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import SlButton from "../../components/ui-kit/form/Button";
 import SlFormGroup from "../../components/ui-kit/form/Input";
 import { mainColors } from '../../constants/Colors';
+import { useEffect, useState } from "react";
+import { authorizedPost } from "../../services/FetchService";
 
 function LoginScreen({ navigation }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [loginFailed, setLoginFailed] = useState(false);
+
+  useEffect(() => {
+    if(email && password) {
+      setIsButtonDisabled(false);
+    }else{
+      setIsButtonDisabled(true);
+    }
+
+    setLoginFailed(false);
+  }, [email, password])
+
+  const onLoginPress = async() => {
+    if(email && password) {
+      setIsLoading(true);
+      var loginData = await authorizedPost('Auth/Login', { email: email, password: password });
+
+      if(loginData.token){
+        // Set global auth state to Authorized
+        setLoginFailed(false);
+        console.log("Successfully logged in!")
+      }else{
+        setLoginFailed(true);
+      }
+
+      setIsLoading(false);
+    }
+  }
+
     return (
       <LinearGradient
         style={styles.header}
@@ -24,16 +59,24 @@ function LoginScreen({ navigation }) {
                 labelText='Email' 
                 placeholder='Indtast email' 
                 secondary
+                onInputChange={(text) => setEmail(text)}
               />
               <SlFormGroup 
                 labelText='Adgangskode' 
                 placeholder='Indtast password' 
                 secondary
                 isPassword={true}
+                onInputChange={(text) => setPassword(text)}
               />
               <SlButton 
                 buttonText='Log ind'
+                onButtonPress={() => onLoginPress()}
+                isLoading={isLoading}
+                isDisabled={isButtonDisabled}
               />
+              { loginFailed &&
+                <Text style={styles.loginFailed}>Sorry, login failed!</Text>
+              }
             </>
           </View>
           <View style={[styles.flexItem, styles.flexEnd]}>
@@ -92,5 +135,9 @@ const styles = StyleSheet.create({
     fontWeight: 600,
     fontSize: 16,
     marginBottom: 12
+  },
+  loginFailed: {
+    color: 'red',
+    marginTop: 10
   }
 });

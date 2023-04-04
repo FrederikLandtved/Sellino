@@ -1,13 +1,31 @@
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from "react-native";
+import { useEffect, useState } from "react";
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
 
 function SlButton(props) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(props.isLoading ?? false);
+    setIsDisabled(props.isDisabled ?? false);
+  }, [props.isLoading, props.isDisabled])
+
   return (
     <View style={styles.buttonContainer}>
       <TouchableOpacity 
-        style={[styles.button, props.secondary ? styles.secondaryButton : styles.primaryButton]}
+        disabled={isDisabled}
+        style={[
+          styles.button, 
+          props.secondary ? styles.secondaryButton : styles.primaryButton,
+          isDisabled ? styles.disabled : ''
+        ]}
         onPress={() => onButtonPress()}
     >
-          <Text style={styles.buttonText}>{props.buttonText}</Text>
+      { isLoading === true ? 
+        <ActivityIndicator color="white"></ActivityIndicator> 
+        : 
+        <Text style={[styles.buttonText, isDisabled ? styles.textDisabled : '']}>{props.buttonText}</Text>
+      }
       </TouchableOpacity>
     </View>
   );
@@ -43,6 +61,12 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 16,
         fontWeight: 600
+    },
+    disabled: {
+      backgroundColor: 'grey'
+    },
+    textDisabled: {
+      color: 'lightgrey'
     }
 });
 

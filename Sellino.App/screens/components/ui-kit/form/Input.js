@@ -11,7 +11,9 @@ function SlFormGroup(props) {
         style={[styles.inputText, props.secondary ? styles.secondaryInput : styles.primaryInput]} 
         placeholder={props.placeholder} 
         placeholderTextColor={props.secondary ? '#ebebeb' : '#9e9e9e'}
-        secureTextEntry={props.isPassword} />
+        secureTextEntry={props.isPassword} 
+        onChangeText={text => props.onInputChange(text)}
+        clearButtonMode="always"/>
     </View>
   );
 }

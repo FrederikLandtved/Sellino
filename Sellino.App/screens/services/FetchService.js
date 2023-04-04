@@ -1,9 +1,10 @@
-const baseApi = 'http://192.168.87.56:5000';
+const baseApi = 'http://192.168.87.66:5000';
 
-export const authorizedPostFetch = async(apiResource, body) => {
+// Add token interceptor in this function
+export const authorizedPost = async(apiResource, body) => {
     if(!apiResource)
-        return console.log("Please add an API resource to the endpoint.");
-				
+      return console.log("Please add an API resource to the endpoint.");
+
 		try {
 			const response = await fetch(baseApi + '/' + apiResource, {
         method: 'POST',
@@ -15,11 +16,33 @@ export const authorizedPostFetch = async(apiResource, body) => {
     })
     
     const json = await response.json();
+		return json;
+		
+    } catch(err) {
+        console.log("failed!", err);
+        return err;
+    }
+}
 
-    return json;
+export const unauthorizedPost = async(apiResource, body) => {
+	if(!apiResource)
+		return console.log("Please add an API resource to the endpoint.");
 
-		} catch(err) {
-			console.log(err);
+	try {
+		const response = await fetch(baseApi + '/' + apiResource, {
+			method: 'POST',
+			headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+	})
+	
+	const json = await response.json();
+	return json;
+	
+	} catch(err) {
+			console.log("failed!", err);
 			return err;
-		}
+	}
 }

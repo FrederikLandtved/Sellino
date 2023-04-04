@@ -42,7 +42,7 @@ namespace Sellino.API.Controllers
                 }
             }
 
-            return Unauthorized("Invalid credentials.");
+            return BadRequest("Invalid credentials.");
         }
 
         private string SetToken(User loggedInUser)

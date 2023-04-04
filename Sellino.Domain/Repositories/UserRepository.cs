@@ -30,12 +30,13 @@ namespace Sellino.Domain.Repositories
 
         public async Task<User> Login(string email, string password)
         {
-            User user = await _userRepository.Users.FirstAsync(x => x.Email == email);
+            User user = await _userRepository.Users.FirstOrDefaultAsync(x => x.Email == email);
+
+            if (user == null)
+                return null;
 
             if (VerifyPassword(user.Password, password))
-            {
                 return user;
-            }
 
             return null;
         }

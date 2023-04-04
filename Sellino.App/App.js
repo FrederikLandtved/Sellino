@@ -8,7 +8,7 @@ import Tabs from './screens/tab/Tabs';
 const Stack = createNativeStackNavigator();
 
 function App() {
-  const isSignedIn = true;
+  const isSignedIn = false;
 
   return (
     <NavigationContainer>

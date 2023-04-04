@@ -1,6 +1,12 @@
 import { StyleSheet, View, Text, TextInput } from "react-native";
 
 function SlFormGroup(props) {
+  const onInputChange = (text) => {
+    if(props.onInputChange){
+      props.onInputChange(text);
+    }
+  }
+
   return (
     <View style={styles.inputContainer}>
       <Text 
@@ -12,7 +18,7 @@ function SlFormGroup(props) {
         placeholder={props.placeholder} 
         placeholderTextColor={props.secondary ? '#ebebeb' : '#9e9e9e'}
         secureTextEntry={props.isPassword} 
-        onChangeText={text => props.onInputChange(text)}
+        onChangeText={text => onInputChange(text)}
         clearButtonMode="always"/>
     </View>
   );

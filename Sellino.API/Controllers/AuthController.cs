@@ -30,6 +30,9 @@ namespace Sellino.API.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login(LoginModel user)
         {
+            // Simulate server delay
+            await Task.Delay(1000);
+
             if (ModelState.IsValid)
             {
                 User loggedInUser = await _userService.Login(user.Email, user.Password);

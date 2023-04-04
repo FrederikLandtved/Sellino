@@ -13,18 +13,18 @@ function SlButton(props) {
   return (
     <View style={styles.buttonContainer}>
       <TouchableOpacity 
-        disabled={isDisabled}
+        disabled={isDisabled || isLoading}
         style={[
           styles.button, 
           props.secondary ? styles.secondaryButton : styles.primaryButton,
-          isDisabled ? styles.disabled : ''
+          isDisabled || isLoading ? styles.disabled : ''
         ]}
         onPress={() => onButtonPress()}
     >
       { isLoading === true ? 
         <ActivityIndicator color="white"></ActivityIndicator> 
         : 
-        <Text style={[styles.buttonText, isDisabled ? styles.textDisabled : '']}>{props.buttonText}</Text>
+        <Text style={[styles.buttonText, isDisabled || isLoading ? styles.textDisabled : '']}>{props.buttonText}</Text>
       }
       </TouchableOpacity>
     </View>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         fontWeight: 600
     },
     disabled: {
-      backgroundColor: 'grey'
+      backgroundColor: 'darkgrey'
     },
     textDisabled: {
       color: 'lightgrey'

@@ -15,11 +15,16 @@ const Navigator = () => {
   const [user, setUser] = useAuth();
 
   useEffect(() => {
-    SecureStore.getItemAsync("userToken").then((userToken) => {
-      if(userToken){
-        setUser(userToken);
-      }
-    });
+    const getToken = async() => {
+      await SecureStore.getItemAsync("userToken").then((userToken) => {
+        if(userToken !== ''){
+          console.log("this shouldnt be possible");
+          setUser(userToken);
+        }
+      });
+    }
+
+    getToken();
   }, []);
 
   if(!user) {

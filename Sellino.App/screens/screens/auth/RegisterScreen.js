@@ -15,11 +15,7 @@ function RegisterScreen() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   useEffect(() => {
-    if(email && password) {
-      setIsButtonDisabled(false);
-    }else{
-      setIsButtonDisabled(true);
-    }
+    setIsButtonDisabled(email && password ? false : true);
   }, [email, password])
 
   onRegisterPress = async() => {
@@ -33,7 +29,7 @@ function RegisterScreen() {
       <View
         style={[styles.header, { backgroundColor: mainColors.headerColorPrimary }]}
       >
-          <ScrollView style={[styles.registerContainer]}>
+          <ScrollView contentContainerStyle={[styles.registerContainer]}>
             <InfoBox style={{ marginBottom: 40 }} text='Meningen med Sellino er, at du kan være unik! Om du er privatperson, en hobbybutik eller vil sælge merchandise, kan du skræddersy din profil, til at skille dig ud fra mængden og understøtte dig og dit brand. 😍 🎨'></InfoBox>
             <SlFormGroup 
               labelText='Fornavn'
@@ -83,9 +79,9 @@ export default RegisterScreen;
 
 const styles = StyleSheet.create({
   registerContainer: {
-    height: '100%',
+    height: 'auto',
     padding: 20,
-    marginBottom: 200
+    paddingBottom: 50
   },
   pageHeadline: {
     color: 'white',

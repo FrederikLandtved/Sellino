@@ -3,8 +3,21 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import ProductGroupHorizontal from './components/product/ProductGroupHorizontal';
 import { mainColors } from './constants/Colors';
 import ProductListItem from './components/product/ProductListItem';
+import { useEffect, useState } from 'react';
+import { authorizedGet } from './services/FetchService';
 
 function HomeScreen({ navigation }) {
+  const [usersFirstName, setUsersFirstName] = useState('');
+  useEffect(() => {
+    const getHomePage = async() => {
+      const homePage = await authorizedGet('GetHomePage');
+      setUsersFirstName(homePage.firstName);
+      return homePage;
+    };
+
+    getHomePage();
+  })
+
   return (
     <ScrollView style={styles.pageContainer}>
       <View
@@ -12,7 +25,7 @@ function HomeScreen({ navigation }) {
       >
           <SafeAreaView style={{ marginBottom: -20 }}>
             <View style={styles.greetingContainer}>
-              <Text style={styles.greeting}>Velkommen, Frederik!</Text>
+              <Text style={styles.greeting}>Velkommen, {usersFirstName}!</Text>
               <TouchableOpacity onPress={() => navigation.navigate('UserSettings')}>
                 <Image style={styles.image} source={{uri: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80'}}></Image>
               </TouchableOpacity>

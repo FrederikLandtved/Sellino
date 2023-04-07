@@ -5,7 +5,7 @@ import SlButton from "../../components/ui-kit/form/Button";
 import SlFormGroup from "../../components/ui-kit/form/Input";
 import { mainColors } from '../../constants/Colors';
 import { useEffect, useState } from "react";
-import { authorizedPost, unauthorizedPost } from "../../services/FetchService";
+import { unauthorizedPost } from "../../services/FetchService";
 import { useAuth } from "../../context/AuthContext";
 import * as SecureStore from 'expo-secure-store';
 
@@ -30,11 +30,9 @@ function LoginScreen({ navigation }) {
   const onLoginPress = async() => {
     if(email && password) {
       setIsLoading(true);
-      var loginData = await unauthorizedPost('Auth/Login', { email: email, password: password });
-      console.log("logindata:", loginData);
+      const loginData = await unauthorizedPost('Auth/Login', { email: email, password: password });
 
       if(loginData.token){
-        // Set global auth state to Authorized
         await SecureStore.setItemAsync("userToken", loginData.token);
         setUser(loginData.token);
         setLoginFailed(false);

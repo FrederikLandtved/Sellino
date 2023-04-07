@@ -18,7 +18,6 @@ const Navigator = () => {
     const getToken = async() => {
       await SecureStore.getItemAsync("userToken").then((userToken) => {
         if(userToken !== ''){
-          console.log("this shouldnt be possible");
           setUser(userToken);
         }
       });

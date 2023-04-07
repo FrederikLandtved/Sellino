@@ -1,4 +1,4 @@
-import { Button, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { useState } from 'react';
 import ProfileWrapper from './components/profile/ProfileWrapper';
 import ProfileInfo from './components/profile/ProfileInfo';
@@ -6,10 +6,9 @@ import ProductGroupHorizontal from './components/product/ProductGroupHorizontal'
 import ProductGroupGrid from './components/product/ProductGroupGrid';
 import ThemeContext from './context/ThemeContext';
 import { useContext, useEffect } from 'react';
-import { authorizedPostFetch } from './services/FetchService';
 
 function ProfileScreen() {
-  const { setBackgroundColor, backgroundColor } = useContext(ThemeContext);
+  const { setBackgroundColor } = useContext(ThemeContext);
 
   const [profileName, setProfileName] = useState('The Minds Of 99');
   const [bioText, setBioText] = useState('Infinity Action');
@@ -21,19 +20,6 @@ function ProfileScreen() {
   useEffect(() => {
     // Todo: Change tab bar color when fetching a profile by using this
     setBackgroundColor('black'); 
-    const fetchData = async () => {
-      try {
-        const response = await authorizedPostFetch('Auth/Login', {
-          email: 'frederiklandtved@hotmail.dk',
-          password: 'Hejsameddig123',
-        });
-        console.log("response", response);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-  
-    fetchData();
   }, [])
 
   return (

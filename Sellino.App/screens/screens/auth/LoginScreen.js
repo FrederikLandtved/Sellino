@@ -6,6 +6,8 @@ import SlFormGroup from "../../components/ui-kit/form/Input";
 import { mainColors } from '../../constants/Colors';
 import { useEffect, useState } from "react";
 import { authorizedPost } from "../../services/FetchService";
+import { useAuth } from "../../context/AuthContext";
+import * as SecureStore from 'expo-secure-store';
 
 function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
@@ -13,6 +15,7 @@ function LoginScreen({ navigation }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [loginFailed, setLoginFailed] = useState(false);
+  const [_, setUser] = useAuth('');
 
   useEffect(() => {
     if(email && password) {
@@ -32,7 +35,8 @@ function LoginScreen({ navigation }) {
       if(loginData.token){
         // Set global auth state to Authorized
         setLoginFailed(false);
-        console.log("Successfully logged in!")
+        await SecureStore.setItemAsync("userToken", loginData.token);
+        setUser(loginData.token);
       }else{
         setLoginFailed(true);
       }

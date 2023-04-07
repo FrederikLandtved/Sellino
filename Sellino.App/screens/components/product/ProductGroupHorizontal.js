@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
     paddingBottom: 15
   },
   productItem: {
-    height: 160,
-    width: 115,
+    height: 180,
+    width: 125,
     marginRight: 10,
     borderRadius: 8
   }

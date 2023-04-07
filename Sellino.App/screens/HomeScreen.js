@@ -12,8 +12,8 @@ function HomeScreen({ navigation }) {
       >
           <SafeAreaView style={{ marginBottom: -20 }}>
             <View style={styles.greetingContainer}>
-              <Text style={styles.greeting}>Velkommen tilbage, Frederik!</Text>
-              <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+              <Text style={styles.greeting}>Velkommen, Frederik!</Text>
+              <TouchableOpacity onPress={() => navigation.navigate('UserSettings')}>
                 <Image style={styles.image} source={{uri: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80'}}></Image>
               </TouchableOpacity>
             </View>
@@ -27,16 +27,18 @@ function HomeScreen({ navigation }) {
       </View>
       <View style={styles.productsContainer}>
         <ProductListItem 
-          profileName="Skrå Studio" 
-          profileBio="Handmade ceramics from Denmark  💚🌿"
-          profileImage="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-          productImage="https://remixbysofie.b-cdn.net/wp-content/uploads/2021/11/Sandkaas-keramik-kopper-1_web.jpg"
+          profileName="Adam Petersen" 
+          profileBio="Fresh rugs for sale"
+          profileImage="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+          productImage="https://media-photos.depop.com/b0/28998409/1045096855_1296161d72f54104a7c64d85df82e89e/P0.jpg"
+          title='"WET GRASS" rug'
         />
         <ProductListItem 
           profileName="Jacob Dolleris" 
           profileBio="Handmade ceramics from Denmark  💚🌿"
           profileImage="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80"
           productImage="https://i.pinimg.com/originals/32/d1/9b/32d19b93d83009f58138620657f66308.jpg"
+          title='North Face jacket'
         />
       </View>
     </ScrollView>

@@ -20,7 +20,7 @@ function ProductListItem(props) {
 			</ImageBackground>
 				<View style={styles.productInformation}>					
 					<View style={styles.productFlexContainer}>						
-						<Text style={styles.productNameText}>Håndlavet kop</Text>
+						<Text style={styles.productNameText}>{props.title}</Text>
 						<Text style={styles.productDescriptionText}>Lorem ipsum dolor sit amet, consectur</Text>
 						<View style={styles.likesAndComments}>
 							<Text style={styles.likeCommentText}>1.247 synes godt om</Text>
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 			left: 0,
 			bottom: 0,
 			right: 0,
-			opacity: 0.15,
+			opacity: 0.20,
 			borderTopRightRadius: 20,
 			borderTopLeftRadius: 20
 		},

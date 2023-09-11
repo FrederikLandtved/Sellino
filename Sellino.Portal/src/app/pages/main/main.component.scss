@@ -3,10 +3,77 @@
   display: flex;
 }
 
+.sidebar {
+  background-color: #E53F45;
+  width: 300px;
+  height: 100vh;
+
+  &__header {
+    padding: 30px;
+
+    h4, h5 {
+      color: white;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    h5 {
+      font-size: 12px;
+      font-weight: 300;
+    }
+  }
+
+  &__navigation {
+    a {
+      display: block;
+      color: white;
+      width: 300px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      padding: 0 30px;
+      text-decoration: none;
+      transition: background 0.2s;
+
+      &.active {
+        background: #D4383E;
+        font-weight: 500;
+      }
+
+      &:hover {
+        background: #dd3e44;
+      }
+    }
+  }
+}
+
 .main-container {
-  .main-header {
-      width: 100%;
-      height: 80px;
-      background: rgb(222, 222, 222);
+  &__header {
+    width: calc(100vw - 300px);
+    height: 70px;
+    background: #F3F3F3;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .company-logo {
+      background-image: url('../../../assets/images/Logo.png');
+      height: 40px;
+      width: 40px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 100%;
+      margin-right: 15px;
+    }
+
+    h3 {
+      font-size: 16px;
+    }
+  }
+
+  &__content {
+    padding: 30px;
   }
 }

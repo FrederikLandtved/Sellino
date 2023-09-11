@@ -1,7 +1,46 @@
 <div class="sellino-desktop-container">
-  <!-- <app-sidebar></app-sidebar> -->
+  <div class="sidebar">
+    <div class="sidebar__header">
+      <h4>Sellino</h4>
+      <h5>Backoffice</h5>
+    </div>
+
+    <div class="sidebar__navigation">
+      <nav>
+        <ul>
+          <li>
+            <a class="active" href="">Produkter</a>
+          </li>
+          <li>
+            <a href="">Profil</a>
+          </li>
+          <li>
+            <a href="">Insights</a>
+          </li>
+          <li>
+            <a href="">Kategorier</a>
+          </li>
+          <li>
+            <a href="">Brugere</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
   <div class="main-container">
-    <router-outlet></router-outlet>
+    <div class="main-container__header">
+      <div class="left d-flex align-items-center">
+        <div class="company-logo"></div>
+        <h3>Rezet Store</h3>
+      </div>
+      <div class="right">
+        <span>Kristian Jørgensen</span>
+      </div>
+    </div>
+    <div class="main-container__content">
+       <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
 

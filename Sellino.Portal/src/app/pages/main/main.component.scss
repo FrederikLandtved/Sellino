@@ -37,11 +37,14 @@
 
       &.active {
         background: #D4383E;
-        font-weight: 500;
       }
 
       &:hover {
         background: #dd3e44;
+      }
+
+      &.active:hover {
+        background: #D4383E;
       }
     }
   }

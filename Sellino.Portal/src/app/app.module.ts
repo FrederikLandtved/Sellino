@@ -7,6 +7,7 @@ import { MainComponent } from './pages/main/main.component';
 import { HomeComponent } from './pages/main/home/home.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { LoginComponent } from './pages/auth/login/login.component';
+import { InsightsComponent } from './pages/main/insights/insights.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LoginComponent } from './pages/auth/login/login.component';
     MainComponent,
     HomeComponent,
     AuthComponent,
-    LoginComponent
+    LoginComponent,
+    InsightsComponent
   ],
   imports: [
     BrowserModule,

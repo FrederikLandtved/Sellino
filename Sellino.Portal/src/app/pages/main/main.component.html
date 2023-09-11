@@ -9,13 +9,13 @@
       <nav>
         <ul>
           <li>
-            <a class="active" href="">Produkter</a>
+            <a [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Produkter</a>
           </li>
           <li>
             <a href="">Profil</a>
           </li>
           <li>
-            <a href="">Insights</a>
+            <a [routerLink]="['insights']" [routerLinkActive]="['active']">Insights</a>
           </li>
           <li>
             <a href="">Kategorier</a>

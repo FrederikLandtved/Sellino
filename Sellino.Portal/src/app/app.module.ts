@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/main/home/home.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { InsightsComponent } from './pages/main/insights/insights.component';
+import { ProfileComponent } from './pages/main/profile/profile.component';
 import { TabRoundedComponent } from './components/tab-rounded/tab-rounded.component';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { TabRoundedComponent } from './components/tab-rounded/tab-rounded.compon
     AuthComponent,
     LoginComponent,
     InsightsComponent,
+    ProfileComponent,
     TabRoundedComponent
   ],
   imports: [

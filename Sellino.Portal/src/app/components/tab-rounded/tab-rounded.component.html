@@ -1,6 +1,6 @@
 <div class="tabs-container">
-  <ng-container *ngFor="let tab of tabs">
-    <div class="tabs-container__item" [ngClass]="{'active': activeTab === tab.title}" (click)="onTabClick(tab)">
+  <ng-container *ngFor="let tab of tabOptions">
+    <div class="tabs-container__item" [ngClass]="{'active': activeTab === tab.title, 'disabled': tab.disabled}" (click)="onTabClick(tab)">
       {{ tab.title }}
     </div>
   </ng-container>

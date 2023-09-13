@@ -10,13 +10,19 @@
     height: 45px;
     background-color: #E53F45;
     color: white;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 
     &.active {
       background-color: #CE4146;
       box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+    }
+
+    &.disabled {
+      background-color: #d5d5d5;
+      color: #b1b1b1;
+      cursor: not-allowed;  
     }
   }
 

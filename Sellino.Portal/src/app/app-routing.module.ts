@@ -5,12 +5,14 @@ import { HomeComponent } from './pages/main/home/home.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { InsightsComponent } from './pages/main/insights/insights.component';
+import { ProfileComponent } from './pages/main/profile/profile.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent, 
       children: [
         { path: '', component: HomeComponent },
-        { path: 'insights', component: InsightsComponent }
+        { path: 'insights', component: InsightsComponent },
+        { path: 'profile', component: ProfileComponent }
       ]
   },
   { path: 'auth', component: AuthComponent, 

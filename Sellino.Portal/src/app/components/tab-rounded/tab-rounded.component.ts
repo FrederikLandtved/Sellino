@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Tab } from 'src/app/interfaces/TabModel';
 
 @Component({
   selector: 'tab-rounded',
@@ -6,19 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tab-rounded.component.scss']
 })
 export class TabRoundedComponent implements OnInit {
-  tabs: Tab[] = [];
+  @Input() tabOptions: Tab[] = [];
+
   activeTab: string = "";
 
   ngOnInit(): void {
-    this.tabs = [{title: 'Profilen'}, { title: 'Farver' }, {title: 'Tekster'}, {title: 'Mediefiler'}, {title: 'Returret'}];
-    this.activeTab = this.tabs[0].title;
+    this.activeTab = this.tabOptions[0].title;
   }
 
   onTabClick(tab: Tab){
-    this.activeTab = tab.title;
+    if(!tab.disabled){
+      this.activeTab = tab.title;
+    }
   }
-}
-
-interface Tab {
-  title: string
 }

@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/main/home/home.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { InsightsComponent } from './pages/main/insights/insights.component';
+import { TabRoundedComponent } from './components/tab-rounded/tab-rounded.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { InsightsComponent } from './pages/main/insights/insights.component';
     HomeComponent,
     AuthComponent,
     LoginComponent,
-    InsightsComponent
+    InsightsComponent,
+    TabRoundedComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+.profile-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 30px;
+
+  &__item {
+    flex: 1;
+    background: white;
+  }
+}

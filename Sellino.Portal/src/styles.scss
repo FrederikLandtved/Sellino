@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(242 242 242);
+}
+
 @font-face {
   font-family: source-sans-pro;
   src: url('../src/assets/fonts/SourceSansPro-ExtraLight.otf') format("opentype");
@@ -59,3 +63,30 @@ h1, h2, h3, h4, h5, h6 {
 .align-items-center {
   align-items: center;
 }
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.round-container {
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.rounded-8 {
+  border-radius: 8px;
+}
+
+.rounded-12 {
+  border-radius: 12px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+

@@ -1,11 +1,21 @@
 <h2>Profil</h2>
-<tab-rounded [tabOptions]="tabs"></tab-rounded>
+<tab-rounded [tabOptions]="tabs" (onTabChanged)="onTabClick($event)"></tab-rounded>
 
-<div class="profile-container">
-  <div class="profile-container__item round-container">
+<div class="profile-container d-flex">
+  <div *ngIf="currentTab == 'Profilen'" class="profile-container__item round-container">
+    <h3>Profilsektioner</h3>
 
+    <div class="create-section d-flex justify-content-center align-items-center rounded-8">
+      <p>Klik for at tilføje en sektion</p>
+    </div>
+  </div>
+  <div *ngIf="currentTab == 'Farver'" class="profile-container__item round-container">
+    <h3>Farver</h3>
   </div>
   <div class="profile-container__item round-container">
-    
+    <h3>Preview</h3>
+    <div class="preview-container rounded-12">
+
+    </div>
   </div>
 </div>

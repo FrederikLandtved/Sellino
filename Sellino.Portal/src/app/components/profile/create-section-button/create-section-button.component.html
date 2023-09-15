@@ -1,0 +1,15 @@
+<div class="create-section d-flex justify-content-center align-items-center rounded-8" (click)="changeStep()">
+  <p *ngIf="createStep === 0">Klik for at tilføje en sektion</p>
+
+  <div class="choose-type d-flex" *ngIf="createStep === 1">
+    <div class="choose-type__item d-flex justify-content-center align-items-center rounded-8">
+      Billede
+    </div>
+    <div class="choose-type__item d-flex justify-content-center align-items-center rounded-8">
+      Produktgruppe
+    </div>
+    <div class="choose-type__item d-flex justify-content-center align-items-center rounded-8">
+      Tekst
+    </div>
+  </div>
+</div>

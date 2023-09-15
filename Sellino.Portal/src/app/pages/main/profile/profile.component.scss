@@ -11,16 +11,6 @@
     background: white;
   }
 
-  .create-section {
-    height: 110px;
-    border: 2px dashed rgb(184, 184, 184);
-    cursor: pointer;
-
-    &:hover {
-      border-color: #E53F45;
-    }
-  }
-
   .preview-container {
     background: red;
     height: 900px;

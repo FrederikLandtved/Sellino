@@ -1,0 +1,21 @@
+.create-section {
+  height: 110px;
+  border: 2px dashed rgb(184, 184, 184);
+  cursor: pointer;
+
+  &:hover {
+    border-color: #E53F45;
+  }
+
+  .choose-type {
+    width:100%;
+    margin: 0 20px;
+    gap: 20px;
+
+    &__item {
+      height: 70px;
+      background-color: rgb(228, 228, 228);
+      flex: 1;
+    }
+  }
+}

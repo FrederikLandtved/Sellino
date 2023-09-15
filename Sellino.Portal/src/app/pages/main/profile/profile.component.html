@@ -4,10 +4,7 @@
 <div class="profile-container d-flex">
   <div *ngIf="currentTab == 'Profilen'" class="profile-container__item round-container">
     <h3>Profilsektioner</h3>
-
-    <div class="create-section d-flex justify-content-center align-items-center rounded-8">
-      <p>Klik for at tilføje en sektion</p>
-    </div>
+    <create-section-button></create-section-button>
   </div>
   <div *ngIf="currentTab == 'Farver'" class="profile-container__item round-container">
     <h3>Farver</h3>

@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { InsightsComponent } from './pages/main/insights/insights.component';
 import { ProfileComponent } from './pages/main/profile/profile.component';
 import { TabRoundedComponent } from './components/tab-rounded/tab-rounded.component';
+import { CreateSectionButtonComponent } from './components/profile/create-section-button/create-section-button.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TabRoundedComponent } from './components/tab-rounded/tab-rounded.compon
     LoginComponent,
     InsightsComponent,
     ProfileComponent,
-    TabRoundedComponent
+    TabRoundedComponent,
+    CreateSectionButtonComponent
   ],
   imports: [
     BrowserModule,

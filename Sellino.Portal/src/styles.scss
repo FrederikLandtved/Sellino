@@ -68,10 +68,19 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 
+.justify-content-between {
+  justify-content: space-between;
+}
+
 .round-container {
   box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
   padding: 30px;
   border-radius: 12px;
+  border: 1px solid rgb(228, 228, 228);
+}
+
+.rounded-6 {
+  border-radius: 6px;
 }
 
 .rounded-8 {
@@ -89,4 +98,31 @@ h1, h2, h3, h4, h5, h6 {
 .p-20 {
   padding: 20px;
 }
+
+// Table
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  tr {
+    width: 100%;
+    border-bottom: 1px solid rgb(206, 206, 206);
+  }
+
+  tr:nth-child(1) {
+    border: 0;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 4px;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
 

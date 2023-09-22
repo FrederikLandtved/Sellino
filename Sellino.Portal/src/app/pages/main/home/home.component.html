@@ -1,3 +1,49 @@
 <h2>Produkter</h2>
 
 <tab-rounded [tabOptions]="tabs"></tab-rounded>
+
+<div class="profile-container d-flex">
+  <div class="profile-container__item round-container">
+    <div class="d-flex justify-content-between">
+      <sl-input [icon]="'las la-search'" [placeholder]="'Søg efter produkt'"></sl-input>
+      <sl-button [title]="'Tilføj produkt'"></sl-button>
+    </div>
+    <table cellspacing="0" cellpadding="0">
+      <tr>
+        <th>Billede</th>
+        <th>Product</th>
+        <th>Lager</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td><img src="https://images.ctfassets.net/wxr2lhocn0xi/5rYBy2lTMl3xxkv4yqajvG/411118a855dbb1d22cdaa19ee104d08c/image.png" alt=""></td>
+        <td>New Balance 530</td>
+        <td>231</td>
+        <td><div class="status">Aktiv</div></td>
+        <td>Rediger</td>
+      </tr>
+      <tr>
+        <td><img src="https://images.prod.babyshopgroup.io/images/PM-55294%23a/256x256.jpeg" alt=""></td>
+        <td>New Balance 480</td>
+        <td>21</td>
+        <td><div class="status inactive">Inaktiv</div></td>
+        <td>Rediger</td>
+      </tr>
+      <tr>
+        <td><img src="https://images.ctfassets.net/wxr2lhocn0xi/5rYBy2lTMl3xxkv4yqajvG/411118a855dbb1d22cdaa19ee104d08c/image.png" alt=""></td>
+        <td>New Balance 530</td>
+        <td>231</td>
+        <td><div class="status">Aktiv</div></td>
+        <td>Rediger</td>
+      </tr>
+      <tr>
+        <td><img src="https://images.ctfassets.net/wxr2lhocn0xi/5rYBy2lTMl3xxkv4yqajvG/411118a855dbb1d22cdaa19ee104d08c/image.png" alt=""></td>
+        <td>New Balance 530</td>
+        <td>231</td>
+        <td><div class="status">Aktiv</div></td>
+        <td>Rediger</td>
+      </tr>
+    </table>
+  </div>
+</div>

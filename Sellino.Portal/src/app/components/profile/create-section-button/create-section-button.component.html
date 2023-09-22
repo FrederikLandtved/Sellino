@@ -1,4 +1,4 @@
-<div class="create-section d-flex justify-content-center align-items-center rounded-8" (click)="changeStep()">
+<div class="create-section d-flex justify-content-center align-items-center rounded-8" (click)="changeStep()" [ngClass]="{'full-border': createStep !== 0}">
   <p *ngIf="createStep === 0">Klik for at tilføje en sektion</p>
 
   <div class="choose-type d-flex" *ngIf="createStep === 1">

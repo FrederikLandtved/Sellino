@@ -1,0 +1,16 @@
+@use '../../../../theme.scss' as *;
+
+.sl-button {
+  height: 45px;
+  padding: 0 25px;
+  background-color: $secondary-company-color;
+  color: $secondary-text-color;
+  border: 0;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

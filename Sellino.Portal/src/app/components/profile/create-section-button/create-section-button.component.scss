@@ -1,10 +1,16 @@
+@use '../../../../theme.scss' as *;
+
 .create-section {
   height: 110px;
   border: 2px dashed rgb(184, 184, 184);
   cursor: pointer;
 
   &:hover {
-    border-color: #E53F45;
+    border-color: $company-color;
+  }
+
+  &.full-border {
+    border: 2px solid $company-color;
   }
 
   .choose-type {
@@ -14,7 +20,8 @@
 
     &__item {
       height: 70px;
-      background-color: rgb(228, 228, 228);
+      background-color: $secondary-company-color;
+      color: $secondary-text-color;
       flex: 1;
     }
   }

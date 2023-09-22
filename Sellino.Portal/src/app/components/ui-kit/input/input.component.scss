@@ -1,0 +1,29 @@
+.sl-input {
+  height: 45px;
+  border: 1px solid rgb(202, 202, 202);
+
+  &__icon {
+    width: 60px;
+    height: 100%;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background: rgb(248, 248, 248);
+    border-right: 1px solid rgb(202, 202, 202);
+  }
+
+  &__content {
+    padding: 3px 0;
+    height: 100%;
+    width: 100%;
+
+    input {
+      padding: 0 10px;
+      border: 0;
+      outline: none;
+      height: 100%;
+      width: 100%;
+      font-size: 16px;
+      background: none;
+    }
+  }
+}

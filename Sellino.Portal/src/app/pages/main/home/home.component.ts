@@ -9,6 +9,6 @@ export class HomeComponent implements OnInit {
   tabs: Tab[] = [];
 
   ngOnInit(): void {
-    this.tabs = [{title: 'Profilen'}, { title: 'Farver' }, {title: 'Tekster'}, {title: 'Mediefiler'}, {title: 'Returret'}];
+    this.tabs = [{title: 'Produkter'}, { title: 'Produktgrupper' }];
   }
 }

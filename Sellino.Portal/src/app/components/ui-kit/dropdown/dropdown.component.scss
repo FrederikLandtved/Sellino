@@ -1,0 +1,73 @@
+@use '../../../../theme.scss' as *;
+
+.wrapper {
+  position: relative;
+
+  &.active {
+    .sl-dropdown {
+      border-color: $company-color;
+      // background: rgb(243, 243, 243);
+    }
+
+    .chevron i {
+      transform: rotate(180deg);    
+    }
+  }
+}
+
+.sl-dropdown {
+  height: 40px;
+  transition: border-color 0.3s ease;
+  border: 1px solid rgb(202, 202, 202);
+
+  &__icon {
+    width: 60px;
+    height: 100%;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background: rgb(248, 248, 248);
+    border-right: 1px solid rgb(202, 202, 202);
+  }
+
+  &__title {
+    padding: 3px 10px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .chevron {
+      height: 45px;
+      width: 45px;
+      justify-content: right;
+
+      i {
+        transition: transform 0.2s ease;
+      }
+    }
+  }
+}
+
+.sl-dropdown-content {
+  position: absolute;
+  background-color: white;
+  top: 45px;
+  border: 1px solid rgb(202, 202, 202);
+  width: 100%;
+  min-height: 100px;
+
+  &__item {
+    padding: 10px 12px;
+    background: none;
+    border-bottom: solid 1px rgb(202, 202, 202);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

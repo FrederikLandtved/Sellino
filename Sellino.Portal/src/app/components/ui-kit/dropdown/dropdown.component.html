@@ -1,0 +1,25 @@
+<div class="wrapper" [ngClass]="{'active shadow' : dropdownIsOpen}">
+  <div class="sl-dropdown rounded-6 d-flex align-items-center">
+    <div *ngIf="icon !== ''" class="sl-dropdown__icon d-flex align-items-center justify-content-center">
+      <i [ngClass]="icon"></i>
+    </div>
+    <div class="sl-dropdown__title d-flex align-items-center justify-content-between" (click)="onContentClick()">
+      <span>{{ title }}</span>
+      <div class="chevron d-flex align-items-center">
+        <i class="las la-angle-down"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl-dropdown-content shadow rounded-6" *ngIf="dropdownIsOpen">
+    <div class="sl-dropdown-content__item">
+      <span>Produktnavn</span>
+    </div>
+    <div class="sl-dropdown-content__item">
+      <span>Lager</span>
+    </div>
+    <div class="sl-dropdown-content__item">
+      <span>Status</span>
+    </div>
+  </div>
+</div>

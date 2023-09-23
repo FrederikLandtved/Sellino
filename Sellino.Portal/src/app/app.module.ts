@@ -13,6 +13,7 @@ import { TabRoundedComponent } from './components/tab-rounded/tab-rounded.compon
 import { CreateSectionButtonComponent } from './components/profile/create-section-button/create-section-button.component';
 import { InputComponent } from './components/ui-kit/input/input.component';
 import { ButtonComponent } from './components/ui-kit/button/button.component';
+import { DropdownComponent } from './components/ui-kit/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ButtonComponent } from './components/ui-kit/button/button.component';
     TabRoundedComponent,
     CreateSectionButtonComponent,
     InputComponent,
-    ButtonComponent
+    ButtonComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,

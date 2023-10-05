@@ -1,8 +1,8 @@
-<div class="sl-input rounded-6 d-flex align-items-center">
+<div class="sl-input rounded-6 d-flex align-items-center" [ngClass]="{'focused': isInputFocused}">
   <div *ngIf="icon !== ''" class="sl-input__icon d-flex align-items-center justify-content-center">
     <i [class]="icon"></i>
   </div>
   <div class="sl-input__content">
-    <input type="text" [placeholder]="placeholder">
+    <input type="text" [placeholder]="placeholder" (focus)="onInputFocus()" (blur)="onInputBlur()" #inputRef>
   </div>
 </div>

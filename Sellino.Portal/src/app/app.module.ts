@@ -14,6 +14,7 @@ import { CreateSectionButtonComponent } from './components/profile/create-sectio
 import { InputComponent } from './components/ui-kit/input/input.component';
 import { ButtonComponent } from './components/ui-kit/button/button.component';
 import { DropdownComponent } from './components/ui-kit/dropdown/dropdown.component';
+import { UiKitComponent } from './pages/ui-kit/ui-kit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DropdownComponent } from './components/ui-kit/dropdown/dropdown.compone
     CreateSectionButtonComponent,
     InputComponent,
     ButtonComponent,
-    DropdownComponent
+    DropdownComponent,
+    UiKitComponent
   ],
   imports: [
     BrowserModule,

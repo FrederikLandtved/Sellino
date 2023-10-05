@@ -6,7 +6,7 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { InsightsComponent } from './pages/main/insights/insights.component';
 import { ProfileComponent } from './pages/main/profile/profile.component';
-
+import { UiKitComponent } from './pages/ui-kit/ui-kit.component';
 const appRoutes: Routes = [
   { path: '', component: MainComponent, 
       children: [
@@ -19,6 +19,8 @@ const appRoutes: Routes = [
       children: [
         { path: '', component: LoginComponent },
       ]
+  },
+  { path: 'ui-kit', component: UiKitComponent
   }
 ]
 @NgModule({

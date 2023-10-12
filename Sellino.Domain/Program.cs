@@ -8,6 +8,8 @@ var app = builder.Build();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ProductDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(ProductDbContext).Assembly.FullName)));
+builder.Services.AddDbContext<ProductVariantDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(ProductVariantDbContext).Assembly.FullName)));
+builder.Services.AddDbContext<ProductVariantOptionDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(ProductVariantOptionDbContext).Assembly.FullName)));
 builder.Services.AddDbContext<ProductGroupDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(ProductGroupDbContext).Assembly.FullName)));
 builder.Services.AddDbContext<UserDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(UserDbContext).Assembly.FullName)));
 builder.Services.AddDbContext<ProfileDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(ProfileDbContext).Assembly.FullName)));

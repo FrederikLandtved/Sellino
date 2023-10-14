@@ -7,12 +7,14 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { InsightsComponent } from './pages/main/insights/insights.component';
 import { ProfileComponent } from './pages/main/profile/profile.component';
 import { UiKitComponent } from './pages/ui-kit/ui-kit.component';
+import { AddProductComponent } from './pages/main/product/add-product/add-product.component';
 const appRoutes: Routes = [
   { path: '', component: MainComponent, 
       children: [
         { path: '', component: HomeComponent },
         { path: 'insights', component: InsightsComponent },
-        { path: 'profile', component: ProfileComponent }
+        { path: 'profile', component: ProfileComponent },
+        { path: 'add-product', component: AddProductComponent },
       ]
   },
   { path: 'auth', component: AuthComponent, 

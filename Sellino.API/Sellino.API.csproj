@@ -27,4 +27,8 @@
     <ProjectReference Include="..\Sellino.Service\Sellino.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\ProductVariant\" />
+  </ItemGroup>
+
 </Project>

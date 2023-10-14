@@ -15,6 +15,7 @@ builder.Services.AddDbContext<ProductGroupDbContext>(options => options.UseSqlSe
 app.MapGet("/", () => "Hello World!");
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductVariantRepository, ProductVariantRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 app.Run();

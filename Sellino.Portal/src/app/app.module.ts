@@ -15,6 +15,8 @@ import { InputComponent } from './components/ui-kit/input/input.component';
 import { ButtonComponent } from './components/ui-kit/button/button.component';
 import { DropdownComponent } from './components/ui-kit/dropdown/dropdown.component';
 import { UiKitComponent } from './pages/ui-kit/ui-kit.component';
+import { AddProductComponent } from './pages/main/product/add-product/add-product.component';
+import { ButtonSelectorComponent } from './components/ui-kit/button-selector/button-selector.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { UiKitComponent } from './pages/ui-kit/ui-kit.component';
     InputComponent,
     ButtonComponent,
     DropdownComponent,
-    UiKitComponent
+    UiKitComponent,
+    AddProductComponent,
+    ButtonSelectorComponent
   ],
   imports: [
     BrowserModule,

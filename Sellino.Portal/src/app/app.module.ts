@@ -17,6 +17,7 @@ import { DropdownComponent } from './components/ui-kit/dropdown/dropdown.compone
 import { UiKitComponent } from './pages/ui-kit/ui-kit.component';
 import { AddProductComponent } from './pages/main/product/add-product/add-product.component';
 import { ButtonSelectorComponent } from './components/ui-kit/button-selector/button-selector.component';
+import { CategoriesComponent } from './pages/main/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ButtonSelectorComponent } from './components/ui-kit/button-selector/but
     DropdownComponent,
     UiKitComponent,
     AddProductComponent,
-    ButtonSelectorComponent
+    ButtonSelectorComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+div.category {
+  margin-left: 30px;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+  height: 30px;
+  width: 30px;
+}
+
+.toggle-button.expanded {
+  transform: rotate(90deg);
+}

@@ -1,8 +1,18 @@
+<label *ngIf="label" [for]="name">{{ label }}</label>
 <div class="sl-input rounded-6 d-flex align-items-center" [ngClass]="{'focused': isInputFocused}">
   <div *ngIf="icon !== ''" class="sl-input__icon d-flex align-items-center justify-content-center">
     <i [class]="icon"></i>
   </div>
   <div class="sl-input__content">
-    <input type="text" [placeholder]="placeholder" (focus)="onInputFocus()" (blur)="onInputBlur()" #inputRef>
+    <input 
+      [name]="name" 
+      [placeholder]="placeholder" 
+      [ngModel]="value"
+      (ngModelChange)="onModelChange($event)"
+      (focus)="onInputFocus()" 
+      (blur)="onInputBlur()" 
+      #inputRef
+      [type]="password ? 'password' : 'text'"
+    >
   </div>
 </div>

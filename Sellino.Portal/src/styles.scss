@@ -72,6 +72,10 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
 }
 
+.justify-content-around {
+  justify-content: space-around;
+}
+
 .shadow {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
@@ -89,6 +93,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .rounded-8 {
   border-radius: 8px;
+}
+
+.rounded-10 {
+  border-radius: 10px;
 }
 
 .rounded-12 {

@@ -1,15 +1,16 @@
-<div class="create-section d-flex justify-content-center align-items-center rounded-8" (click)="changeStep()" [ngClass]="{'full-border': createStep !== 0}">
+<div class="create-section d-flex justify-content-center align-items-center rounded-8" (click)="changeStep(1)" [ngClass]="{'full-border': createStep !== 0}">
   <p *ngIf="createStep === 0">Klik for at tilføje en sektion</p>
 
   <div class="choose-type d-flex" *ngIf="createStep === 1">
-    <div class="choose-type__item d-flex justify-content-center align-items-center rounded-8">
+    <div class="choose-type__item d-flex justify-content-center align-items-center rounded-8" (click)="onProductGroupClick()">
       Billede
     </div>
-    <div class="choose-type__item d-flex justify-content-center align-items-center rounded-8">
+    <div class="choose-type__item d-flex justify-content-center align-items-center rounded-8" (click)="onProductGroupClick()">
       Produktgruppe
     </div>
-    <div class="choose-type__item d-flex justify-content-center align-items-center rounded-8">
-      Tekst
-    </div>
+  </div>
+
+  <div *ngIf="createStep === 4">
+    <sl-dropdown [title]="'Vælg produktgruppe'" [icon]="'las la-boxes'" [options]="productGroupOptions"></sl-dropdown>
   </div>
 </div>

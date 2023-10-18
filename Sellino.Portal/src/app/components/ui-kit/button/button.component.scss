@@ -3,14 +3,24 @@
 .sl-button {
   height: 40px;
   padding: 0 25px;
-  background-color: $secondary-company-color;
-  color: $secondary-text-color;
+  background-color: $company-color;
+  color: $text-on-company-color;
   border: 0;
   font-size: 1rem;
   transition: opacity 0.3s ease;
   cursor: pointer;
+  border: 1px solid $company-color;
+  transition: background-color 0.3s;
 
   &:hover {
     opacity: 0.9;
+  }
+
+  &.secondary {
+    border: 1px solid $company-color;
+    background-color: unset;
+    color: $company-color;
+    font-weight: 500;
+    box-sizing: border-box;
   }
 }

@@ -1,8 +1,8 @@
 <h2>Produkter</h2>
 
-<tab-rounded [tabOptions]="tabs"></tab-rounded>
+<tab-rounded [tabOptions]="tabs" (onTabChanged)="onTabClick($event)"></tab-rounded>
 
-<div class="profile-container d-flex">
+<div class="profile-container d-flex" *ngIf="currentTab == 'Produkter'">
   <div class="profile-container__item round-container">
     <div class="d-flex" style="gap: 30px;">
       <sl-input [icon]="'las la-search'" [placeholder]="'Søg efter produkt'"></sl-input>
@@ -46,5 +46,13 @@
         <td>Rediger</td>
       </tr>
     </table>
+  </div>
+</div>
+
+<div class="profile-container d-flex" *ngIf="currentTab == 'Produktgrupper'">
+  <div class="profile-container__item round-container">
+    <div *ngFor="let item of productGroups">
+      {{ item.Name }}
+    </div>
   </div>
 </div>

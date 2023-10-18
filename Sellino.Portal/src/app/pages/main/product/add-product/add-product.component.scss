@@ -1,9 +1,23 @@
 .profile-container {
   width: 100%;
+  gap: 30px;
+
+  h3 {
+    margin-bottom: 20px;
+  }
 
   &__item {
     margin-top: 20px;
     flex: 1;
     background: white;
+  }
+
+  sl-input {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  h4 {
+    margin-bottom: 10px;
   }
 }

@@ -12,14 +12,23 @@
   </div>
 
   <div class="sl-dropdown-content shadow rounded-6" *ngIf="dropdownIsOpen">
-    <div class="sl-dropdown-content__item">
-      <span>Produktnavn</span>
-    </div>
-    <div class="sl-dropdown-content__item">
-      <span>Lager</span>
-    </div>
-    <div class="sl-dropdown-content__item">
-      <span>Statused</span>
-    </div>
+    <ng-container *ngIf="options.length > 0">
+      <div class="sl-dropdown-content__item" *ngFor="let item of options">
+        <span>{{ item.Title }}</span>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="options.length == 0">
+      <div class="sl-dropdown-content__item">
+        <span>Produktnavn</span>
+      </div>
+      <div class="sl-dropdown-content__item">
+        <span>Lager</span>
+      </div>
+      <div class="sl-dropdown-content__item">
+        <span>Statused</span>
+      </div>
+    </ng-container>
+
   </div>
 </div>

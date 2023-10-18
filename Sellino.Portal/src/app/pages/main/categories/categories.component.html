@@ -1,17 +1,28 @@
 <h2>Kategorier</h2>
-<ng-container *ngTemplateOutlet="recursiveTemplate; context: { $implicit: categories, level: 0 }"></ng-container>
 
-<ng-template #recursiveTemplate let-categories let-level="level">
-    <div *ngFor="let category of categories">
-      <div [style.margin-left.px]="level * 20">
-        <button (click)="toggleChildren(category)" class="toggle-button" [ngClass]="{'expanded': category.showChildren}">
-          <i *ngIf="category.Children.length > 0" class="las la-angle-right"></i>
-        </button>
-        <span>{{ category.Name }}</span>
-        <button (click)="addCategory(category)">Tilføj child</button>
-      </div>
-      <ng-container *ngIf="category.showChildren">
-        <ng-container *ngTemplateOutlet="recursiveTemplate; context: { $implicit: category.Children, level: level + 1 }"></ng-container>
-      </ng-container>
-    </div>
-</ng-template>
+<div class="profile-container d-flex">
+  <div class="profile-container__item round-container">
+    <ng-container *ngTemplateOutlet="recursiveTemplate; context: { $implicit: categories, level: 0 }"></ng-container>
+
+    <ng-template #recursiveTemplate let-categories let-level="level">
+        <div *ngFor="let category of categories">
+          <div [style.margin-left.px]="level * 30" class="category-row">
+            <button (click)="toggleChildren(category)" class="toggle-button" [ngClass]="{'expanded': category.showChildren}">
+              <i [hidden]="category.Children.length == 0" class="las la-angle-right"></i>
+            </button>
+            <span>{{ category.Name }}</span>
+            
+            <!-- <button (click)="addChild(category)">Tilføj child</button>
+            <button *ngIf="category.parentId == 0" (click)="addParent(category)">Tilføj parent</button> -->
+          </div>
+          <ng-container *ngIf="category.showChildren">
+            <ng-container *ngTemplateOutlet="recursiveTemplate; context: { $implicit: category.Children, level: level + 1 }"></ng-container>
+          </ng-container>
+        </div>
+    </ng-template>
+  </div>
+  <div class="profile-container__item round-container">
+    <h3>Detaljer om kategorien</h3>
+    
+  </div>
+</div>

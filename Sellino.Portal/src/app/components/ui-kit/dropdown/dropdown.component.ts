@@ -8,8 +8,9 @@ import { Component, HostListener, Input } from '@angular/core';
 export class DropdownComponent {
   @Input() icon: string = 'las la-sort-numeric-down';
   @Input() title: string = 'Dropdown';
-
-  public dropdownIsOpen: boolean = true;
+  @Input() options: DropdownOption[] = [];
+  
+  public dropdownIsOpen: boolean = false;
   private wasInside = false;
 
   @HostListener('click')
@@ -28,4 +29,9 @@ export class DropdownComponent {
   onContentClick() {
     this.dropdownIsOpen = !this.dropdownIsOpen;
   }
+}
+
+export interface DropdownOption {
+  Id: number,
+  Title: string
 }

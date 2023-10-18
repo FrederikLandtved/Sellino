@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+// input.component.ts
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'sl-input',
@@ -8,6 +10,15 @@ import { Component, Input } from '@angular/core';
 export class InputComponent {
   @Input() icon: string = '';
   @Input() placeholder: string = '';
+  @Input() name: string = '';
+  @Input() label: string = '';
+  @Input() formControlName: FormControl<any> = new FormControl('');
+  @Input() password: boolean = false;
+  
+  @Input() value: string = '';
+
+  @Output() valueChange: EventEmitter<string> = new EventEmitter<string>(); 
+
   isInputFocused: boolean = false;
 
   onInputFocus() {
@@ -16,5 +27,11 @@ export class InputComponent {
 
   onInputBlur() {
     this.isInputFocused = false;
+  }
+
+
+  onModelChange(newValue: string) {
+    this.value = newValue;
+    this.valueChange.emit(newValue); 
   }
 }

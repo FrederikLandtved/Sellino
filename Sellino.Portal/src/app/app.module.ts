@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,7 @@ import { UiKitComponent } from './pages/ui-kit/ui-kit.component';
 import { AddProductComponent } from './pages/main/product/add-product/add-product.component';
 import { ButtonSelectorComponent } from './components/ui-kit/button-selector/button-selector.component';
 import { CategoriesComponent } from './pages/main/categories/categories.component';
+import { LoadingIndicatorComponent } from './components/ui-kit/loading-indicator/loading-indicator.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +39,15 @@ import { CategoriesComponent } from './pages/main/categories/categories.componen
     UiKitComponent,
     AddProductComponent,
     ButtonSelectorComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    LoadingIndicatorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

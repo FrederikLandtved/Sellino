@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sl-button',
@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() title: string = "Button";
+  @Input() type: string = 'primary';
+  @Output() onClick = new EventEmitter();
+
+  onButtonClick() {
+    this.onClick.emit();
+  }
 }

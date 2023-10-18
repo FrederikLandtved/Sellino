@@ -1,5 +1,10 @@
+<h4>{{ buttons.Title }}</h4>
 <div class="sl-button-selector">
-  <sl-button class="sl-button-selector__item"></sl-button>
-  <sl-button class="sl-button-selector__item"></sl-button>
-  <sl-button class="sl-button-selector__item"></sl-button>
+  <sl-button 
+    *ngFor="let item of buttons.Options" 
+    class="sl-button-selector__item"
+    type="{{item.IsSelected ? '': 'secondary'}}"
+    title="{{item.Title}}" 
+    (onClick)="onButtonClick(item)">
+  </sl-button>
 </div>

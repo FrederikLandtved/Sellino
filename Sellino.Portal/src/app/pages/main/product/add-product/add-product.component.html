@@ -2,7 +2,54 @@
 
 <div class="profile-container d-flex">
   <div class="profile-container__item round-container">
+    <h3>Produktinfo</h3>
+
+    <div class="d-flex" style="gap: 30px">
+      <sl-input name="product-name" label="Navn"></sl-input>
+      <sl-input name="price" label="Pris"></sl-input>
+    </div>
+
+    <div class="d-flex">
+      <sl-input name="product-description" label="Beskrivelse"></sl-input>
+    </div>
+
+    <div class="d-flex">
+      <sl-input name="product-category" label="Kategori"></sl-input>
+    </div>
+  </div>
+
+  <div class="profile-container__item round-container">
+    <h3>Billeder</h3>
+  </div>
+</div>
+
+<div class="profile-container d-flex">
+  <div class="profile-container__item round-container">
     <h3>Varianter</h3>
-    <sl-button-selector></sl-button-selector>
+    <ng-container *ngFor="let item of productVariations">
+      <sl-button-selector (selectedItems)="onSelect($event)" [buttonSelector]="item"></sl-button-selector>
+    </ng-container>
+
+    <!-- SKU Combinations Table -->
+    <table cellspacing="0" cellpadding="0">
+      <tr>
+        <th>Billede</th>
+        <th>Product</th>
+        <ng-container *ngFor="let variation of selectedVariations">
+          <th>{{ variation.Title }}</th>
+        </ng-container>
+        <th>Antal på lager</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let sku of skuCombinations">
+        <td></td>
+        <td>123321</td>
+        <ng-container *ngFor="let variation of selectedVariations">
+          <td>{{ getSKUValue(sku, variation.Id) }}</td>
+        </ng-container>
+        <td><sl-input [placeholder]="'Antal'"></sl-input></td>
+        <td>Rediger</td>
+      </tr>
+    </table>
   </div>
 </div>

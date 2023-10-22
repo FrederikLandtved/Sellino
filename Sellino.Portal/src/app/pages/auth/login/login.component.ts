@@ -23,14 +23,7 @@ export class LoginComponent {
     this.isLoading = true;
 
     setTimeout(() => {
-      this.loginService.authenticate(this.emailForm, this.passwordForm)
-      .subscribe(
-        {
-          next(d) { ctrl.handleSuccessfulLogin(d)},
-          error(e) { ctrl.handleFailedLogin(e) },
-          complete() { ctrl.isLoading = false }
-        }
-      );
+      this.loginService.authenticate(this.emailForm, this.passwordForm);
     }, 0);
 
   }

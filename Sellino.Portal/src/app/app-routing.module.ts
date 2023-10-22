@@ -9,10 +9,16 @@ import { ProfileComponent } from './pages/main/profile/profile.component';
 import { UiKitComponent } from './pages/ui-kit/ui-kit.component';
 import { AddProductComponent } from './pages/main/product/add-product/add-product.component';
 import { CategoriesComponent } from './pages/main/categories/categories.component';
+import { AuthGuard } from './services/auth/auth.guard';
+import { JwtModule } from '@auth0/angular-jwt';
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}
+
 const appRoutes: Routes = [
   { path: '', component: MainComponent, 
       children: [
-        { path: '', component: HomeComponent },
+        { path: '', component: HomeComponent, canActivate: [AuthGuard] },
         { path: 'insights', component: InsightsComponent },
         { path: 'profile', component: ProfileComponent },
         { path: 'add-product', component: AddProductComponent },
@@ -28,7 +34,16 @@ const appRoutes: Routes = [
   }
 ]
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [
+    RouterModule.forRoot(appRoutes),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:7240"],
+        disallowedRoutes: []
+      }
+    }),
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

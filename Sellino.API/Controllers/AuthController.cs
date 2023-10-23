@@ -33,7 +33,7 @@ namespace Sellino.API.Controllers
         public async Task<IActionResult> Login(LoginModel user)
         {
             // Simulate server delay
-            await Task.Delay(1000);
+            //await Task.Delay(1000);
 
             if (ModelState.IsValid)
             {
@@ -41,10 +41,12 @@ namespace Sellino.API.Controllers
 
                 if (loggedInUser != null)
                 {
-                    string finalToken = SetToken(loggedInUser);
+                    List<ProfileModel> profiles = await _profileService.GetProfilesByUserId(loggedInUser.UserId);
+
+                    string finalToken = SetToken(loggedInUser, profiles.Any() ? profiles[0] : null);
                     loggedInUser.Password = "";
 
-                    return Ok(new { Token = finalToken, User = loggedInUser });
+                    return Ok(new { Token = finalToken, User = loggedInUser, Profile = profiles.Any() ? profiles[0] : null });
                 }
             }
 
@@ -79,7 +81,7 @@ namespace Sellino.API.Controllers
             return BadRequest(new { response = "Please fill out all fields." });
         }
 
-        private string SetToken(User loggedInUser)
+        private string SetToken(User loggedInUser, ProfileModel profile)
         {
             var jwt = _configuration.GetSection("Jwt").Get<JWT>();
             var claims = new[]
@@ -89,8 +91,13 @@ namespace Sellino.API.Controllers
                         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                         new Claim(ClaimConstants.UserId, loggedInUser.UserId.ToString()),
                         new Claim(ClaimConstants.Email, loggedInUser.Email),
-                        new Claim(ClaimConstants.FirstName, loggedInUser.FirstName)
+                        new Claim(ClaimConstants.FirstName, loggedInUser.FirstName),
             };
+
+            if(profile != null)
+            {
+                claims.Append(new Claim(ClaimConstants.ProfileId, profile.ProfileId.ToString()));
+            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key));
             var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

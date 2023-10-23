@@ -45,6 +45,16 @@ namespace Sellino.Domain.Repositories
             return profile;
         }
 
+        public async Task<Profile> GetProfileById(int profileId)
+        {
+            Profile profile = await _profileRepository.Profiles.FirstOrDefaultAsync(x => x.ProfileId == profileId);
+
+            if (profile == null)
+                return null;
+
+            return profile;
+        }
+
         public async Task<List<Profile>> GetProfiles()
         {
             return await _profileRepository.Profiles.ToListAsync();
@@ -59,6 +69,27 @@ namespace Sellino.Domain.Repositories
 
             return true;
         }
+
+        public async Task<List<Profile>> GetProfilesByUserId(int userId)
+        {
+            List<Profile> profiles = new List<Profile>();
+
+            if (userId > 0)
+            {
+                List<UserProfile> userProfiles = await _userProfileDb.UserProfiles
+                    .Where(x => x.UserId == userId)
+                    .ToListAsync();
+
+                foreach (var userProfile in userProfiles)
+                {
+                    Profile profile = await GetProfileById(userProfile.ProfileId);
+                    profiles.Add(profile);
+                }
+            }
+
+            return profiles;
+        }
+
 
         public async Task<bool> CreateProfileAccessForUser(int profileId, int userId, int createdByUserId)
         {

@@ -50,6 +50,14 @@ namespace Sellino.Service.Services
             return model;
         }
 
+        public async Task<List<ProfileModel>> GetProfilesByUserId(int userId)
+        {
+            List<Profile> profiles = await _profileRepository.GetProfilesByUserId(userId);
+            List<ProfileModel> profileModels = _autoMapper.Map<List<Profile>, List<ProfileModel>>(profiles);
+
+            return profileModels;
+        }
+
         public async Task<List<ProfileModel>> GetProfiles()
         {
             List<Profile> profiles = await _profileRepository.GetProfiles();

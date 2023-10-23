@@ -9,7 +9,7 @@ export class ProductGroupService {
   private apiUrl = 'https://localhost:7240';
 
   //remove
-  private profileToken = '4130B812-79B8-4BFC-B15A-7BBAC51117A7';
+  private profileToken = 'F63C6C50-920F-4619-96FD-B71982B28890';
 
   constructor(private http: HttpClient) { }
 

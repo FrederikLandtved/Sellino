@@ -18,8 +18,12 @@ export class LoginService {
     this.http.post<LoginModel>(this.apiUrl + '/Auth/Login', loginModel).subscribe(response => {
       const token = (<any>response).token;
       const user = (<any>response).user;
-      localStorage.setItem("jwt", token);
-      localStorage.setItem("user", JSON.stringify(user));
+      const profile = (<any>response).profile;
+
+      sessionStorage.setItem("jwt", token);
+      sessionStorage.setItem("user", JSON.stringify(user));
+      sessionStorage.setItem("profile", JSON.stringify(profile));
+
       this.router.navigate(["/"]);
     }, err => {
 
@@ -37,13 +41,13 @@ export class LoginService {
   }
 
   logOut() {
-    localStorage.removeItem("jwt");
+    sessionStorage.removeItem("jwt");
     this.router.navigate(["auth"]);
   }
 }
 
 export function tokenGetter() {
-  return localStorage.getItem("jwt");
+  return sessionStorage.getItem("jwt");
 }
 
 interface LoginModel {

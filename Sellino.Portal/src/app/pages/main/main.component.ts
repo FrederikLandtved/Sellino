@@ -11,7 +11,7 @@ export class MainComponent implements OnInit {
   constructor(private authService: LoginService) {}
 
   ngOnInit(): void {
-    let userObj = JSON.parse(<any>localStorage.getItem("user"))
+    let userObj = JSON.parse(<any>sessionStorage.getItem("user"))
    this.fullName = userObj.firstName + ' ' + userObj.lastName;
   }
 

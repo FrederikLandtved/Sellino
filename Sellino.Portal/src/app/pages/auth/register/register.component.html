@@ -10,6 +10,7 @@
       <sl-checkbox (onChecked)="createProfile = $event"></sl-checkbox>
       <sl-input *ngIf="createProfile" [(value)]="profileNameForm" [icon]="'las la-store-alt'" [placeholder]="'Profilens navn'" [name]="'profilename'"></sl-input>
       <sl-margin [px]="5"></sl-margin>
+      
       <sl-button [title]="'Opret'" *ngIf="!isLoading" (click)="tryRegister()"></sl-button>
       <sl-button [title]="'Tilbage til log ind'" [type]="'secondary'" (click)="backToLogin()" *ngIf="!isLoading"></sl-button>
       <sl-loading-indicator *ngIf="isLoading"></sl-loading-indicator>

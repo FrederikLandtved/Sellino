@@ -3,7 +3,8 @@
     <div class="login-container">
       <sl-input [(value)]="emailForm" [icon]="'las la-user'" [placeholder]="'E-mail'" [name]="'email'"></sl-input>
       <sl-input [(value)]="passwordForm" [icon]="'las la-key'" [placeholder]="'Adgangskode'" [name]="'password'" [password]="true"></sl-input>
-      <sl-button [title]="'Log ind'" style="margin: 0 auto" *ngIf="!isLoading" (click)="tryLogin()"></sl-button>
+      <sl-button [title]="'Log ind'" *ngIf="!isLoading" (click)="tryLogin()"></sl-button>
+      <sl-button [title]="'Opret bruger'" [type]="'secondary'" *ngIf="!isLoading" (click)="goToRegister()"></sl-button>
 
       <sl-loading-indicator *ngIf="isLoading"></sl-loading-indicator>
     </div>

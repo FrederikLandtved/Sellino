@@ -20,10 +20,12 @@ namespace Sellino.API.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly IUserService _userService;
-        public AuthController(IConfiguration configuration, IUserService userService)
+        private readonly IProfileService _profileService;
+        public AuthController(IConfiguration configuration, IUserService userService, IProfileService profileService)
         {
             _configuration = configuration;
             _userService = userService;
+            _profileService = profileService;
         }
 
         [HttpPost]
@@ -40,12 +42,41 @@ namespace Sellino.API.Controllers
                 if (loggedInUser != null)
                 {
                     string finalToken = SetToken(loggedInUser);
+                    loggedInUser.Password = "";
 
-                    return Ok(new { Token = finalToken });
+                    return Ok(new { Token = finalToken, User = loggedInUser });
                 }
             }
 
             return Unauthorized("Invalid credentials.");
+        }
+
+
+        [HttpPost]
+        [Route("AddUser")]
+        public async Task<IActionResult> AddUser(CreateUserModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                int createdUserId = await _userService.CreateUser(user.Email, user.Password, user.FirstName, user.LastName);
+
+                if (createdUserId > 0)
+                {
+                    if (user.CreateProfile)
+                    {
+                        int profileId = await _profileService.CreateProfile(user.ProfileName, String.Empty, createdUserId);
+
+                        if (profileId > 0)
+                            await _profileService.CreateProfileAccessForUser(profileId, createdUserId, createdUserId);
+                    }
+
+                    return Ok(new { response = "User was created! You can now login." });
+                }
+
+                return BadRequest(new { response = "User already exists." });
+            }
+
+            return BadRequest(new { response = "Please fill out all fields." });
         }
 
         private string SetToken(User loggedInUser)
@@ -72,25 +103,6 @@ namespace Sellino.API.Controllers
 
             string finalToken = new JwtSecurityTokenHandler().WriteToken(token).ToString();
             return finalToken;
-        }
-
-        [HttpPost]
-        [Route("AddUser")]
-        public async Task<IActionResult> AddUser(UserModel user)
-        {
-            if(ModelState.IsValid)
-            {
-                int createdUserId = await _userService.CreateUser(user.Email, user.Password, user.FirstName, user.LastName);
-
-                if (createdUserId > 0)
-                {
-                    return Ok(new { response = "User was created! You can now login." });
-                }
-
-                return BadRequest(new { response = "User already exists." });
-            }
-
-            return BadRequest(new { response = "Please fill out all fields." });
         }
     }
 }

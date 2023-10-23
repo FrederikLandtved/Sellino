@@ -21,6 +21,9 @@ import { AddProductComponent } from './pages/main/product/add-product/add-produc
 import { ButtonSelectorComponent } from './components/ui-kit/button-selector/button-selector.component';
 import { CategoriesComponent } from './pages/main/categories/categories.component';
 import { LoadingIndicatorComponent } from './components/ui-kit/loading-indicator/loading-indicator.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { CheckboxComponent } from './components/ui-kit/checkbox/checkbox.component';
+import { MarginComponent } from './components/ui-kit/margin/margin.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { LoadingIndicatorComponent } from './components/ui-kit/loading-indicator
     AddProductComponent,
     ButtonSelectorComponent,
     CategoriesComponent,
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    RegisterComponent,
+    CheckboxComponent,
+    MarginComponent
   ],
   imports: [
     BrowserModule,

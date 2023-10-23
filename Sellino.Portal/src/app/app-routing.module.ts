@@ -11,14 +11,13 @@ import { AddProductComponent } from './pages/main/product/add-product/add-produc
 import { CategoriesComponent } from './pages/main/categories/categories.component';
 import { AuthGuard } from './services/auth/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
-export function tokenGetter() {
-  return localStorage.getItem("jwt");
-}
+import { tokenGetter } from './services/auth/login.service';
+import { RegisterComponent } from './pages/auth/register/register.component';
 
 const appRoutes: Routes = [
-  { path: '', component: MainComponent, 
+  { path: '', component: MainComponent, canActivate: [AuthGuard],
       children: [
-        { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+        { path: '', component: HomeComponent },
         { path: 'insights', component: InsightsComponent },
         { path: 'profile', component: ProfileComponent },
         { path: 'add-product', component: AddProductComponent },
@@ -28,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'auth', component: AuthComponent, 
       children: [
         { path: '', component: LoginComponent },
+        { path: 'register', component: RegisterComponent },
       ]
   },
   { path: 'ui-kit', component: UiKitComponent

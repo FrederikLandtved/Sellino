@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   showCreateDialog: boolean = true;
 
   ngOnInit(): void {
-    this.tabs = [{title: 'Profilen'}, { title: 'Farver' }, {title: 'Tekster'}, {title: 'Mediefiler'}, {title: 'Returret'}];
+    this.tabs = [{title: 'Profilen'}, { title: 'Farver' }, {title: 'Tekster'}, {title: 'Mediefiler'}, {title: 'Returret'}, { title: 'Betaling' }];
   }
 
   onTabClick(tab: Tab) {

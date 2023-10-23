@@ -30,7 +30,7 @@
             <a href=""><i class="las la-users-cog"></i>Brugere</a>
           </li>
           <li>
-            <a href=""><i class="las la-sign-out-alt"></i>Log ud</a>
+            <a href="" (click)="LogOut()"><i class="las la-sign-out-alt"></i>Log ud</a>
           </li>
         </ul>
       </nav>
@@ -47,7 +47,7 @@
         <div class="d-flex align-items-center">
         <i class="las la-bell" style="font-size: 30px;"></i>
         <i class="las la-user-circle" style="font-size: 30px;"></i>
-        <!-- <span>Kristian Jørgensen</span> -->
+        {{ fullName }}
       </div>
       </div>
     </div>

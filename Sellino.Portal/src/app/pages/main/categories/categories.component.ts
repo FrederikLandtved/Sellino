@@ -28,7 +28,25 @@ export class CategoriesComponent implements OnInit {
           { id: 4, Name: "Sandaler", Children: [], showChildren: true, parentId: 2 }
         ],
         showChildren: true 
-      }
+      },
+      { 
+        id: 1,
+        parentId: 0,
+        Name: "Tøj", 
+        Children: [
+          { 
+            id: 2,
+            parentId: 1,
+            Name: "Sneakers",
+            Children: [
+              { id: 3, Name: "Nike", Children: [], showChildren: true, parentId: 2 }
+            ],
+            showChildren: true
+          },
+          { id: 4, Name: "Sandaler", Children: [], showChildren: true, parentId: 2 }
+        ],
+        showChildren: true 
+      },
     ];
   }
 

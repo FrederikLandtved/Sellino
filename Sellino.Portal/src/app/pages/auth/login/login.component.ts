@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/auth/login.service';
 
 @Component({
@@ -12,20 +13,23 @@ export class LoginComponent {
   passwordForm: string = '';
   isLoading: boolean = false;
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   tryLogin() {
     if(this.emailForm == '' || this.passwordForm == ''){
       return;
     }
     
-    var ctrl = this;
     this.isLoading = true;
 
     setTimeout(() => {
       this.loginService.authenticate(this.emailForm, this.passwordForm);
     }, 0);
 
+  }
+
+  goToRegister(){
+    this.router.navigate(["auth/register"]);
   }
 
   handleSuccessfulLogin(data: any){

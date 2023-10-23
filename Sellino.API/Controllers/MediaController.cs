@@ -1,7 +1,12 @@
 ﻿using Azure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Hosting.Internal;
 using Sellino.API.Helpers;
+using Sellino.API.Models.Media;
+using Sellino.Domain.Models;
+using Sellino.Service.Interfaces;
 
 namespace Sellino.API.Controllers
 {
@@ -11,38 +16,60 @@ namespace Sellino.API.Controllers
     public class MediaController : ControllerBase
     {
         private readonly UserHelper _userHelper;
+        private readonly IMediaService _mediaService;
 
-        public MediaController(UserHelper userHelper)
+        public MediaController(UserHelper userHelper, IMediaService mediaService)
         {
             _userHelper = userHelper;
+            _mediaService = mediaService;
         }
 
 
-        [HttpPost]
-        [Route("Upload")]
-        public async Task<IActionResult> UploadMedia(IFormFile file)
+        //[HttpPost]
+        //[Route("Upload")]
+        //public async Task<IActionResult> UploadMedia(IFormFile file)
+        //{
+        //    using (var ms = new MemoryStream())
+        //    {
+        //        file.CopyTo(ms);
+        //        var fileBytes = ms.ToArray();
+
+        //        string s = Convert.ToBase64String(fileBytes);
+        //        using var client = new HttpClient();
+        //        string url = "https://api.imgbb.com/1/upload?key=fb7f06d6a3f5ab8733367b4e41b34c59";
+        //        Dictionary<string, string> keyValuePairs = new Dictionary<string, string>()
+        //        {
+        //            { "image", s}
+        //        };
+        //        HttpContent formContent = new FormUrlEncodedContent(keyValuePairs);
+        //        var response = await client.PostAsync(url, formContent);
+
+        //        var responseString = await response.Content.ReadAsStringAsync();
+
+        //        return Ok(responseString);
+        //        // act on the Base64 data
+        //    }
+        //    return Ok();
+        //}
+
+        [HttpPost("UploadFile")]
+        public async Task<int> UploadFile([FromForm] CreateMediaModel model)
         {
-            using (var ms = new MemoryStream())
+            MediaModel mediaModel = new MediaModel();
+
+            if (ModelState.IsValid && model.File.Length > 0)
             {
-                file.CopyTo(ms);
-                var fileBytes = ms.ToArray();
-
-                string s = Convert.ToBase64String(fileBytes);
-                using var client = new HttpClient();
-                string url = "https://api.imgbb.com/1/upload?key=fb7f06d6a3f5ab8733367b4e41b34c59";
-                Dictionary<string, string> keyValuePairs = new Dictionary<string, string>()
+                using(var memoryStream = new MemoryStream())
                 {
-                    { "image", s}
-                };
-                HttpContent formContent = new FormUrlEncodedContent(keyValuePairs);
-                var response = await client.PostAsync(url, formContent);
-
-                var responseString = await response.Content.ReadAsStringAsync();
-
-                return Ok(responseString);
-                // act on the Base64 data
+                    await model.File.CopyToAsync(memoryStream);
+                    mediaModel.Type = model.File.ContentType;
+                    mediaModel.Name = model.File.FileName;
+                    mediaModel.MediaData = memoryStream.ToArray();
+                }
             }
-            return Ok();
+
+            int mediaId = await _mediaService.CreateMedia(mediaModel);
+            return mediaId;
         }
     }
 }

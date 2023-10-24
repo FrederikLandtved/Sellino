@@ -10,14 +10,14 @@
     align-items: center;
     padding: 0 40px;
     height: 45px;
-    background-color: $company-color;
-    color: $text-on-company-color;
+    background-color: var(--company-color);
+    color: var(--text-on-company-color);
     font-weight: 400;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 
     &.active {
-      background-color: $company-color-dark;
+      background-color: var(--company-color-dark);
       box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
     }
 

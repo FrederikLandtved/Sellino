@@ -71,5 +71,18 @@ namespace Sellino.API.Controllers
             int mediaId = await _mediaService.CreateMedia(mediaModel);
             return mediaId;
         }
+
+        [HttpGet("{mediaId}")]
+        public async Task<IActionResult> GetImage(int mediaId)
+        {
+            var mediaModel = await _mediaService.GetMedia(mediaId);
+
+            if (mediaModel == null)
+            {
+                return NotFound();
+            }
+
+            return File(mediaModel.MediaData, mediaModel.Type);
+        }
     }
 }

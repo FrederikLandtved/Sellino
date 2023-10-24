@@ -22,5 +22,10 @@ namespace Sellino.Domain.Repositories
 
             return media.MediaId;
         }
+
+        public async Task<Media> GetMedia(int mediaId)
+        {
+            return await _mediaRepository.Media.FirstOrDefaultAsync(x => x.MediaId == mediaId);
+        }
     }
 }

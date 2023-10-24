@@ -98,8 +98,8 @@
         }
 
         .msg-button {
-          background: $company-color;
-          color: $text-on-company-color;
+          background: var(--company-color);
+          color: var(--text-on-company-color);
           border-radius: 10px;
           padding: 3px 20px;
           font-size: 12px;

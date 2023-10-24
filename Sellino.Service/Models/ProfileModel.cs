@@ -6,8 +6,11 @@
         public Guid ProfileToken { get; set; }
         public string Name { get; set; }
         public string Bio { get; set; }
-        public string BackgroundHexColor { get; set; }
-        public string TextHexColor { get; set; }
+        public string CompanyHexColor { get; set; }
+        public string DarkCompanyHexColor { get; set; }
+        public string TextOnCompanyHexColor { get; set; }
+        public string SecondaryCompanyHexColor { get; set; }
+        public string TextOnSecondaryCompanyHexColor { get; set; }
         public DateTimeOffset DateCreated { get; set; }
         public DateTimeOffset DateModified { get; set; }
         public DateTimeOffset DateDeleted { get; set; }

@@ -35,7 +35,7 @@
 }
 
 .container input:checked ~ .checkmark {
-  background-color: $company-color;
+  background-color: var(--company-color);
 }
 
 .checkmark:after {

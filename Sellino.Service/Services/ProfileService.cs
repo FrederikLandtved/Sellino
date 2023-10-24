@@ -24,8 +24,11 @@ namespace Sellino.Service.Services
                 Name = name,
                 ProfileToken = Guid.NewGuid(),
                 Bio = bio,
-                BackgroundHexColor = "#ffffff",
-                TextHexColor = "#000000",
+                CompanyHexColor = "#5786d1",
+                TextOnCompanyHexColor = "#ffffff",
+                DarkCompanyHexColor = "#3c66aa",
+                SecondaryCompanyHexColor = "#22cc7c",
+                TextOnSecondaryCompanyHexColor = "#ffffff",
                 DateCreated = DateTimeOffset.UtcNow,
                 IsDeleted = false,
                 CreatedByUserId = createdByUserId
@@ -71,8 +74,8 @@ namespace Sellino.Service.Services
             Profile profileToUpdate = await _profileRepository.GetProfile(profile.ProfileToken);
 
             profileToUpdate.Name = profile.Name;
-            profileToUpdate.BackgroundHexColor = profile.BackgroundHexColor;
-            profileToUpdate.TextHexColor = profile.TextHexColor;
+            profileToUpdate.CompanyHexColor = profile.CompanyHexColor;
+            profileToUpdate.TextOnCompanyHexColor = profile.TextOnCompanyHexColor;
             profileToUpdate.Bio = profile.Bio;
 
             return await _profileRepository.UpdateProfile(profileToUpdate);

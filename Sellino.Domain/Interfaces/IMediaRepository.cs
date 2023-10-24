@@ -5,5 +5,6 @@ namespace Sellino.Domain.Interfaces
     public interface IMediaRepository
     {
         Task<int> CreateMedia(Media media);
+        Task<Media> GetMedia(int mediaId);
     }
 }

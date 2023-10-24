@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   getProductGroups() {
+    return;
     this.productGroupService.getProductGroupsForProfile().subscribe(data => this.productGroups = data);
   }
 }

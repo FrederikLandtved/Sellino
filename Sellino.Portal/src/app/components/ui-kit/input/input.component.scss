@@ -37,6 +37,6 @@ label {
   }
 
   &.focused {
-    border: solid $company-color 1px;
+    border: solid var(--company-color) 1px;
   }
 }

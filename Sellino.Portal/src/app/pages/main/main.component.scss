@@ -10,7 +10,7 @@
 }
 
 .sidebar {
-  background-color: $company-color;
+  background-color: var(--company-color);
   width: 300px;
   height: auto;
 
@@ -18,7 +18,7 @@
     padding: 30px;
 
     h4, h5 {
-      color: $text-on-company-color;
+      color: var(--text-on-company-color);
       font-size: 24px;
       font-weight: 500;
     }
@@ -32,7 +32,7 @@
   &__navigation {
     a {
       display: block;
-      color: $text-on-company-color;
+      color: var(--text-on-company-color);
       width: 300px;
       height: 50px;
       display: flex;
@@ -42,19 +42,19 @@
       transition: background 0.2s;
 
       &.active {
-        background: $company-color-dark;
+        background: var(--company-color-dark);
       }
 
       &:hover {
-        background: rgba($company-color-dark, 0.4);
+        background: rgba(var(--company-color-dark), 0.4);
       }
 
       &.active:hover {
-        background: $company-color-dark;
+        background: var(--company-color-dark);
       }
 
       i {
-        color: $text-on-company-color;
+        color: var(--text-on-company-color);
       }
     }
   }

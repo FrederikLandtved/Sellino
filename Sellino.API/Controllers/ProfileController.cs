@@ -89,8 +89,11 @@ namespace Sellino.API.Controllers
                 ProfileToken = profileToken,
                 Name = model.Name,
                 Bio = model.Bio,
-                TextHexColor = model.TextHexColor,
-                BackgroundHexColor = model.BackgroundHexColor
+                TextOnCompanyHexColor = model.TextOnCompanyHexColor,
+                CompanyHexColor = model.CompanyHexColor,
+                SecondaryCompanyHexColor = model.SecondaryCompanyHexColor,
+                TextOnSecondaryCompanyHexColor = model.TextOnSecondaryCompanyHexColor,
+                DarkCompanyHexColor = model.DarkCompanyHexColor
             };
 
             await _profileService.UpdateProfile(profileModel);

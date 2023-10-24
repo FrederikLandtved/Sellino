@@ -5,7 +5,7 @@
 
   &.active {
     .sl-dropdown {
-      border-color: $company-color;
+      border-color: var(--company-color);
       // background: rgb(243, 243, 243);
     }
 

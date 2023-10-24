@@ -3,13 +3,13 @@
 .sl-button {
   height: 40px;
   padding: 0 25px;
-  background-color: $company-color;
+  background-color: var(--company-color);
   color: $text-on-company-color;
   border: 0;
   font-size: 1rem;
   transition: opacity 0.3s ease;
   cursor: pointer;
-  border: 1px solid $company-color;
+  border: 1px solid var(--company-color);
   transition: background-color 0.3s;
   width: 100%;
 
@@ -18,9 +18,9 @@
   }
 
   &.secondary {
-    border: 1px solid $company-color;
+    border: 1px solid var(--company-color);
     background-color: unset;
-    color: $company-color;
+    color: var(--company-color);
     font-weight: 500;
     box-sizing: border-box;
   }

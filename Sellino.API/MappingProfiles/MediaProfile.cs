@@ -3,9 +3,9 @@ using Sellino.Service.Models;
 
 namespace Sellino.API.MappingProfiles
 {
-    public class MediaModel : AutoMapper.Profile
+    public class MediaProfile : AutoMapper.Profile
     {
-        public MediaModel()
+        public MediaProfile()
         {
             CreateMap<MediaModel, Media>()
                 .ReverseMap();

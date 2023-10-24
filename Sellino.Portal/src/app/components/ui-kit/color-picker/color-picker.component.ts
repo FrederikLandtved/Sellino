@@ -29,8 +29,7 @@ export class ColorPickerComponent {
   }
 
 
-  onModelChange(newValue: string) {
-    this.value = newValue;
+  onValueChange(newValue: string) {
     this.valueChange.emit(newValue); 
   }
 }

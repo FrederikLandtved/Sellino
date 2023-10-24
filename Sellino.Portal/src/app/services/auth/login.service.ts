@@ -16,9 +16,9 @@ export class LoginService {
     let loginModel: LoginModel = {email: email, password: password};
 
     this.http.post<LoginModel>(this.apiUrl + '/Auth/Login', loginModel).subscribe(response => {
-      const token = (<any>response).token;
-      const user = (<any>response).user;
-      const profile = (<any>response).profile;
+      const token = (<any>response).Token;
+      const user = (<any>response).User;
+      const profile = (<any>response).Profile;
 
       sessionStorage.setItem("jwt", token);
       sessionStorage.setItem("user", JSON.stringify(user));
@@ -42,6 +42,8 @@ export class LoginService {
 
   logOut() {
     sessionStorage.removeItem("jwt");
+    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("profile");
     this.router.navigate(["auth"]);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/auth/login.service';
+import { ThemeService } from 'src/app/services/theme/theme.service';
 
 @Component({
   selector: 'app-main',
@@ -10,27 +11,23 @@ export class MainComponent implements OnInit {
   fullName: string = '';
   profileName: string = '';
   
-  constructor(private authService: LoginService) {}
+  constructor(private authService: LoginService, private themeService: ThemeService) {}
 
   ngOnInit(): void {
     let userObj = JSON.parse(<any>sessionStorage.getItem("user"));
-    this.fullName = userObj.firstName + ' ' + userObj.lastName;
+    this.fullName = userObj.FirstName + ' ' + userObj.LastName;
 
     this.UpdateColorTheme();
   }
 
   LogOut() {
+    this.themeService.ResetColorTheme();
     this.authService.logOut();
   }
 
   UpdateColorTheme() {
     let profileObj = JSON.parse(<any>sessionStorage.getItem("profile"));
-    this.profileName = profileObj.name;
-
-    document.documentElement.style.setProperty('--company-color', profileObj.companyHexColor);
-    document.documentElement.style.setProperty('--text-on-company-color', profileObj.textOnCompanyHexColor);
-    document.documentElement.style.setProperty('--company-color-dark', profileObj.darkCompanyHexColor);
-    document.documentElement.style.setProperty('--secondary-company-color', profileObj.secondaryCompanyHexColor);
-    document.documentElement.style.setProperty('--secondary-text-color', profileObj.textOnSecondaryCompanyHexColor);
+    this.themeService.UpdateColorTheme(profileObj.CompanyHexColor, profileObj.TextOnCompanyHexColor, profileObj.DarkCompanyHexColor, profileObj.SecondaryCompanyHexColor, profileObj.TextOnSecondaryCompanyHexColor);
+    this.profileName = profileObj.Name;
   }
 }

@@ -46,7 +46,10 @@ builder.Services.AddDbContext<MediaDbContext>(options => options.UseSqlServer(co
 builder.Services.AddScoped<IMediaService, MediaService>();
 builder.Services.AddScoped<IMediaRepository, MediaRepository>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+});
 builder.Services.AddHttpContextAccessor();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

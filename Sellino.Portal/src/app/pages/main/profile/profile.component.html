@@ -1,6 +1,8 @@
 <h2>Profil</h2>
-<tab-rounded [tabOptions]="tabs" (onTabChanged)="onTabClick($event)"></tab-rounded>
-
+<div class="d-flex justify-content-between align-items-center">
+  <tab-rounded [tabOptions]="tabs" (onTabChanged)="onTabClick($event)"></tab-rounded>
+  <sl-button [type]="'secondary'" [title]="'Gem ændringer'" (onClick)="onSubmitUpdate()"></sl-button>
+</div>
 <div class="profile-container d-flex">
   <div *ngIf="currentTab == 'Profilen'" class="profile-container__item round-container">
     <h3>Profilsektioner</h3>
@@ -9,16 +11,53 @@
 
   <div *ngIf="currentTab == 'Farver'" class="profile-container__item round-container">
     <h3>Farver</h3>
-    <sl-color-picker [icon]="'las la-brush'" [label]="'Virksomhedsfarve'" [color]="profileModel.companyHexColor"></sl-color-picker>
+    <sl-color-picker 
+      [icon]="'las la-brush'" 
+      [label]="'Virksomhedsfarve'" 
+      [color]="profileModel.CompanyHexColor"
+      (valueChange)="profileModel.CompanyHexColor = $event">
+    </sl-color-picker>
+
     <sl-margin [px]="30"></sl-margin>
-    <sl-color-picker [icon]="'las la-brush'" [label]="'Tekst på virksomhedsfarve'" [color]="profileModel.textOnCompanyHexColor"></sl-color-picker>
+
+    <sl-color-picker 
+      [icon]="'las la-brush'" 
+      [label]="'Tekst på virksomhedsfarve'" 
+      [color]="profileModel.TextOnCompanyHexColor"
+      (valueChange)="profileModel.TextOnCompanyHexColor = $event">
+    </sl-color-picker>
+
     <sl-margin [px]="30"></sl-margin>
-    <sl-color-picker [icon]="'las la-brush'" [label]="'Mørk virksomhedsfarve'" [color]="profileModel.darkCompanyHexColor"></sl-color-picker>
+
+    <sl-color-picker 
+      [icon]="'las la-brush'" 
+      [label]="'Mørk virksomhedsfarve'" 
+      [color]="profileModel.DarkCompanyHexColor"
+      (valueChange)="profileModel.DarkCompanyHexColor = $event">
+    </sl-color-picker>
+
+    <sl-margin [px]="30"></sl-margin>
+
+    <sl-color-picker 
+      [icon]="'las la-brush'" 
+      [label]="'Sekundær virksomhedsfarve'" 
+      [color]="profileModel.SecondaryCompanyHexColor"
+      (valueChange)="profileModel.SecondaryCompanyHexColor = $event">
+    </sl-color-picker>
+
+    <sl-margin [px]="30"></sl-margin>
+
+    <sl-color-picker 
+      [icon]="'las la-brush'" 
+      [label]="'Tekst på sekundær virksomhedsfarve'" 
+      [color]="profileModel.TextOnSecondaryCompanyHexColor"
+      (valueChange)="profileModel.TextOnSecondaryCompanyHexColor = $event">
+    </sl-color-picker>
   </div>
 
   <div *ngIf="currentTab == 'Tekster'" class="profile-container__item round-container">
     <h3>Tekster</h3>
-    <sl-input name="product-name" label="Profilnavn" [value]="profileModel.name"></sl-input>
+    <sl-input name="product-name" label="Profilnavn" [value]="profileModel.Name" (valueChange)="profileModel.Name = $event"></sl-input>
     <sl-margin [px]="30"></sl-margin>
     <sl-input name="product-name" label="Bio"></sl-input>
   </div>

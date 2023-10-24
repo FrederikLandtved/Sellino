@@ -15,4 +15,9 @@ export class ProfileService {
     var profile = this.http.get<ProfileModel>(this.apiUrl + '/Profile/Edit');
     return profile;
   }
+
+  UpdateProfile(model: ProfileModel) : Observable<ProfileModel> {
+    var profile = this.http.put<ProfileModel>(this.apiUrl + '/Profile/Edit', model);
+    return profile;
+  }
 }

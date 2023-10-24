@@ -17,11 +17,17 @@
     opacity: 0.9;
   }
 
-  &.secondary {
+  &.outline {
     border: 1px solid var(--company-color);
     background-color: unset;
     color: var(--company-color);
     font-weight: 500;
     box-sizing: border-box;
+  }
+
+  &.secondary {
+    background-color: var(--secondary-company-color);
+    color: var(--secondary-text-color);
+    border: 1px solid var(--secondary-company-color);
   }
 }

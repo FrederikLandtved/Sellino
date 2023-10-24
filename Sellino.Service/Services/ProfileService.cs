@@ -71,12 +71,15 @@ namespace Sellino.Service.Services
 
         public async Task<bool> UpdateProfile(ProfileModel profile)
         {
-            Profile profileToUpdate = await _profileRepository.GetProfile(profile.ProfileToken);
-
+            Profile profileToUpdate = await _profileRepository.GetProfileById(profile.ProfileId);
             profileToUpdate.Name = profile.Name;
+            profileToUpdate.Bio = profile.Bio;
             profileToUpdate.CompanyHexColor = profile.CompanyHexColor;
             profileToUpdate.TextOnCompanyHexColor = profile.TextOnCompanyHexColor;
-            profileToUpdate.Bio = profile.Bio;
+            profileToUpdate.DarkCompanyHexColor = profile.DarkCompanyHexColor;
+            profileToUpdate.TextOnSecondaryCompanyHexColor = profile.TextOnSecondaryCompanyHexColor;
+            profileToUpdate.SecondaryCompanyHexColor = profile.SecondaryCompanyHexColor;
+            
 
             return await _profileRepository.UpdateProfile(profileToUpdate);
         }

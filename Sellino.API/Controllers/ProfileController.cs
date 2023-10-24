@@ -83,22 +83,13 @@ namespace Sellino.API.Controllers
         }
 
         [HttpPut]
-        [Route("/Profiles/{profileToken}")]
-        public async Task<IActionResult> UpdateProfile(Guid profileToken, [FromBody]UpdateProfileModel model)
+        [Route("/Profile/Edit")]
+        public async Task<IActionResult> UpdateProfile([FromBody]ProfileModel model)
         {
-            ProfileModel profileModel = new ProfileModel
-            {
-                ProfileToken = profileToken,
-                Name = model.Name,
-                Bio = model.Bio,
-                TextOnCompanyHexColor = model.TextOnCompanyHexColor,
-                CompanyHexColor = model.CompanyHexColor,
-                SecondaryCompanyHexColor = model.SecondaryCompanyHexColor,
-                TextOnSecondaryCompanyHexColor = model.TextOnSecondaryCompanyHexColor,
-                DarkCompanyHexColor = model.DarkCompanyHexColor
-            };
+            int profileId = _userHelper.GetProfileId();
 
-            await _profileService.UpdateProfile(profileModel);
+            await _profileService.UpdateProfile(model);
+
             return Ok();
         }
 

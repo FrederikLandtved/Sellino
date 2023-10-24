@@ -12,6 +12,7 @@
       [(colorPicker)]="color" value="{{color}}"
       (focus)="onInputFocus()" 
       (blur)="onInputBlur()" 
+      (colorPickerChange)="onValueChange($event)"
       />
   </div>
   <div class="color-container">

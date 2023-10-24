@@ -7,9 +7,7 @@ namespace Sellino.API.MappingProfiles
     {
         public ProfileProfile()
         {
-            CreateMap<ProfileModel, Profile>()
-                .ReverseMap()
-                .ForMember(x => x.UserCanEdit, opt => opt.Ignore());
+            CreateMap<ProfileModel, Profile>().ReverseMap();
         }
     }
 }

@@ -3,7 +3,7 @@
   <sl-button 
     *ngFor="let item of buttons.Options" 
     class="sl-button-selector__item"
-    type="{{item.IsSelected ? '': 'secondary'}}"
+    type="{{item.IsSelected ? '': 'outline'}}"
     title="{{item.Title}}" 
     (onClick)="onButtonClick(item)">
   </sl-button>

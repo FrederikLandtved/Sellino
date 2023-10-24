@@ -6,49 +6,23 @@
     <h3>Profilsektioner</h3>
     <create-section-button></create-section-button>
   </div>
+
   <div *ngIf="currentTab == 'Farver'" class="profile-container__item round-container">
     <h3>Farver</h3>
+    <sl-color-picker [icon]="'las la-brush'" [label]="'Virksomhedsfarve'" [color]="profileModel.companyHexColor"></sl-color-picker>
+    <sl-margin [px]="30"></sl-margin>
+    <sl-color-picker [icon]="'las la-brush'" [label]="'Tekst på virksomhedsfarve'" [color]="profileModel.textOnCompanyHexColor"></sl-color-picker>
+    <sl-margin [px]="30"></sl-margin>
+    <sl-color-picker [icon]="'las la-brush'" [label]="'Mørk virksomhedsfarve'" [color]="profileModel.darkCompanyHexColor"></sl-color-picker>
   </div>
+
   <div *ngIf="currentTab == 'Tekster'" class="profile-container__item round-container">
     <h3>Tekster</h3>
-    <sl-input name="product-name" label="Profilnavn"></sl-input>
-    <br>
+    <sl-input name="product-name" label="Profilnavn" [value]="profileModel.name"></sl-input>
+    <sl-margin [px]="30"></sl-margin>
     <sl-input name="product-name" label="Bio"></sl-input>
-    
   </div>
   <div class="profile-container__item round-container">
     <h3>Preview</h3>
-    <div class="preview-container rounded-12">
-      <div class="preview-container__header rounded-10">
-        <div class="overlay-container rounded-10"></div>
-        <div class="profile-name">Rezet Store</div>
-        <div>
-        <div class="profile-info-image d-flex">
-          <img src="../../../../assets/images/Logo.png" alt="">
-          <div class="profile-info-actions">
-            <div class="d-flex justify-content-between" style="padding: 2px 10px 5px 10px;">
-              <div class="number">
-                <div class="integer">392</div>
-                <div class="label">Produkter</div>
-              </div>
-              <div class="number">
-                <div class="integer">10.827</div>
-                <div class="label">Følgere</div>
-              </div>
-              <div class="number">
-                <div class="integer">21</div>
-                <div class="label">Følger</div>
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="msg-button">Beskeder</div>
-              <div class="msg-button">Ordrer</div>
-            </div>
-          </div>
-        </div>
-        <div class="bio">A passion for sneakers since 2011</div>
-      
-      </div>
-    </div>
-  </div>
+    <sl-profile-preview></sl-profile-preview>
 </div>

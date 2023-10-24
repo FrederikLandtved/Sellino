@@ -96,5 +96,15 @@ namespace Sellino.Service.Services
             return await _profileRepository.UserHasAccess(profileId, userId);
         }
 
+        public async Task<ProfileModel> GetProfileById(int profileId)
+        {
+            Profile profile = await _profileRepository.GetProfileById(profileId);
+            if (profile == null)
+                return null;
+
+            ProfileModel model = _autoMapper.Map<ProfileModel>(profile);
+
+            return model;
+        }
     }
 }

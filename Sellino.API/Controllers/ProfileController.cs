@@ -47,17 +47,19 @@ namespace Sellino.API.Controllers
         }
 
         [HttpGet]
-        [Route("/Profiles/Edit/{profileToken}")]
-        public async Task<IActionResult> GetProfileForEdit(Guid profileToken)
+        [Route("/Profile/Edit")]
+        public async Task<IActionResult> GetProfileForEdit()
         {
             int userId = _userHelper.GetUserId();
-            ProfileModel profile = await _profileService.GetProfile(profileToken);
+            int profileId = _userHelper.GetProfileId();
+
+            ProfileModel profile = await _profileService.GetProfileById(profileId);
 
             if(profile != null)
                 profile.UserCanEdit = await _profileService.UserHasAccess(profile.ProfileId, userId);
 
             if (profile != null)
-                return Ok(JsonSerializer.Serialize(new { profile }));
+                return Ok(profile);
 
             return BadRequest(new { Error = ResponseConstants.NotFound });
         }

@@ -1,0 +1,20 @@
+<label *ngIf="label" [for]="name">{{ label }}</label>
+<div class="sl-input rounded-6 d-flex align-items-center" [ngClass]="{'focused': isInputFocused}">
+  <div *ngIf="icon !== ''" class="sl-input__icon d-flex align-items-center justify-content-center">
+    <i [class]="icon"></i>
+  </div>
+  <div class="sl-input__content">
+    <input 
+      class="color-picker-input" 
+      type="text" 
+      [cpAlphaChannel]="'disabled'" 
+      [cpPosition]="'bottom'" 
+      [(colorPicker)]="color" value="{{color}}"
+      (focus)="onInputFocus()" 
+      (blur)="onInputBlur()" 
+      />
+  </div>
+  <div class="color-container">
+    <div class="color-container__color" [ngClass]="{'focused': isInputFocused}" [ngStyle]="{'background-color' : color}"></div>
+  </div>
+</div>

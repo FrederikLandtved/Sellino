@@ -84,27 +84,31 @@ namespace Sellino.API.Controllers
         private string SetToken(User loggedInUser, ProfileModel profile)
         {
             var jwt = _configuration.GetSection("Jwt").Get<JWT>();
-            var claims = new[]
+            var claims = new List<Claim>
             {
-                        new Claim(JwtRegisteredClaimNames.Sub, jwt.Subject),
-                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                        new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                        new Claim(ClaimConstants.UserId, loggedInUser.UserId.ToString()),
-                        new Claim(ClaimConstants.Email, loggedInUser.Email),
-                        new Claim(ClaimConstants.FirstName, loggedInUser.FirstName),
+                new Claim(JwtRegisteredClaimNames.Sub, jwt.Subject),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
+                new Claim(ClaimConstants.UserId, loggedInUser.UserId.ToString()),
+                new Claim(ClaimConstants.Email, loggedInUser.Email),
+                new Claim(ClaimConstants.FirstName, loggedInUser.FirstName)
             };
 
-            if(profile != null)
+            if (profile != null)
             {
-                claims.Append(new Claim(ClaimConstants.ProfileId, profile.ProfileId.ToString()));
+                claims.Add(new Claim(ClaimConstants.ProfileId, profile.ProfileId.ToString()));
             }
+
+            // If you need an array, you can convert the list to an array
+            var claimsArray = claims.ToArray();
+
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key));
             var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                     jwt.Issuer,
                     jwt.Audience,
-                    claims,
+                    claimsArray,
                     expires: DateTime.Now.AddDays(5),
                     signingCredentials: signIn);
 

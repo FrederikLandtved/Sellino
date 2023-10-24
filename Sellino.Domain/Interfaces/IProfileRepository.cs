@@ -8,6 +8,7 @@ namespace Sellino.Domain.Interfaces
         Task<int> CreateProfile(Profile profile);
         Task<List<Profile>> GetProfiles();
         Task<Profile> GetProfile(Guid profileToken);
+        Task<Profile> GetProfileById(int profileId);
         Task<List<Profile>> GetProfilesByUserId(int userId);
         Task<bool> UpdateProfile(Profile profile);
         Task<bool> DeleteProfile(Guid profileToken);

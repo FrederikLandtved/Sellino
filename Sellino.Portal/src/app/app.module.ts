@@ -24,6 +24,9 @@ import { LoadingIndicatorComponent } from './components/ui-kit/loading-indicator
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { CheckboxComponent } from './components/ui-kit/checkbox/checkbox.component';
 import { MarginComponent } from './components/ui-kit/margin/margin.component';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { ColorPickerComponent } from './components/ui-kit/color-picker/color-picker.component';
+import { ProfilePreviewComponent } from './components/profile/profile-preview/profile-preview.component';
 
 @NgModule({
   declarations: [
@@ -46,14 +49,17 @@ import { MarginComponent } from './components/ui-kit/margin/margin.component';
     LoadingIndicatorComponent,
     RegisterComponent,
     CheckboxComponent,
-    MarginComponent
+    MarginComponent,
+    ColorPickerComponent,
+    ProfilePreviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ColorPickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -41,5 +41,17 @@ namespace Sellino.API.Helpers
 
             return firstNameClaim;
         }
+
+        // Needs refactoring when it's possible to have access to multiple profiles
+        public int GetProfileId()
+        {
+            int profileId = 0;
+
+            var user = _httpContextAccessor.HttpContext.User;
+            string profileClaim = user.Claims.First(x => x.Type == ClaimConstants.ProfileId).Value;
+            int.TryParse(profileClaim, out profileId);
+
+            return profileId;
+        }
     }
 }

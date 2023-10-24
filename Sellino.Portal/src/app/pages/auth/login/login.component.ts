@@ -23,7 +23,21 @@ export class LoginComponent {
     this.isLoading = true;
 
     setTimeout(() => {
-      this.loginService.authenticate(this.emailForm, this.passwordForm);
+      this.loginService.authenticate(this.emailForm, this.passwordForm).subscribe(response => {
+        const token = (<any>response).Token;
+        const user = (<any>response).User;
+        const profile = (<any>response).Profile;
+  
+        sessionStorage.setItem("jwt", token);
+        sessionStorage.setItem("user", JSON.stringify(user));
+        sessionStorage.setItem("profile", JSON.stringify(profile));
+  
+        this.router.navigate(["/"]);
+      }, err => {
+        console.log(err);
+        
+        this.isLoading = false;
+      });
     }, 0);
 
   }

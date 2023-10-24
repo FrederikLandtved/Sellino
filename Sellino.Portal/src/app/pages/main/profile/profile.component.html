@@ -1,7 +1,8 @@
 <h2>Profil</h2>
 <div class="d-flex justify-content-between align-items-center">
   <tab-rounded [tabOptions]="tabs" (onTabChanged)="onTabClick($event)"></tab-rounded>
-  <sl-button [type]="'secondary'" [title]="'Gem ændringer'" (onClick)="onSubmitUpdate()"></sl-button>
+  <sl-loading *ngIf="isLoadingUpdate"></sl-loading>
+  <sl-button  *ngIf="!isLoadingUpdate" [type]="'secondary'" [title]="'Gem ændringer'" (onClick)="onSubmitUpdate()"></sl-button>
 </div>
 <div class="profile-container d-flex">
   <div *ngIf="currentTab == 'Profilen'" class="profile-container__item round-container">
@@ -59,7 +60,7 @@
     <h3>Tekster</h3>
     <sl-input name="product-name" label="Profilnavn" [value]="profileModel.Name" (valueChange)="profileModel.Name = $event"></sl-input>
     <sl-margin [px]="30"></sl-margin>
-    <sl-input name="product-name" label="Bio"></sl-input>
+    <sl-input name="product-name" label="Bio" [value]="profileModel.Bio" (valueChange)="profileModel.Bio = $event"></sl-input>
   </div>
   <div class="profile-container__item round-container">
     <h3>Preview</h3>

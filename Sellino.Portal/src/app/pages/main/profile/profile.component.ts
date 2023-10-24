@@ -12,8 +12,8 @@ import { ThemeService } from 'src/app/services/theme/theme.service';
 export class ProfileComponent implements OnInit {
   tabs: Tab[] = [];
   currentTab: string = "";
-  showCreateDialog: boolean = true;
   profileModel: ProfileModel = {Name: '', Bio: 'Test', CompanyHexColor: '', DarkCompanyHexColor: '', TextOnCompanyHexColor: '', SecondaryCompanyHexColor: '', TextOnSecondaryCompanyHexColor: ''};
+  isLoadingUpdate: boolean = false;
 
   constructor(private profileService: ProfileService, private themeService: ThemeService) {}
 
@@ -33,11 +33,17 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmitUpdate() {
-    this.profileService.UpdateProfile(this.profileModel)
+    this.isLoadingUpdate = true;
+
+    setTimeout(() => {
+      this.profileService.UpdateProfile(this.profileModel)
       .subscribe(data => {
         console.log(data);
         this.themeService.UpdateColorTheme(this.profileModel.CompanyHexColor, this.profileModel.TextOnCompanyHexColor, this.profileModel.DarkCompanyHexColor, this.profileModel.SecondaryCompanyHexColor, this.profileModel.TextOnSecondaryCompanyHexColor);
         sessionStorage.setItem("profile", JSON.stringify(this.profileModel));
+        this.isLoadingUpdate = false;
       });
+    }, 1000);
+
   }
 }

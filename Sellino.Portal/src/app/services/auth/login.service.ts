@@ -15,26 +15,14 @@ export class LoginService {
   authenticate(email: string, password: string) {
     let loginModel: LoginModel = {email: email, password: password};
 
-    this.http.post<LoginModel>(this.apiUrl + '/Auth/Login', loginModel).subscribe(response => {
-      const token = (<any>response).Token;
-      const user = (<any>response).User;
-      const profile = (<any>response).Profile;
-
-      sessionStorage.setItem("jwt", token);
-      sessionStorage.setItem("user", JSON.stringify(user));
-      sessionStorage.setItem("profile", JSON.stringify(profile));
-
-      this.router.navigate(["/"]);
-    }, err => {
-
-    })
+    return this.http.post<LoginModel>(this.apiUrl + '/Auth/Login', loginModel);
   }
 
   register(email: string, password: string, firstName: string, lastName: string, createProfile: boolean, profileName: string = "") {
     let registerModel: RegisterModel = { email: email, password: password, firstName: firstName, lastName: lastName, createProfile: createProfile, profileName: profileName };
 
     this.http.post<LoginModel>(this.apiUrl + '/Auth/AddUser', registerModel).subscribe(response => {
-      console.log(response);
+      this.router.navigate(['auth']);
     }, err => {
 
     })

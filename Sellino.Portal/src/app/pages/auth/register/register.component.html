@@ -13,7 +13,9 @@
       
       <sl-button [title]="'Opret'" *ngIf="!isLoading" (click)="tryRegister()"></sl-button>
       <sl-button [title]="'Tilbage til log ind'" [type]="'secondary'" (click)="backToLogin()" *ngIf="!isLoading"></sl-button>
-      <sl-loading-indicator *ngIf="isLoading"></sl-loading-indicator>
+      <div class="d-flex justify-content-center">
+        <sl-loading *ngIf="isLoading"></sl-loading>
+      </div>
     </div>
   </div>
 </form>

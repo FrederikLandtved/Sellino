@@ -63,7 +63,7 @@
     <sl-input name="product-name" label="Bio" [value]="profileModel.Bio" (valueChange)="profileModel.Bio = $event"></sl-input>
   </div>
 
-  <div *ngIf="currentTab == 'Mediefiler'" class="profile-container__item round-container">
+  <div [hidden]="currentTab !== 'Mediefiler'" class="profile-container__item round-container">
     <h3>Mediefiler</h3>
     <sl-media-picker [label]="'Profilbillede'" [mediaId]="isLoadingProfile ? null : profileModel.ProfileMediaId" (valueChange)="profileModel.ProfileMediaId = $event"></sl-media-picker>
     <sl-margin [px]="30"></sl-margin>

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
+import { SafeUrl } from '@angular/platform-browser';
 import { MediaService } from 'src/app/services/media/media.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class MediaPickerComponent implements OnInit, OnChanges {
   isInputFocused: boolean = false;
   selectedImage: SafeUrl | undefined;
 
-  constructor(private sanitizer: DomSanitizer, private mediaService: MediaService) {}
+  constructor(private mediaService: MediaService) {}
 
   ngOnInit(): void {
     if (this.mediaId !== null) {
@@ -40,11 +40,7 @@ export class MediaPickerComponent implements OnInit, OnChanges {
     if (mediaId !== null) {
       this.mediaService.GetMedia(mediaId).subscribe(data => {
         if (data.MediaData) {
-          const base64String = data.MediaData;
-  
-          // Create a data URL from the base64 string
-          const dataURL = `data:${data.Type};base64,${base64String}`;
-          this.selectedImage = this.sanitizer.bypassSecurityTrustUrl(dataURL); // Sanitize the URL
+          this.selectedImage = this.mediaService.ConvertMedia(data); // Sanitize the URL
         }
       });
     }

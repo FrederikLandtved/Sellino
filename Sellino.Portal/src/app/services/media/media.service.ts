@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MediaModel } from './media';
+import { DomSanitizer } from '@angular/platform-browser';
 @Injectable({
   providedIn: 'root'
 })
 export class MediaService {
   private apiUrl = 'https://localhost:7240';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
 
   UploadMedia(file: any) : Observable<number> {
     let fd = new FormData();
@@ -18,5 +19,12 @@ export class MediaService {
 
   GetMedia(mediaId: number | null) : Observable<MediaModel> {
     return this.http.get<MediaModel>(this.apiUrl + '/Media/' + mediaId);
+  }
+
+  ConvertMedia(mediaData: MediaModel) : string{
+    const base64String = mediaData.MediaData;
+  
+    const dataURL = `data:${mediaData.Type};base64,${base64String}`;
+    return dataURL;
   }
 }

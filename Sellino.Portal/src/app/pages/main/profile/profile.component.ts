@@ -30,9 +30,7 @@ export class ProfileComponent implements OnInit {
   getProfileForEditing() {
     this.isLoadingProfile = true;
 
-    this.profileService.GetProfileForEdit().subscribe(data => {
-      console.log(data);
-      
+    this.profileService.GetProfileForEdit().subscribe(data => {      
       this.profileModel = data;
       this.isLoadingProfile = false;
     });
@@ -44,7 +42,6 @@ export class ProfileComponent implements OnInit {
     setTimeout(() => {
       this.profileService.UpdateProfile(this.profileModel)
       .subscribe(data => {
-        console.log(data);
         this.themeService.UpdateColorTheme(this.profileModel.CompanyHexColor, this.profileModel.TextOnCompanyHexColor, this.profileModel.DarkCompanyHexColor, this.profileModel.SecondaryCompanyHexColor, this.profileModel.TextOnSecondaryCompanyHexColor);
         sessionStorage.setItem("profile", JSON.stringify(this.profileModel));
         this.isLoadingUpdate = false;

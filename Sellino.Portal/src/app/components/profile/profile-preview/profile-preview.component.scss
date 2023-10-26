@@ -13,7 +13,6 @@
     justify-content: space-between;
     height: 243px;
     width: 100%;
-    background: red;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px;
@@ -35,6 +34,7 @@
       font-weight: 300;
       margin-top: 10px;
       z-index: 2;
+      min-height: 20px;
     }
 
     .overlay-container {

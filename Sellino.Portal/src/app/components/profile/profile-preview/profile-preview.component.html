@@ -1,10 +1,10 @@
 <div class="preview-container rounded-12">
-  <div class="preview-container__header rounded-10">
+  <div class="preview-container__header rounded-10" [ngStyle]="{ 'background-image': 'url(' + coverMedia + ')' }">
     <div class="overlay-container rounded-10"></div>
-    <div class="profile-name">Rezet Store</div>
+    <div class="profile-name">{{ profileName }}</div>
     <div>
       <div class="profile-info-image d-flex">
-        <img src="../../../../assets/images/Logo.png" alt="">
+        <img [src]="profileMedia" alt="">
         <div class="profile-info-actions">
           <div class="d-flex justify-content-between" style="padding: 2px 10px 5px 10px;">
             <div class="number">
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <div class="bio">A passion for sneakers since 2011</div>
+      <div class="bio">{{ bio }}</div>
     </div>
   </div>
 </div>

@@ -5,11 +5,10 @@
   <sl-button  *ngIf="!isLoadingUpdate" [type]="'secondary'" [title]="'Gem ændringer'" (onClick)="onSubmitUpdate()"></sl-button>
 </div>
 <div class="profile-container d-flex">
-  <div *ngIf="currentTab == 'Profilen'" class="profile-container__item round-container">
-    <h3>Profilsektioner</h3>
+  <div *ngIf="currentTab == 'Sider'" class="profile-container__item round-container">
+    <h3>Profilsider</h3>
     <create-section-button></create-section-button>
   </div>
-
   <div *ngIf="currentTab == 'Farver'" class="profile-container__item round-container">
     <h3>Farver</h3>
     <sl-color-picker 

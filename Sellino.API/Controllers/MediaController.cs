@@ -73,7 +73,7 @@ namespace Sellino.API.Controllers
         }
 
         [HttpGet("{mediaId}")]
-        public async Task<IActionResult> GetImage(int mediaId)
+        public async Task<IActionResult> GetMedia(int mediaId)
         {
             var mediaModel = await _mediaService.GetMedia(mediaId);
 
@@ -82,7 +82,18 @@ namespace Sellino.API.Controllers
                 return NotFound();
             }
 
-            return File(mediaModel.MediaData, mediaModel.Type);
+            var base64MediaData = Convert.ToBase64String(mediaModel.MediaData);
+
+            // Return the base64 encoded media data as part of the response
+            return Ok(new
+            {
+                MediaId = mediaModel.MediaId,
+                MediaToken = mediaModel.MediaToken,
+                Name = mediaModel.Name,
+                Type = mediaModel.Type,
+                MediaData = base64MediaData,
+                DateCreated = mediaModel.DateCreated
+            });
         }
     }
 }

@@ -9,6 +9,8 @@ namespace Sellino.Domain.Models
         public Guid ProfileToken { get; set; }
         public string Name { get; set; }
         public string Bio { get; set; }
+        public int? ProfileMediaId { get; set; }
+        public int? CoverMediaId { get; set; }
         public string CompanyHexColor { get; set; }
         public string DarkCompanyHexColor { get; set; }
         public string TextOnCompanyHexColor { get; set; }

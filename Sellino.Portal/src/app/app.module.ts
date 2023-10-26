@@ -27,6 +27,7 @@ import { MarginComponent } from './components/ui-kit/margin/margin.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { ColorPickerComponent } from './components/ui-kit/color-picker/color-picker.component';
 import { ProfilePreviewComponent } from './components/profile/profile-preview/profile-preview.component';
+import { MediaPickerComponent } from './components/ui-kit/media-picker/media-picker.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ProfilePreviewComponent } from './components/profile/profile-preview/pr
     CheckboxComponent,
     MarginComponent,
     ColorPickerComponent,
-    ProfilePreviewComponent
+    ProfilePreviewComponent,
+    MediaPickerComponent
   ],
   imports: [
     BrowserModule,

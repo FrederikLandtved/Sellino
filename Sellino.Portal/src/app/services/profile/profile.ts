@@ -5,5 +5,7 @@ export interface ProfileModel {
   DarkCompanyHexColor: string,
   TextOnCompanyHexColor: string,
   SecondaryCompanyHexColor: string,
-  TextOnSecondaryCompanyHexColor: string
+  TextOnSecondaryCompanyHexColor: string,
+  ProfileMediaId: number | null,
+  CoverMediaId: number | null
 }

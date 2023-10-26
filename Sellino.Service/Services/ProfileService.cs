@@ -79,6 +79,8 @@ namespace Sellino.Service.Services
             profileToUpdate.DarkCompanyHexColor = profile.DarkCompanyHexColor;
             profileToUpdate.TextOnSecondaryCompanyHexColor = profile.TextOnSecondaryCompanyHexColor;
             profileToUpdate.SecondaryCompanyHexColor = profile.SecondaryCompanyHexColor;
+            profileToUpdate.ProfileMediaId = profile.ProfileMediaId;
+            profileToUpdate.CoverMediaId = profile.CoverMediaId;
             
 
             return await _profileRepository.UpdateProfile(profileToUpdate);

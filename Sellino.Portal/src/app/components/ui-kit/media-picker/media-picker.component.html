@@ -1,0 +1,19 @@
+<label *ngIf="label" [for]="name">{{ label }}</label>
+<div class="sl-input rounded-6 d-flex align-items-center" [ngClass]="{'focused': isInputFocused}">
+  <div class="sl-input__icon d-flex align-items-center justify-content-center">
+    <img *ngIf="selectedImage" [src]="selectedImage" alt="Selected Image">
+    <i *ngIf="!selectedImage" [class]="'las la-photo-video'"></i>
+  </div>
+  <div class="sl-input__content">
+    <input 
+      [name]="name" 
+      [placeholder]="placeholder" 
+      [ngModel]="value"
+      (focus)="onInputFocus()" 
+      (blur)="onInputBlur()" 
+      (change)="onFileSelected($event)"
+      #inputRef
+      type="file"
+    >
+  </div>
+</div>

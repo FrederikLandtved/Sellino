@@ -12,13 +12,14 @@ import { ThemeService } from 'src/app/services/theme/theme.service';
 export class ProfileComponent implements OnInit {
   tabs: Tab[] = [];
   currentTab: string = "";
-  profileModel: ProfileModel = {Name: '', Bio: 'Test', CompanyHexColor: '', DarkCompanyHexColor: '', TextOnCompanyHexColor: '', SecondaryCompanyHexColor: '', TextOnSecondaryCompanyHexColor: ''};
+  profileModel: ProfileModel = {Name: '', Bio: 'Test', CompanyHexColor: '', DarkCompanyHexColor: '', TextOnCompanyHexColor: '', SecondaryCompanyHexColor: '', TextOnSecondaryCompanyHexColor: '', ProfileMediaId: 0, CoverMediaId: 0};
   isLoadingUpdate: boolean = false;
+  isLoadingProfile: boolean = true;
 
   constructor(private profileService: ProfileService, private themeService: ThemeService) {}
 
   ngOnInit(): void {
-    this.tabs = [{title: 'Farver'}, { title: 'Profilen' }, {title: 'Tekster'}, {title: 'Mediefiler'}, {title: 'Returret'}, { title: 'Betaling' }];
+    this.tabs = [ { title: 'Profilen' }, {title: 'Farver'}, {title: 'Mediefiler'}, {title: 'Tekster'},{title: 'Returret'}, { title: 'Betaling' }];
     this.getProfileForEditing();
   }
 
@@ -27,8 +28,13 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfileForEditing() {
+    this.isLoadingProfile = true;
+
     this.profileService.GetProfileForEdit().subscribe(data => {
+      console.log(data);
+      
       this.profileModel = data;
+      this.isLoadingProfile = false;
     });
   }
 

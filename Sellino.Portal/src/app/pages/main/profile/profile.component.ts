@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   profileModel: ProfileModel = {Name: '', Bio: 'Test', CompanyHexColor: '', DarkCompanyHexColor: '', TextOnCompanyHexColor: '', SecondaryCompanyHexColor: '', TextOnSecondaryCompanyHexColor: '', ProfileMediaId: 0, CoverMediaId: 0};
   isLoadingUpdate: boolean = false;
   isLoadingProfile: boolean = true;
+  showCreateNewPage: boolean = false;
 
   constructor(private profileService: ProfileService, private themeService: ThemeService) {}
 

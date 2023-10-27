@@ -1,0 +1,36 @@
+@use '../../../../theme.scss' as *;
+
+.sl-button-round {
+  min-height: 40px;
+  min-width: 40px;
+  max-height: 40px;
+  max-width: 40px;
+  border-radius: 100%;
+  background-color: var(--company-color);
+  color: $text-on-company-color;
+  border: 0;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  border: 1px solid var(--company-color);
+  transition: background-color 0.3s;
+  width: 100%;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &.outline {
+    border: 1px solid var(--company-color);
+    background-color: unset;
+    color: var(--company-color);
+    font-weight: 500;
+    box-sizing: border-box;
+  }
+
+  &.secondary {
+    background-color: var(--secondary-company-color);
+    color: var(--secondary-text-color);
+    border: 1px solid var(--secondary-company-color);
+  }
+}

@@ -1,0 +1,9 @@
+<button (click)="onButtonClick()" 
+        class="sl-button-round rounded-6 align-items-center"
+        [ngClass]="{
+          'primary': type === 'primary',
+          'secondary': type === 'secondary',
+          'outline': type === 'outline'
+        }">
+        <i [class]="title"></i>
+</button>

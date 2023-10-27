@@ -111,4 +111,26 @@
       }
     }
   }
+
+  .page-list-container {
+    h4 {
+      margin-bottom: 10px;
+    }
+    &__item{
+      width: 100%;
+      border-bottom: 1px solid rgb(207, 207, 207);
+      border-left: 1px solid rgb(207, 207, 207);
+      border-right: 1px solid rgb(207, 207, 207);
+
+      &:nth-child(1){
+        border-top: 1px solid rgb(207, 207, 207);
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+      }
+      &:last-child{
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+    }
+  }
 }

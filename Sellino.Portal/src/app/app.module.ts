@@ -28,6 +28,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { ColorPickerComponent } from './components/ui-kit/color-picker/color-picker.component';
 import { ProfilePreviewComponent } from './components/profile/profile-preview/profile-preview.component';
 import { MediaPickerComponent } from './components/ui-kit/media-picker/media-picker.component';
+import { ButtonRoundComponent } from './components/ui-kit/button-round/button-round.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { MediaPickerComponent } from './components/ui-kit/media-picker/media-pic
     MarginComponent,
     ColorPickerComponent,
     ProfilePreviewComponent,
-    MediaPickerComponent
+    MediaPickerComponent,
+    ButtonRoundComponent
   ],
   imports: [
     BrowserModule,

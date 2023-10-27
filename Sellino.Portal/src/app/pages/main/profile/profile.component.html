@@ -6,8 +6,37 @@
 </div>
 <div class="profile-container d-flex">
   <div *ngIf="currentTab == 'Sider'" class="profile-container__item round-container">
-    <h3>Profilsider</h3>
-    <create-section-button></create-section-button>
+    <div class="d-flex justify-content-between">
+      <h3>Profilsider</h3>
+      <sl-button-round [title]="'las la-plus'" [type]="'secondary'" (onClick)="showCreateNewPage = !showCreateNewPage"></sl-button-round>
+    </div>
+    <sl-margin [px]="20"></sl-margin>
+    <div class="page-list-container" style="margin-bottom: 10px;">
+      <div *ngIf="showCreateNewPage" class="page-list-container__item align-items-center p-20">
+        <h4>Ny profilside</h4>
+        <div class="d-flex justify-content-between">
+          <sl-input [icon]="'las la-search'" [placeholder]="'Navn på siden'"></sl-input>
+          <div class="d-flex">
+            <sl-button title="Gem" style="margin-right: 10px;"></sl-button>
+            <sl-button title="Annuller" type="outline" (onClick)="showCreateNewPage = false"></sl-button>
+          </div>
+        </div>
+      </div>
+  </div>
+    <div class="page-list-container">
+      <div class="page-list-container__item d-flex align-items-center p-20">
+        <span>Forside</span>
+      </div>
+      <div class="page-list-container__item d-flex align-items-center p-20">
+        <span>Benal</span>
+      </div>
+      <div class="page-list-container__item d-flex align-items-center p-20">
+        <span>Kidd</span>
+      </div>
+      <div class="page-list-container__item d-flex align-items-center p-20">
+        <span>Kesi</span>
+      </div>
+    </div>
   </div>
   <div *ngIf="currentTab == 'Farver'" class="profile-container__item round-container">
     <h3>Farver</h3>

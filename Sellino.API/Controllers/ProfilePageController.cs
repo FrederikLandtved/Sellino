@@ -11,7 +11,7 @@ using System.Text.Json;
 
 namespace Sellino.API.Controllers
 {
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     [Route("[controller]")]
     public class ProfilePageController : ControllerBase
@@ -23,6 +23,20 @@ namespace Sellino.API.Controllers
         {
             _profilePageService = profilePageService;
             _userHelper = userHelper;
+        }
+
+        [HttpGet]
+        [Route("/ProfilePages/")]
+        public async Task<IActionResult> GetProfilePages()
+        {
+            int profileId = _userHelper.GetProfileId();
+
+            List<ProfilePageModel> profilePages = await _profilePageService.GetProfilePagesByProfileId(profileId);
+
+            if (profilePages != null)
+                return Ok(JsonSerializer.Serialize(profilePages));
+
+            return BadRequest(new { Error = ResponseConstants.NotFound });
         }
 
         [HttpGet]
@@ -52,15 +66,25 @@ namespace Sellino.API.Controllers
             return BadRequest(new { Error = ResponseConstants.NotFound });
         }
 
-        //[HttpPost]
-        //[Route("/Profiles")]
-        //public async Task<IActionResult> CreateProfile([FromBody]CreateProfileModel model)
-        //{
-        //    var userId = _userHelper.GetUserId();
-        //    int profileId = await _profileService.CreateProfile(model.Name, model.Bio, userId);
+        [HttpPost]
+        [Route("/ProfilePages")]
+        public async Task<IActionResult> CreateProfilePage([FromBody] CreateProfilePageModel model)
+        {
+            var profileId = _userHelper.GetProfileId();
+            int profilePageId = 0;
 
-        //    return Ok(new { ProfileId = profileId });
-        //}
+            if (!String.IsNullOrEmpty(model.Name)) 
+            {
+                profilePageId = await _profilePageService.CreateProfilePage(new ProfilePageModel { IsFrontpage = model.IsFrontpage, Name = model.Name, ProfileId = profileId });
+            }
+
+            if(profilePageId != 0)
+            {
+                return Ok(profilePageId);
+            }
+
+            return BadRequest();
+        }
 
         //[HttpDelete]
         //[Route("/Profiles/{profileToken}")]

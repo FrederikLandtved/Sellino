@@ -4,38 +4,30 @@
   <sl-loading *ngIf="isLoadingUpdate"></sl-loading>
   <sl-button  *ngIf="!isLoadingUpdate" [type]="'secondary'" [title]="'Gem ændringer'" (onClick)="onSubmitUpdate()"></sl-button>
 </div>
+
 <div class="profile-container d-flex">
   <div *ngIf="currentTab == 'Sider'" class="profile-container__item round-container">
     <div class="d-flex justify-content-between">
-      <h3>Profilsider</h3>
-      <sl-button-round [title]="'las la-plus'" [type]="'secondary'" (onClick)="showCreateNewPage = !showCreateNewPage"></sl-button-round>
+      <h3>Sider</h3>
+      <sl-button-round [title]="'las la-plus'" [type]="'secondary'" (onClick)="showCreateNewPage = !showCreateNewPage" style="margin-top: -6px;"></sl-button-round>
     </div>
-    <sl-margin [px]="20"></sl-margin>
     <div class="page-list-container" style="margin-bottom: 10px;">
       <div *ngIf="showCreateNewPage" class="page-list-container__item align-items-center p-20">
-        <h4>Ny profilside</h4>
         <div class="d-flex justify-content-between">
-          <sl-input [icon]="'las la-search'" [placeholder]="'Navn på siden'"></sl-input>
+          <sl-input [icon]="'las la-tag'" [placeholder]="'Navn på ny side'" [value]="newProfileName" (valueChange)="newProfileName = $event"></sl-input>
           <div class="d-flex">
-            <sl-button title="Gem" style="margin-right: 10px;"></sl-button>
+            <sl-button title="Gem" (onClick)="createNewPage()" style="margin-right: 10px;"></sl-button>
             <sl-button title="Annuller" type="outline" (onClick)="showCreateNewPage = false"></sl-button>
           </div>
         </div>
       </div>
-  </div>
+    </div>
     <div class="page-list-container">
-      <div class="page-list-container__item d-flex align-items-center p-20">
-        <span>Forside</span>
-      </div>
-      <div class="page-list-container__item d-flex align-items-center p-20">
-        <span>Benal</span>
-      </div>
-      <div class="page-list-container__item d-flex align-items-center p-20">
-        <span>Kidd</span>
-      </div>
-      <div class="page-list-container__item d-flex align-items-center p-20">
-        <span>Kesi</span>
-      </div>
+      <ng-container *ngFor="let item of profilePages">
+        <div class="page-list-container__item d-flex align-items-center p-20">
+          <span>{{ item.Name }}</span>
+        </div>
+      </ng-container>
     </div>
   </div>
   <div *ngIf="currentTab == 'Farver'" class="profile-container__item round-container">
@@ -100,4 +92,5 @@
   <div class="profile-container__item round-container">
     <h3>Preview</h3>
     <sl-profile-preview [profileMediaId]="profileModel.ProfileMediaId" [coverMediaId]="profileModel.CoverMediaId" [profileName]="profileModel.Name" [bio]="profileModel.Bio"></sl-profile-preview>
+  </div>
 </div>

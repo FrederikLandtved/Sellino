@@ -5,5 +5,6 @@
           'secondary': type === 'secondary',
           'outline': type === 'outline'
         }">
-  {{ title }}
+  <ng-container *ngIf="!isLoading">{{ title }}</ng-container>
+  <ng-container *ngIf="isLoading"><sl-loading></sl-loading></ng-container>
 </button>

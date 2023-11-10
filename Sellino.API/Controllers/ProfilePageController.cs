@@ -17,12 +17,14 @@ namespace Sellino.API.Controllers
     public class ProfilePageController : ControllerBase
     {
         private readonly IProfilePageService _profilePageService;
+        private readonly IProfilePageSectionService _profilePageSectionService;
         private readonly UserHelper _userHelper;
 
-        public ProfilePageController(IProfilePageService profilePageService, UserHelper userHelper)
+        public ProfilePageController(IProfilePageService profilePageService, UserHelper userHelper, IProfilePageSectionService profilePageSectionService)
         {
             _profilePageService = profilePageService;
             _userHelper = userHelper;
+            _profilePageSectionService = profilePageSectionService;
         }
 
         [HttpGet]
@@ -38,6 +40,32 @@ namespace Sellino.API.Controllers
 
             return BadRequest(new { Error = ResponseConstants.NotFound });
         }
+
+        [HttpGet]
+        [Route("/ProfilePages/Sections")]
+        public async Task<IActionResult> GetProfilePagesWithSections()
+        {
+            int profileId = _userHelper.GetProfileId();
+            List<ProfilePageWithSectionsModel> model = new List<ProfilePageWithSectionsModel>();
+            List<ProfilePageModel> profilePages = await _profilePageService.GetProfilePagesByProfileId(profileId);
+
+            if (profilePages != null)
+            {
+                foreach (ProfilePageModel profilePage in profilePages)
+                {
+                    model.Add(new ProfilePageWithSectionsModel
+                    {
+                        ProfilePage = profilePage,
+                        Sections = await _profilePageSectionService.GetProfilePageSections(profilePage.ProfilePageId)
+                    });
+                }
+
+                return Ok(JsonSerializer.Serialize(model));
+            }
+
+            return BadRequest(new { Error = ResponseConstants.NotFound });
+        }
+
 
         [HttpGet]
         [Route("/ProfilePages/{profilePageToken}")]

@@ -1,0 +1,46 @@
+.page-list-container {
+  margin-top: 10px;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 4px;
+  transition: border 0.4s;
+
+  &.selected {
+    border: 1px solid var(--company-color)
+  }
+
+  &__item {
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .sections-container {
+    min-height: 10px;
+    overflow: hidden;
+    transition: min-height 0.3s ease-in-out;
+    border-top: none;
+  }
+
+  .sections-amount{
+    font-size: 14px;
+  }
+
+  .highlighted{
+    background: var(--secondary-company-color);
+    color: var(--text-on-secondary-color);
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    color: white;
+
+    &.green {
+      background-color: rgb(23, 233, 135);
+      color: rgb(14, 91, 14);
+    }
+
+    &.red {
+      background-color: rgb(255, 132, 132);
+      color: rgb(93, 10, 10);
+    }
+  }
+}

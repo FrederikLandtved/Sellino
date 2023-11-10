@@ -44,11 +44,14 @@ builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddDbContext<ProfilePageDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(ProfilePageDbContext).Assembly.FullName)));
 builder.Services.AddScoped<IProfilePageService, ProfilePageService>();
 builder.Services.AddScoped<IProfilePageRepository, ProfilePageRepository>();
+builder.Services.AddScoped<IProfilePageSectionService, ProfilePageSectionService>();
+builder.Services.AddScoped<IProfilePageSectionRepository, ProfilePageSectionRepository>();
 
 builder.Services.AddDbContext<UserProfileDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(UserProfileDbContext).Assembly.FullName)));
 builder.Services.AddDbContext<MediaDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(MediaDbContext).Assembly.FullName)));
 builder.Services.AddScoped<IMediaService, MediaService>();
 builder.Services.AddScoped<IMediaRepository, MediaRepository>();
+builder.Services.AddDbContext<ProfilePageSectionDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(ProfilePageSectionDbContext).Assembly.FullName)));
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {

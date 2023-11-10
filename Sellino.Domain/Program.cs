@@ -14,6 +14,7 @@ builder.Services.AddDbContext<ProfileDbContext>(options => options.UseSqlServer(
 builder.Services.AddDbContext<ProfilePageDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(ProfilePageDbContext).Assembly.FullName)));
 builder.Services.AddDbContext<UserProfileDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(UserProfileDbContext).Assembly.FullName)));
 builder.Services.AddDbContext<MediaDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(MediaDbContext).Assembly.FullName)));
+builder.Services.AddDbContext<ProfilePageSectionDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(ProfilePageSectionDbContext).Assembly.FullName)));
 
 builder.Services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
 

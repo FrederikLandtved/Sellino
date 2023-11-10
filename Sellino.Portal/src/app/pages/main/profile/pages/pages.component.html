@@ -1,0 +1,44 @@
+<div class="main-container" *ngIf="!isLoading">
+  <div class="d-flex justify-content-between">
+    <h3>Sider ({{ profilePages.length }})</h3>
+    <sl-button-round [title]="'las la-plus'" [type]="'secondary'" (onClick)="showCreateNewPage = !showCreateNewPage" style="margin-top: -6px;"></sl-button-round>
+  </div>
+  <div class="page-list-container" style="margin-bottom: 10px;" *ngIf="showCreateNewPage">
+    <div class="page-list-container__item align-items-center p-10">
+      <div class="d-flex justify-content-between">
+        <sl-input [icon]="'las la-tag'" [placeholder]="'Navn på ny side'" [value]="newProfileName" (valueChange)="newProfileName = $event"></sl-input>
+        <div class="d-flex">
+          <sl-button title="Gem" (onClick)="createNewPage()" style="margin-right: 10px;"></sl-button>
+          <sl-button title="Annuller" type="outline" (onClick)="showCreateNewPage = false"></sl-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="page-list-container shadow-subtle" [ngClass]="{'selected': i == currentSelectedIndex}" *ngFor="let item of profilePages; let i = index">
+      <div
+        class="page-list-container__item d-flex align-items-center p-10 px-15 justify-content-between"
+        (click)="toggleSection(i)"
+      >
+      <div class="d-flex">
+        <h4>{{ item.ProfilePage.Name }} </h4> 
+        <span *ngIf="item.ProfilePage.IsFrontpage" class="highlighted"><i class="las la-home"></i></span>
+      </div>
+          <span class="sections-amount highlighted" [ngClass]="{'green': item.Sections.length > 0, 'red': item.Sections.length == 0}"> {{ item.Sections.length }} sektion{{ item.Sections.length == 1 ? '' : 'er' }}</span>
+      </div>
+      <div *ngIf="i == currentSelectedIndex" class="sections-container">
+        <ng-container *ngIf="item.Sections.length > 0">
+          <div class="p-10 px-15" *ngFor="let section of item.Sections">{{ section.Name }}</div>
+        </ng-container>
+        <ng-container *ngIf="item.Sections.length == 0">
+          <div class="p-10 px-15">Der er ingen sektioner på denne side.</div>
+        </ng-container>
+      </div>
+  </div>
+  
+</div>
+
+<div *ngIf="isLoading" class="loading-container d-flex justify-content-center align-items-center" style="width: 100%; height: 100%;">
+  <sl-loading></sl-loading>
+</div>
+

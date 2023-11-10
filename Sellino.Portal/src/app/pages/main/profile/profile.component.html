@@ -7,28 +7,7 @@
 
 <div class="profile-container d-flex">
   <div *ngIf="currentTab == 'Sider'" class="profile-container__item round-container">
-    <div class="d-flex justify-content-between">
-      <h3>Sider</h3>
-      <sl-button-round [title]="'las la-plus'" [type]="'secondary'" (onClick)="showCreateNewPage = !showCreateNewPage" style="margin-top: -6px;"></sl-button-round>
-    </div>
-    <div class="page-list-container" style="margin-bottom: 10px;">
-      <div *ngIf="showCreateNewPage" class="page-list-container__item align-items-center p-20">
-        <div class="d-flex justify-content-between">
-          <sl-input [icon]="'las la-tag'" [placeholder]="'Navn på ny side'" [value]="newProfileName" (valueChange)="newProfileName = $event"></sl-input>
-          <div class="d-flex">
-            <sl-button title="Gem" (onClick)="createNewPage()" style="margin-right: 10px;"></sl-button>
-            <sl-button title="Annuller" type="outline" (onClick)="showCreateNewPage = false"></sl-button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="page-list-container">
-      <ng-container *ngFor="let item of profilePages">
-        <div class="page-list-container__item d-flex align-items-center p-20">
-          <span>{{ item.Name }}</span>
-        </div>
-      </ng-container>
-    </div>
+    <profile-pages></profile-pages>
   </div>
   <div *ngIf="currentTab == 'Farver'" class="profile-container__item round-container">
     <h3>Farver</h3>
@@ -83,8 +62,8 @@
     <sl-input name="product-name" label="Bio" [value]="profileModel.Bio" (valueChange)="profileModel.Bio = $event"></sl-input>
   </div>
 
-  <div [hidden]="currentTab !== 'Mediefiler'" class="profile-container__item round-container">
-    <h3>Mediefiler</h3>
+  <div [hidden]="currentTab !== 'Billeder'" class="profile-container__item round-container">
+    <h3>Billeder</h3>
     <sl-media-picker [label]="'Profilbillede'" [mediaId]="isLoadingProfile ? null : profileModel.ProfileMediaId" (valueChange)="profileModel.ProfileMediaId = $event"></sl-media-picker>
     <sl-margin [px]="30"></sl-margin>
     <sl-media-picker [label]="'Coverbillede'" [mediaId]="isLoadingProfile ? null : profileModel.CoverMediaId" (valueChange)="profileModel.CoverMediaId = $event"></sl-media-picker>

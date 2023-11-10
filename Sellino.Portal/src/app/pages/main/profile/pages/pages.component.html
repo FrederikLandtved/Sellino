@@ -15,30 +15,32 @@
     </div>
   </div>
   
-  <div class="page-list-container shadow-subtle" [ngClass]="{'selected': i == currentSelectedIndex}" *ngFor="let item of profilePages; let i = index">
-      <div
-        class="page-list-container__item d-flex align-items-center p-10 px-15 justify-content-between"
-        (click)="toggleSection(i)"
-      >
+  <div class="page-list-container shadow-subtle" [ngClass]="{'selected': i == currentSelectedPage}" *ngFor="let item of profilePages; let i = index">
+      <div class="page-list-container__item d-flex align-items-center p-10 px-15 justify-content-between" (click)="togglePage(i)">
       <div class="d-flex">
         <h4>{{ item.ProfilePage.Name }} </h4> 
         <span *ngIf="item.ProfilePage.IsFrontpage" class="highlighted"><i class="las la-home"></i></span>
       </div>
           <span class="sections-amount highlighted" [ngClass]="{'green': item.Sections.length > 0, 'red': item.Sections.length == 0}"> {{ item.Sections.length }} sektion{{ item.Sections.length == 1 ? '' : 'er' }}</span>
       </div>
-      <div *ngIf="i == currentSelectedIndex" class="sections-container">
+      <div *ngIf="i == currentSelectedPage" class="sections">
         <ng-container *ngIf="item.Sections.length > 0">
-          <div class="p-10 px-15" *ngFor="let section of item.Sections">{{ section.Name }}</div>
+          <div class="p-10 px-15 sections__item" *ngFor="let section of item.Sections" (click)="toggleSection(section)" [ngClass]="{'active' : section.ProfilePageSectionId == currentSelectedSection}">
+            <span>{{ section.Name }}</span>
+            <div *ngIf="section.ProfilePageSectionId == currentSelectedSection" class="sections__item__details">
+              Type
+            </div>
+          </div>
+
         </ng-container>
         <ng-container *ngIf="item.Sections.length == 0">
           <div class="p-10 px-15">Der er ingen sektioner på denne side.</div>
         </ng-container>
+        
       </div>
   </div>
-  
 </div>
 
 <div *ngIf="isLoading" class="loading-container d-flex justify-content-center align-items-center" style="width: 100%; height: 100%;">
   <sl-loading></sl-loading>
 </div>
-

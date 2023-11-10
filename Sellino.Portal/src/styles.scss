@@ -94,6 +94,10 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: rgba(149, 157, 165, 0.1) 0px 0px 12px;
 }
 
+.shadow-darker {
+  box-shadow: rgba(149, 157, 165, 0.4) 0px 0px 12px;
+}
+
 .round-container {
   box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
   padding: 30px;

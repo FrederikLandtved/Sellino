@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfilePageService, ProfilePagesWithSectionsModel } from 'src/app/services/profile/profile-page.service';
+import { ProfilePageSectionModel, ProfilePageService, ProfilePagesWithSectionsModel } from 'src/app/services/profile/profile-page.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
 
 @Component({
@@ -11,7 +11,8 @@ export class PagesComponent implements OnInit{
   showCreateNewPage: boolean = false;
   newProfileName: string = "";
   profilePages: ProfilePagesWithSectionsModel[] = [];
-  currentSelectedIndex: number | null = null;
+  currentSelectedPage: number | null = 0;
+  currentSelectedSection: number | null = 0;
   isLoading: boolean = true;
 
   constructor(private profileService: ProfileService, private profilePageService: ProfilePageService) {}
@@ -37,8 +38,21 @@ export class PagesComponent implements OnInit{
     }
   }
 
-  toggleSection(index: number) {
-    this.currentSelectedIndex = index;
+  togglePage(index: number) {
+    if(index == this.currentSelectedPage){
+      this.currentSelectedPage = null;
+    } else {
+      this.currentSelectedSection = null;    
+      this.currentSelectedPage = index;    
+    }
+  }
+
+  toggleSection(section: ProfilePageSectionModel) {
+    if(section.ProfilePageSectionId == this.currentSelectedSection){
+      this.currentSelectedSection = null;
+    } else {
+      this.currentSelectedSection = section.ProfilePageSectionId;
+    }
   }
 
   getPages() {

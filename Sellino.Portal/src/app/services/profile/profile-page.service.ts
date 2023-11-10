@@ -37,7 +37,8 @@ export interface ProfilePageSectionModel {
   Name: string,
   ProfilePageSectionType: number,
   DataId: number,
-  SortIndex: number
+  SortIndex: number,
+  ProfilePageSectionId: number
 }
 
 export interface ProfilePageModel {

@@ -4,7 +4,10 @@
     <div class="profile-name">{{ profileName }}</div>
     <div>
       <div class="profile-info-image d-flex">
-        <img [src]="profileMedia" alt="">
+        <img [src]="profileMedia" alt="" *ngIf="profileMedia">
+        <div *ngIf="!profileMedia" class="profile-media-placeholder">
+          <i class="las la-store-alt"></i>
+        </div>
         <div class="profile-info-actions">
           <div class="d-flex justify-content-between" style="padding: 2px 10px 5px 10px;">
             <div class="number">
@@ -29,4 +32,8 @@
       <div class="bio">{{ bio }}</div>
     </div>
   </div>
+  <div class="preview-container__content p-20">
+    <product-group-horizontal [headline]="'Nyheder fra New Balance'"></product-group-horizontal>
+  </div>
+
 </div>

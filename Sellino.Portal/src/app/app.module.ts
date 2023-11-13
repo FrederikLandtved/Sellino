@@ -30,6 +30,7 @@ import { ProfilePreviewComponent } from './components/profile/profile-preview/pr
 import { MediaPickerComponent } from './components/ui-kit/media-picker/media-picker.component';
 import { ButtonRoundComponent } from './components/ui-kit/button-round/button-round.component';
 import { PagesComponent } from './pages/main/profile/pages/pages.component';
+import { ProductGroupHorizontalComponent } from './components/ui-kit/product/product-group-horizontal/product-group-horizontal.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { PagesComponent } from './pages/main/profile/pages/pages.component';
     ProfilePreviewComponent,
     MediaPickerComponent,
     ButtonRoundComponent,
-    PagesComponent
+    PagesComponent,
+    ProductGroupHorizontalComponent
   ],
   imports: [
     BrowserModule,

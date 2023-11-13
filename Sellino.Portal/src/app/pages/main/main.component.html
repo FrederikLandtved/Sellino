@@ -1,8 +1,7 @@
 <div class="sellino-desktop-container">
   <div class="sidebar">
     <div class="sidebar__header">
-      <h4>Sellino</h4>
-      <h5>Backoffice</h5>
+      <h1>Sellino</h1>
     </div>
 
     <div class="sidebar__navigation">
@@ -41,6 +40,9 @@
     <div class="main-container__header">
       <div class="left d-flex align-items-center">
         <div class="company-logo shadow-subtle" *ngIf="profileImage != null" [ngStyle]="{ 'background-image': 'url(' + profileImage + ')' }"></div>
+        <div class="profile-media-placeholder" *ngIf="profileImage == null">
+          <i class="las la-store-alt"></i>
+        </div>
         <h3>{{ homeModel.Profile.Name }}</h3>
       </div>
       <div class="right">

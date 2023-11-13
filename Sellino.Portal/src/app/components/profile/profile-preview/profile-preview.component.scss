@@ -66,6 +66,24 @@
       z-index: 2;
     }
 
+    .profile-media-placeholder {
+      min-width: 70px;
+      max-width: 70px;
+      min-height: 70px;
+      max-height: 70px;
+      border-radius: 100%;
+      z-index: 2;
+      background-color: rgb(233, 233, 233);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+        font-size: 25px;
+        color: rgb(76, 76, 76);
+      }
+    }
+
     .profile-info-actions {
       display: flex;
       flex-direction: column;

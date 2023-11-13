@@ -1,0 +1,90 @@
+.product-group-horizontal-container {
+  margin-bottom: 20px;
+
+  h4 {
+    color: var(--text-on-company-color);
+    font-weight: 400;
+  }
+  
+  .product-group-horizontal {
+    display: block;
+    overflow-x: auto; /* Use 'auto' instead of 'scroll' */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: transparent transparent; /* For Firefox */
+    -ms-overflow-style: none; /* For IE and Edge */
+    white-space: nowrap;
+    padding-top: 10px;
+    padding-bottom: 20px;
+  
+    .product-group-inner {
+      display: flex;
+    }
+      
+     .product-group-item {
+       height: 140px;
+       min-width: 100px;
+       margin-right: 15px;
+       border-radius: 7px;
+       display: inline;
+       background-size: cover;
+       background-color: white;
+       background-position: center;
+       cursor: pointer;
+       box-shadow: rgba(165, 165, 165, 0.4) 0px 0px 10px 0px;
+     }
+
+     @media screen and (max-width: 959px) {
+      .product-group-item {
+        height: 200px;
+        min-width: 150px;
+      }
+    }
+
+     .product-group-item:hover .product-group-item-inner {
+      opacity: 1;
+     }
+
+     .product-group-item-inner {
+      opacity: 1;
+      position: relative;
+      height: 100%;
+      width: 100%;
+      border-radius: 7px;
+      // background: linear-gradient(transparent, transparent, #454545);
+      
+      p {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+        font-size: 15px;
+      }
+
+      .size {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #29dc4d;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 12px;
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border-radius: 100%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 15px 0px;
+        object-fit: cover;
+      }
+     }
+  }
+
+  .product-group-horizontal::-webkit-scrollbar {
+    width: 0; /* For Chrome, Safari, and Opera */
+  }
+}

@@ -17,7 +17,12 @@
   &__header {
     padding: 30px;
 
-    h4, h5 {
+    h1 {
+      font-family: lobster-two;
+      color: var(--text-on-company-color);
+    }
+
+    h5 {
       color: var(--text-on-company-color);
       font-size: 24px;
       font-weight: 500;
@@ -83,6 +88,26 @@
       background-position: center;
       border-radius: 100%;
       margin-right: 15px;
+    }
+
+    .profile-media-placeholder {
+      min-width: 40px;
+      max-width: 40px;
+      min-height: 40px;
+      max-height: 40px;
+      border-radius: 100%;
+      z-index: 2;
+      background-color: rgb(233, 233, 233);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+
+      i {
+        font-size: 20px;
+        color: rgb(76, 76, 76);
+        margin: 0;
+      }
     }
 
     h3 {

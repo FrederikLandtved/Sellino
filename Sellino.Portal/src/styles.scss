@@ -1,9 +1,9 @@
 :root {
-  --company-color: #5786d1;
-  --company-color-dark: #3c66aa;
-  --text-on-company-color: #ffffff;
+  --company-color: #0070F4;
+  --company-color-dark: #0265DA;
+  --text-on-company-color: #FFFFFF;
 
-  --secondary-company-color: #22cc7c;
+  --secondary-company-color: #3FD77C;
   --secondary-text-color: #FFFFFF;
 }
 
@@ -15,7 +15,7 @@
 }
 
 body {
-  background-color: rgb(242 242 242);
+  background: rgb(242 242 242);
   overflow-y: scroll;
 }
 
@@ -58,6 +58,13 @@ body {
   font-family: source-sans-pro;
   src: url('../src/assets/fonts/SourceSansPro-Black.otf') format("opentype");
   font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: lobster-two;
+  src: url('../src/assets/fonts/LobsterTwo-Regular.ttf') format("opentype");
+  font-weight: 300;
   font-style: normal;
 }
 

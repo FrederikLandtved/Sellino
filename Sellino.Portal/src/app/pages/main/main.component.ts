@@ -13,7 +13,7 @@ import { ThemeService } from 'src/app/services/theme/theme.service';
 export class MainComponent implements OnInit {
   fullName: string = '';
   homeModel: HomeModel = {FirstName: '', Profile: {Name: '', Bio: 'Test', CompanyHexColor: '', DarkCompanyHexColor: '', TextOnCompanyHexColor: '', SecondaryCompanyHexColor: '', TextOnSecondaryCompanyHexColor: '', ProfileMediaId: 0, CoverMediaId: 0}};
-  profileImage: string = '';
+  profileImage: string | null = null;
 
   constructor(private authService: LoginService, private themeService: ThemeService, private homeService: HomeService, private mediaService: MediaService) {}
 

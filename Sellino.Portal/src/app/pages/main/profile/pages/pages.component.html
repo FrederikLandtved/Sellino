@@ -28,7 +28,6 @@
           <div class="p-10 px-15 sections__item" *ngFor="let section of item.Sections" (click)="toggleSection(section)" [ngClass]="{'active' : section.ProfilePageSectionId == currentSelectedSection}">
             <span>{{ section.Name }}</span>
             <div *ngIf="section.ProfilePageSectionId == currentSelectedSection" class="sections__item__details">
-              Type
             </div>
           </div>
 

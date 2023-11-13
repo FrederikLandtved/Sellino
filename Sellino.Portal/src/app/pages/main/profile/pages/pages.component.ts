@@ -14,7 +14,7 @@ export class PagesComponent implements OnInit{
   currentSelectedPage: number | null = 0;
   currentSelectedSection: number | null = 0;
   isLoading: boolean = true;
-
+  
   constructor(private profileService: ProfileService, private profilePageService: ProfilePageService) {}
 
   ngOnInit(): void {
@@ -58,6 +58,8 @@ export class PagesComponent implements OnInit{
   getPages() {
     this.profilePageService.GetProfilePages().subscribe(data => {
       this.profilePages = data;
+      console.log(data);
+      
       this.isLoading = false;
 
     }); 

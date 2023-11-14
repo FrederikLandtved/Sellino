@@ -13,6 +13,7 @@ export class ProfilePreviewComponent implements OnInit, OnChanges {
   @Input() profileMediaId: number | null = 0;
   @Input() coverMediaId: number | null = 0;
   @Input() pageToShow: ProfilePageWithSectionsModel | null = null;
+  isLoading: boolean = false;
 
   profileMedia: string = '';
   coverMedia: string = '';
@@ -36,6 +37,14 @@ export class ProfilePreviewComponent implements OnInit, OnChanges {
 
     if ('coverMediaId' in changes && this.coverMediaId !== null && this.coverMediaId > 0) {
       this.loadMedia(this.coverMediaId, false);
+    }
+
+    if ('pageToShow' in changes) {
+      this.isLoading = true;
+
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 600);
     }
   }
 

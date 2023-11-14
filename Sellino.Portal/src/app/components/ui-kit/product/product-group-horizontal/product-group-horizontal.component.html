@@ -1,9 +1,11 @@
 <div class="product-group-horizontal-container">
-  <h4>{{ headline }}</h4>
-  <div class="product-group-horizontal">
+    <h4 *ngIf="headline == ''">{{ productGroup.ProductGroup?.Name }}</h4>
+    <h4 *ngIf="headline != ''">{{ headline }}</h4>
+    <div class="product-group-horizontal">
       <div class="product-group-inner">
-          <div class="product-group-item" *ngFor="let item of products" style="background-image: url({{item.img}})">
-              <div class="product-group-item-inner">
+        <div class="product-group-item" *ngFor="let item of productGroup.Products">
+            <!-- <div class="product-group-item" *ngFor="let item of products" style="background-image: url({{item.img}})"> -->
+                <div class="product-group-item-inner">
                   <!-- <img src="{{item.profileImg}}">
                   <div class="size" *ngIf="item.size">{{ item.size }}</div> -->
                   <!-- <p>{{ item.title }}</p> -->

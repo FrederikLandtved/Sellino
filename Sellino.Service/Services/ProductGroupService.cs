@@ -47,6 +47,14 @@ namespace Sellino.Service.Services
             return model;
         }
 
+        public async Task<ProductGroupModel> GetProductGroup(int productGroupId)
+        {
+            ProductGroup productGroup = await _productGroupRepository.GetProductGroup(productGroupId);
+            ProductGroupModel model = _autoMapper.Map<ProductGroupModel>(productGroup);
+
+            return model;
+        }
+
         public async Task<List<ProductGroupModel>> GetProductGroups()
         {
             List<ProductGroup> productGroups = await _productGroupRepository.GetProductGroups();

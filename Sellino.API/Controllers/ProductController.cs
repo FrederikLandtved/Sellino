@@ -17,12 +17,14 @@ namespace Sellino.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
+        private readonly IProductGroupService _productGroupService;
         private readonly UserHelper _userHelper;
 
-        public ProductController(IProductService productService, UserHelper userHelper)
+        public ProductController(IProductService productService, UserHelper userHelper, IProductGroupService productGroupService)
         {
             _productService = productService;
             _userHelper = userHelper;
+            _productGroupService = productGroupService;
         }
 
         [HttpGet]
@@ -45,13 +47,25 @@ namespace Sellino.API.Controllers
             return Ok(products);
         }
 
-        [HttpGet]
-        [Route("/ProductGroups/{productGroupToken}/Products")]
-        public async Task<IActionResult> GetProductsFromProductGroup(Guid productGroupToken)
-        {
-            var products = JsonSerializer.Serialize(await _productService.GetProductsFromProductGroup(productGroupToken));
+        //[HttpGet]
+        //[Route("/ProductGroups/{productGroupId}/Products")]
+        //public async Task<IActionResult> GetProductsFromProductGroup(int productGroupId)
+        //{
+        //    var products = JsonSerializer.Serialize(await _productService.GetProductsFromProductGroup(productGroupId));
 
-            return Ok(products);
+        //    return Ok(products);
+        //}
+
+        [HttpGet]
+        [Route("/ProductGroups/{productGroupId}/Products")]
+        public async Task<IActionResult> GetProductGroupWithProducts(int productGroupId)
+        {
+            var model = new {
+                ProductGroup = await _productGroupService.GetProductGroup(productGroupId),
+                Products = await _productService.GetProductsFromProductGroup(productGroupId)
+            };
+
+            return Ok(JsonSerializer.Serialize(model));
         }
 
         [HttpPost]

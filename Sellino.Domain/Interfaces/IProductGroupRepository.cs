@@ -9,6 +9,7 @@ namespace Sellino.Domain.Interfaces
         Task<List<ProductGroup>> GetProductGroups();
         Task<List<ProductGroup>> GetProductGroupsByProfileId(int profileId);
         Task<ProductGroup> GetProductGroup(Guid productGroupToken);
+        Task<ProductGroup> GetProductGroup(int productGroupId);
         Task<bool> UpdateProductGroup(ProductGroup productGroup);
         Task<bool> DeleteProductGroup(Guid productGroupToken);
     }

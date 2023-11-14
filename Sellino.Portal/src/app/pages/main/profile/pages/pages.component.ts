@@ -21,7 +21,7 @@ export class PagesComponent implements OnInit{
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.getPages();
+    this.getPages(true);
   }
 
   createNewPage() {
@@ -30,7 +30,7 @@ export class PagesComponent implements OnInit{
         .subscribe(data => {
           this.newProfileName = "";
           this.showCreateNewPage = false;
-          this.getPages();
+          this.getPages(false);
         });
     }
   }
@@ -38,7 +38,7 @@ export class PagesComponent implements OnInit{
   createNewSection(item: ProfilePageWithSectionsModel) {
     if(this.newPageSectionName != ""){
       this.profilePageService.CreatePageSection(this.newPageSectionName, item).subscribe(data => {
-        this.getPages();
+        this.getPages(false);
         this.newPageSectionName = "";
       });
     }
@@ -70,12 +70,17 @@ export class PagesComponent implements OnInit{
     }
   }
 
-  getPages() {
+  getPages(selectFirst: boolean) {
     this.isLoading = true;
     setTimeout(() => {
       this.profilePageService.GetProfilePages().subscribe(data => {
         this.profilePages = data;
         this.isLoading = false;
+
+        if(selectFirst){
+          this.currentSelectedPage = 0;
+        }
+
         if(this.currentSelectedPage != null){
           this.onPageSelect.emit(this.profilePages[this.currentSelectedPage]);
         }

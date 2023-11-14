@@ -39,6 +39,11 @@ namespace Sellino.Domain.Repositories
             return await _productGroupRepository.ProductGroups.FirstAsync(x => x.ProductGroupToken == productGroupToken);
         }
 
+        public async Task<ProductGroup> GetProductGroup(int productGroupId)
+        {
+            return await _productGroupRepository.ProductGroups.FirstAsync(x => x.ProductGroupId == productGroupId);
+        }
+
         public async Task<List<ProductGroup>> GetProductGroups()
         {
             return await _productGroupRepository.ProductGroups.ToListAsync();

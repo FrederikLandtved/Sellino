@@ -10,6 +10,7 @@ import { ProfileService } from 'src/app/services/profile/profile.service';
 export class PagesComponent implements OnInit{
   showCreateNewPage: boolean = false;
   newProfileName: string = "";
+  newPageSectionName: string = "";
   profilePages: ProfilePagesWithSectionsModel[] = [];
   currentSelectedPage: number | null = 0;
   currentSelectedSection: number | null = null;
@@ -19,29 +20,42 @@ export class PagesComponent implements OnInit{
 
   ngOnInit(): void {
     this.isLoading = true;
-
-    setTimeout(() => {
-      this.getPages();
-    }, 500);
+    this.getPages();
   }
 
   createNewPage() {
     if(this.newProfileName != "") {
       this.profilePageService.CreateProfilePage(this.newProfileName)
         .subscribe(data => {
-          this.profilePageService.GetProfilePages().subscribe(data => {
-            this.newProfileName = "";
-            this.showCreateNewPage = false;
-            this.profilePages = data;
-          });
+          this.newProfileName = "";
+          this.showCreateNewPage = false;
+          this.getPages();
         });
     }
   }
 
+  createNewSection(item: ProfilePagesWithSectionsModel) {
+    if(this.newPageSectionName != ""){
+      this.profilePageService.CreatePageSection(this.newPageSectionName, item).subscribe(data => {
+        this.getPages();
+        this.newPageSectionName = "";
+      });
+    }
+  }
+
+  toggleCreateNewPage() {
+    this.currentSelectedPage = null;
+    this.showCreateNewPage = !this.showCreateNewPage;
+  }
+
   togglePage(index: number) {
+    this.profilePages[index].showAddNewSection = false;
+
     if(index == this.currentSelectedPage){
       this.currentSelectedPage = null;
     } else {
+      this.showCreateNewPage = false;
+
       this.currentSelectedSection = null;    
       this.currentSelectedPage = index;    
     }
@@ -56,12 +70,13 @@ export class PagesComponent implements OnInit{
   }
 
   getPages() {
-    this.profilePageService.GetProfilePages().subscribe(data => {
-      this.profilePages = data;
-      console.log(data);
-      
-      this.isLoading = false;
-
-    }); 
+    this.isLoading = true;
+    setTimeout(() => {
+      this.profilePageService.GetProfilePages().subscribe(data => {
+        this.profilePages = data;
+        this.isLoading = false;
+  
+      }); 
+    }, 500);
   }
 }

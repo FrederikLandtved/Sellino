@@ -112,6 +112,10 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgb(228, 228, 228);
 }
 
+.rounded-4 {
+  border-radius: 4px;
+}
+
 .rounded-6 {
   border-radius: 6px;
 }
@@ -139,6 +143,10 @@ h1, h2, h3, h4, h5, h6 {
 .px-15{
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.outlined {
+  border: 1px solid var(--company-color);
 }
 
 // Table

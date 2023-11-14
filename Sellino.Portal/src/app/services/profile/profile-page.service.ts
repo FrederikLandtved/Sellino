@@ -13,6 +13,7 @@ export class ProfilePageService {
 
   GetProfilePages() : Observable<ProfilePagesWithSectionsModel[]> {
     var profile = this.http.get<ProfilePagesWithSectionsModel[]>(this.apiUrl + '/ProfilePages/Sections');
+
     return profile;
   }
 
@@ -25,12 +26,20 @@ export class ProfilePageService {
     
     return profilePage;
   }
+
+  CreatePageSection(pageSectionName: string, page: ProfilePagesWithSectionsModel) : Observable<number> {
+    var pageModel = { Name: pageSectionName, ProfilePageId: page.ProfilePage.ProfilePageId, ProfilePageSectionType: 1, DataId: 1007, SortIndex: 2 };
+    var pageSectionId = this.http.post<number>(this.apiUrl + "/ProfilePageSections/" + page.ProfilePage.ProfilePageToken, pageModel);
+
+    return pageSectionId;
+  }
 }
 
 export interface ProfilePagesWithSectionsModel {
   ProfilePage: ProfilePageModel,
-  Sections: ProfilePageSectionModel[]
-  showSections: boolean
+  Sections: ProfilePageSectionModel[],
+  showSections: boolean,
+  showAddNewSection: boolean
 }
 
 export interface ProfilePageSectionModel {
@@ -44,4 +53,6 @@ export interface ProfilePageSectionModel {
 export interface ProfilePageModel {
   Name: string;
   IsFrontpage: boolean;
+  ProfilePageId?: number;
+  ProfilePageToken?: string
 }

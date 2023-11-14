@@ -79,7 +79,7 @@
       }
     }
 
-    &.trash {
+    &.delete {
       background-color: #FFDBDB;
       color: #A61E1E;
       font-size: 17px;
@@ -94,6 +94,18 @@
     &.edit {
       background-color: #FCE8B5;
       color: #674D1C;
+      font-size: 17px;
+      opacity: .8;
+      
+      &:hover{
+        opacity: 1;
+      }
+    }
+
+    
+    &.add {
+      background-color: #e9e9e9;
+      color: #5c5c5c;
       font-size: 17px;
       opacity: .8;
       

@@ -26,7 +26,8 @@ namespace Sellino.Service.Services
                 ProfilePageSectionToken = Guid.NewGuid(),
                 ProfilePageId = profilePageSection.ProfilePageId,
                 SortIndex = profilePageSection.SortIndex,
-                ProfilePageSectionType = profilePageSection.ProfilePageSectionType
+                ProfilePageSectionType = profilePageSection.ProfilePageSectionType,
+                DataId = profilePageSection.DataId
             };
 
             return await _profilePageSectionRepository.CreateProfilePageSection(newProfilePageSection);

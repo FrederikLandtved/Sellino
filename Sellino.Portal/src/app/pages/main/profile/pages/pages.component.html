@@ -1,10 +1,10 @@
 <div class="main-container" *ngIf="!isLoading">
   <div class="d-flex justify-content-between">
     <h3>Sider ({{ profilePages.length }})</h3>
-    <sl-button-round [title]="'las la-plus'" [type]="'secondary'" (onClick)="showCreateNewPage = !showCreateNewPage" style="margin-top: -6px;"></sl-button-round>
+    <sl-button-round [title]="'las la-plus'" [type]="'secondary'" *ngIf="showCreateNewPage == false" (onClick)="toggleCreateNewPage()" style="margin-top: -6px;"></sl-button-round>
   </div>
-  <div class="page-list-container" style="margin-bottom: 10px;" *ngIf="showCreateNewPage">
-    <div class="page-list-container__item align-items-center p-10">
+  <div class="page-list-container" style="" *ngIf="showCreateNewPage">
+    <div class="page-list-container__item outlined rounded-4 align-items-center p-10">
       <div class="d-flex justify-content-between">
         <sl-input [icon]="'las la-tag'" [placeholder]="'Navn på ny side'" [value]="newProfileName" (valueChange)="newProfileName = $event"></sl-input>
         <div class="d-flex">
@@ -26,9 +26,21 @@
       </div>
       <span class="sections-amount highlighted" *ngIf="i != currentSelectedPage" [ngClass]="{'green': item.Sections.length > 0, 'red': item.Sections.length == 0}"> {{ item.Sections.length }} sektion{{ item.Sections.length == 1 ? '' : 'er' }}</span>
       <div *ngIf="i == currentSelectedPage && currentSelectedSection == null" class="action-buttons">
-        <span class="highlighted edit"><i class="las la-plus"></i></span>
+        <span class="highlighted add" (click)="item.showAddNewSection = !item.showAddNewSection"><i class="las la-plus"></i></span>
         <span class="highlighted edit"><i class="las la-pencil-alt"></i></span>
-        <span class="highlighted trash"><i class="las la-trash"></i></span>
+        <span class="highlighted delete"><i class="las la-trash"></i></span>
+      </div>
+    </div>
+
+    <div class="sections" *ngIf="item.showAddNewSection">
+      <div class="p-10 px-15">
+        <div class="d-flex justify-content-between">
+          <sl-input [icon]="'las la-tag'" [placeholder]="'Navn på sektion'" [value]="newPageSectionName" (valueChange)="newPageSectionName = $event"></sl-input>
+          <div class="d-flex">
+            <sl-button title="Gem" (onClick)="createNewSection(item)" style="margin-right: 10px;"></sl-button>
+            <sl-button title="Annuller" type="outline" (onClick)="item.showAddNewSection = false"></sl-button>
+          </div>
+        </div>      
       </div>
     </div>
 
@@ -41,7 +53,7 @@
 
             <div *ngIf="section.ProfilePageSectionId == currentSelectedSection" class="action-buttons">
               <span class="highlighted edit"><i class="las la-pencil-alt"></i></span>
-              <span class="highlighted trash"><i class="las la-trash"></i></span>
+              <span class="highlighted delete"><i class="las la-trash"></i></span>
             </div>
           </div>
 

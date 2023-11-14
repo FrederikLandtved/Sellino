@@ -12,6 +12,7 @@ namespace Sellino.Domain.Models
         public int ProductGroupId { get; set; }
         public int CreatedByUserId { get; set; }
         public int Price { get; set; }
+        public int? ProductMediaId { get; set; }
         public DateTimeOffset DateCreated { get; set; }
         public DateTimeOffset DateModified { get; set; }
         public DateTimeOffset DateDeleted { get; set; }

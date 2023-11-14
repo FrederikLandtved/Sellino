@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MediaModel } from '../media/media';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class ProductGroupService {
 
   getProductsByProductGroupId(productGroupId: number): Observable<ProductGroupWithProducts> {
     var products = this.http.get<ProductGroupWithProducts>(this.apiUrl + '/ProductGroups/' + productGroupId + '/Products');
+
+    products.subscribe(data => {
+      return data;
+    });
     return products;
   }
 }
@@ -38,5 +43,6 @@ export interface ProductGroup {
 export interface Product {
   ProductId: number,
   Name: string,
-  Description: string
+  Description: string,
+  ProductMedia: MediaModel
 }

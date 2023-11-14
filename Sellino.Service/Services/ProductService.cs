@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using Sellino.Domain.Interfaces;
 using Sellino.Domain.Models;
 using Sellino.Domain.Repositories;
@@ -12,11 +13,13 @@ namespace Sellino.Service.Services
         private readonly IProductRepository _productRepository;
         private readonly IProductGroupRepository _productGroupRepository;
         private readonly IMapper _autoMapper;
-        public ProductService(IProductRepository productRepository, IMapper autoMapper, IProductGroupRepository productGroupRepository)
+        private readonly IMediaService _mediaService;
+        public ProductService(IProductRepository productRepository, IMapper autoMapper, IProductGroupRepository productGroupRepository, IMediaService mediaService)
         {
             _productRepository = productRepository;
             _autoMapper = autoMapper;
             _productGroupRepository = productGroupRepository;
+            _mediaService = mediaService;
         }
 
         public async Task<int> CreateProduct(string name, string description, int price, int productGroupId, int createdByUserId)
@@ -61,6 +64,15 @@ namespace Sellino.Service.Services
         {
             List<Product> products = await _productRepository.GetProductsByProductGroupId(productGroupId);
             List<ProductModel> productModels = _autoMapper.Map<List<Product>, List<ProductModel>>(products);
+
+            foreach (var productModel in productModels)
+            {
+                if (productModel.ProductMediaId > 0)
+                {
+                    MediaModel mediaModel = await _mediaService.GetMedia(productModel.ProductMediaId);
+                    productModel.ProductMedia = mediaModel;
+                }
+            }
 
             return productModels;
         }

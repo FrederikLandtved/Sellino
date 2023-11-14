@@ -31,6 +31,7 @@ import { MediaPickerComponent } from './components/ui-kit/media-picker/media-pic
 import { ButtonRoundComponent } from './components/ui-kit/button-round/button-round.component';
 import { PagesComponent } from './pages/main/profile/pages/pages.component';
 import { ProductGroupHorizontalComponent } from './components/ui-kit/product/product-group-horizontal/product-group-horizontal.component';
+import { MediaPipe } from './pipes/media.pipe';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ProductGroupHorizontalComponent } from './components/ui-kit/product/pro
     MediaPickerComponent,
     ButtonRoundComponent,
     PagesComponent,
-    ProductGroupHorizontalComponent
+    ProductGroupHorizontalComponent,
+    MediaPipe
   ],
   imports: [
     BrowserModule,

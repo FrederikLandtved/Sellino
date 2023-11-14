@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Sellino.Domain.Context;
 using Sellino.Domain.Interfaces;
 using Sellino.Domain.Repositories;
+using Sellino.Service.Interfaces;
+using Sellino.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -19,5 +21,6 @@ app.MapGet("/", () => "Hello World!");
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductVariantRepository, ProductVariantRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IMediaService, MediaService>();
 
 app.Run();

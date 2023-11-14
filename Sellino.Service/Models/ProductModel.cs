@@ -1,4 +1,6 @@
-﻿namespace Sellino.Service.Models
+﻿using Sellino.Domain.Models;
+
+namespace Sellino.Service.Models
 {
     public class ProductModel
     {
@@ -6,6 +8,8 @@
         public Guid ProductToken { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public MediaModel ProductMedia { get; set; }
+        public int ProductMediaId { get; set; }
         public int ProductGroupId { get; set; }
         public int CreatedByUserId { get; set; }
         public int Price { get; set; }

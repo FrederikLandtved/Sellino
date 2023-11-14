@@ -7,7 +7,8 @@ namespace Sellino.API.MappingProfiles
     {
         public ProductProfile()
         {
-            CreateMap<Product, ProductModel>().ReverseMap();
+            CreateMap<Product, ProductModel>()
+                .ForMember(dest => dest.ProductMedia, opt => opt.Ignore()).ReverseMap();
         }
     }
 }

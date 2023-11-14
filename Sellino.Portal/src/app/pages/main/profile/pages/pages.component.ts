@@ -12,7 +12,7 @@ export class PagesComponent implements OnInit{
   newProfileName: string = "";
   profilePages: ProfilePagesWithSectionsModel[] = [];
   currentSelectedPage: number | null = 0;
-  currentSelectedSection: number | null = 0;
+  currentSelectedSection: number | null = null;
   isLoading: boolean = true;
   
   constructor(private profileService: ProfileService, private profilePageService: ProfilePageService) {}

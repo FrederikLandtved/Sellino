@@ -13,8 +13,8 @@
       
       <sl-button [title]="!createProfile ? 'Opret bruger': 'Opret bruger og butik'" *ngIf="!isLoading" (click)="tryRegister()"></sl-button>
       <sl-button [title]="'Tilbage til log ind'" [type]="'outline'" (click)="backToLogin()" *ngIf="!isLoading"></sl-button>
-      <div class="d-flex justify-content-center">
-        <sl-loading *ngIf="isLoading"></sl-loading>
+      <div class="d-flex justify-content-center" *ngIf="isLoading">
+        <sl-loading></sl-loading>
       </div>
     </div>
   </div>

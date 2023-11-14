@@ -22,6 +22,7 @@ const appRoutes: Routes = [
         { path: 'profile', component: ProfileComponent },
         { path: 'add-product', component: AddProductComponent },
         { path: 'categories', component: CategoriesComponent },
+        { path: 'ui-kit', component: UiKitComponent}
       ]
   },
   { path: 'auth', component: AuthComponent, 
@@ -30,8 +31,6 @@ const appRoutes: Routes = [
         { path: 'register', component: RegisterComponent },
       ]
   },
-  { path: 'ui-kit', component: UiKitComponent
-  }
 ]
 @NgModule({
   imports: [

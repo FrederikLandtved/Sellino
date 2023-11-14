@@ -6,8 +6,8 @@
       <sl-button [title]="'Log ind'" *ngIf="!isLoading" (click)="tryLogin()"></sl-button>
       <sl-button [title]="'Opret bruger'" [type]="'outline'" *ngIf="!isLoading" (click)="goToRegister()"></sl-button>
 
-      <div class="d-flex justify-content-center">
-        <sl-loading *ngIf="isLoading"></sl-loading>
+      <div class="d-flex justify-content-center" *ngIf="isLoading">
+        <sl-loading></sl-loading>
       </div>    
     </div>
   </div>

@@ -16,27 +16,44 @@
   </div>
   
   <div class="page-list-container shadow-subtle" [ngClass]="{'selected': i == currentSelectedPage}" *ngFor="let item of profilePages; let i = index">
-      <div class="page-list-container__item d-flex align-items-center p-10 px-15 justify-content-between" (click)="togglePage(i)">
-      <div class="d-flex">
+
+    <!-- Pages -->
+    <div class="page-list-container__item d-flex align-items-center p-10 px-15 justify-content-between" style="position: relative;">
+      <div style="position: absolute; top: 0; left: 0; right: 135px; bottom: 0;" (click)="togglePage(i)"></div>
+      <div class="d-flex"  >
         <h4>{{ item.ProfilePage.Name }} </h4> 
         <span *ngIf="item.ProfilePage.IsFrontpage" class="highlighted"><i class="las la-home"></i></span>
       </div>
-          <span class="sections-amount highlighted" [ngClass]="{'green': item.Sections.length > 0, 'red': item.Sections.length == 0}"> {{ item.Sections.length }} sektion{{ item.Sections.length == 1 ? '' : 'er' }}</span>
+      <span class="sections-amount highlighted" *ngIf="i != currentSelectedPage" [ngClass]="{'green': item.Sections.length > 0, 'red': item.Sections.length == 0}"> {{ item.Sections.length }} sektion{{ item.Sections.length == 1 ? '' : 'er' }}</span>
+      <div *ngIf="i == currentSelectedPage && currentSelectedSection == null" class="action-buttons">
+        <span class="highlighted edit"><i class="las la-plus"></i></span>
+        <span class="highlighted edit"><i class="las la-pencil-alt"></i></span>
+        <span class="highlighted trash"><i class="las la-trash"></i></span>
       </div>
-      <div *ngIf="i == currentSelectedPage" class="sections">
-        <ng-container *ngIf="item.Sections.length > 0">
-          <div class="p-10 px-15 sections__item" *ngFor="let section of item.Sections" (click)="toggleSection(section)" [ngClass]="{'active' : section.ProfilePageSectionId == currentSelectedSection}">
+    </div>
+
+    <!-- Page Sections -->
+    <div *ngIf="i == currentSelectedPage" class="sections">
+      <ng-container *ngIf="item.Sections.length > 0">
+        <div class="p-10 px-15 sections__item" *ngFor="let section of item.Sections" (click)="toggleSection(section)" [ngClass]="{'active' : section.ProfilePageSectionId == currentSelectedSection}">
+          <div class="d-flex justify-content-between" style="width: 100%;">
             <span>{{ section.Name }}</span>
-            <div *ngIf="section.ProfilePageSectionId == currentSelectedSection" class="sections__item__details">
+
+            <div *ngIf="section.ProfilePageSectionId == currentSelectedSection" class="action-buttons">
+              <span class="highlighted edit"><i class="las la-pencil-alt"></i></span>
+              <span class="highlighted trash"><i class="las la-trash"></i></span>
             </div>
           </div>
 
-        </ng-container>
-        <ng-container *ngIf="item.Sections.length == 0">
-          <div class="p-10 px-15">Der er ingen sektioner på denne side.</div>
-        </ng-container>
-        
-      </div>
+          <div *ngIf="section.ProfilePageSectionId == currentSelectedSection" class="sections__item__details">
+          </div>
+        </div>
+
+      </ng-container>
+      <ng-container *ngIf="item.Sections.length == 0">
+        <div class="p-10 px-15">Der er ingen sektioner på denne side.</div>
+      </ng-container>
+    </div>
   </div>
 </div>
 

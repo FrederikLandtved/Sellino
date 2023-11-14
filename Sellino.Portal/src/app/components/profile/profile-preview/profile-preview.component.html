@@ -1,5 +1,5 @@
 <div class="preview-container shadow-darker">
-  <div class="preview-container__header" [ngStyle]="{ 'background-image': 'url(' + coverMedia + ')' }">
+  <div class="preview-container__header" [ngStyle]="{ 'background-image': 'url(' + coverMedia + ')' }" *ngIf="pageToShow != null && pageToShow.ProfilePage.IsFrontpage">
     <div class="overlay-container"></div>
     <div class="profile-name">{{ profileName }}</div>
     <div>
@@ -32,8 +32,11 @@
       <div class="bio">{{ bio }}</div>
     </div>
   </div>
+  <div class="preview-container__content__header" *ngIf="pageToShow != null && !pageToShow.ProfilePage.IsFrontpage">{{ pageToShow.ProfilePage.Name }}</div>
   <div class="preview-container__content p-20">
-    <product-group-horizontal [headline]="'Nyheder fra New Balance'"></product-group-horizontal>
+    <ng-container *ngFor="let pageSection of pageToShow?.Sections">
+      <product-group-horizontal [headline]="pageSection.Name"></product-group-horizontal>
+    </ng-container>
   </div>
 
 </div>

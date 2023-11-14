@@ -7,7 +7,7 @@
 
 <div class="profile-container d-flex">
   <div *ngIf="currentTab == 'Sider'" class="profile-container__item round-container">
-    <profile-pages></profile-pages>
+    <profile-pages (onPageSelect)="selectedPage = $event"></profile-pages>
   </div>
   <div *ngIf="currentTab == 'Farver'" class="profile-container__item round-container">
     <h3>Farver</h3>
@@ -70,6 +70,6 @@
   </div>
   <div class="profile-container__item round-container">
     <h3>Preview</h3>
-    <sl-profile-preview [profileMediaId]="profileModel.ProfileMediaId" [coverMediaId]="profileModel.CoverMediaId" [profileName]="profileModel.Name" [bio]="profileModel.Bio"></sl-profile-preview>
+    <sl-profile-preview [pageToShow]="selectedPage" [profileMediaId]="profileModel.ProfileMediaId" [coverMediaId]="profileModel.CoverMediaId" [profileName]="profileModel.Name" [bio]="profileModel.Bio"></sl-profile-preview>
   </div>
 </div>

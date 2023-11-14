@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ProfilePageSectionModel, ProfilePageService, ProfilePagesWithSectionsModel } from 'src/app/services/profile/profile-page.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ProfilePageSectionModel, ProfilePageService, ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
 
 @Component({
@@ -11,11 +11,12 @@ export class PagesComponent implements OnInit{
   showCreateNewPage: boolean = false;
   newProfileName: string = "";
   newPageSectionName: string = "";
-  profilePages: ProfilePagesWithSectionsModel[] = [];
-  currentSelectedPage: number | null = 0;
+  profilePages: ProfilePageWithSectionsModel[] = [];
+  currentSelectedPage: number | null = null;
   currentSelectedSection: number | null = null;
   isLoading: boolean = true;
-  
+  @Output() onPageSelect = new EventEmitter<ProfilePageWithSectionsModel>();
+
   constructor(private profileService: ProfileService, private profilePageService: ProfilePageService) {}
 
   ngOnInit(): void {
@@ -34,7 +35,7 @@ export class PagesComponent implements OnInit{
     }
   }
 
-  createNewSection(item: ProfilePagesWithSectionsModel) {
+  createNewSection(item: ProfilePageWithSectionsModel) {
     if(this.newPageSectionName != ""){
       this.profilePageService.CreatePageSection(this.newPageSectionName, item).subscribe(data => {
         this.getPages();
@@ -54,8 +55,8 @@ export class PagesComponent implements OnInit{
     if(index == this.currentSelectedPage){
       this.currentSelectedPage = null;
     } else {
+      this.onPageSelect.emit(this.profilePages[index]);
       this.showCreateNewPage = false;
-
       this.currentSelectedSection = null;    
       this.currentSelectedPage = index;    
     }
@@ -75,7 +76,9 @@ export class PagesComponent implements OnInit{
       this.profilePageService.GetProfilePages().subscribe(data => {
         this.profilePages = data;
         this.isLoading = false;
-  
+        if(this.currentSelectedPage != null){
+          this.onPageSelect.emit(this.profilePages[this.currentSelectedPage]);
+        }
       }); 
     }, 500);
   }

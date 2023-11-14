@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tab } from 'src/app/interfaces/TabModel';
 import { ProfileModel } from 'src/app/services/profile/profile';
-import { ProfilePageModel, ProfilePageService, ProfilePagesWithSectionsModel } from 'src/app/services/profile/profile-page.service';
+import { ProfilePageModel, ProfilePageService, ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
 import { ThemeService } from 'src/app/services/theme/theme.service';
 
@@ -14,9 +14,10 @@ export class ProfileComponent implements OnInit {
   tabs: Tab[] = [];
   currentTab: string = "";
   profileModel: ProfileModel = {Name: '', Bio: 'Test', CompanyHexColor: '', DarkCompanyHexColor: '', TextOnCompanyHexColor: '', SecondaryCompanyHexColor: '', TextOnSecondaryCompanyHexColor: '', ProfileMediaId: 0, CoverMediaId: 0};
-  profilePages: ProfilePagesWithSectionsModel[] = [];
+  profilePages: ProfilePageWithSectionsModel[] = [];
   isLoadingUpdate: boolean = false;
   isLoadingProfile: boolean = true;
+  selectedPage: ProfilePageWithSectionsModel | null = null;
 
   constructor(private profileService: ProfileService, private themeService: ThemeService, private profilePageService: ProfilePageService) {}
 

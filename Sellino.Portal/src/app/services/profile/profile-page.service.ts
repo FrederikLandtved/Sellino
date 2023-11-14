@@ -11,8 +11,8 @@ export class ProfilePageService {
 
   constructor(private http: HttpClient) { }
 
-  GetProfilePages() : Observable<ProfilePagesWithSectionsModel[]> {
-    var profile = this.http.get<ProfilePagesWithSectionsModel[]>(this.apiUrl + '/ProfilePages/Sections');
+  GetProfilePages() : Observable<ProfilePageWithSectionsModel[]> {
+    var profile = this.http.get<ProfilePageWithSectionsModel[]>(this.apiUrl + '/ProfilePages/Sections');
 
     return profile;
   }
@@ -27,7 +27,7 @@ export class ProfilePageService {
     return profilePage;
   }
 
-  CreatePageSection(pageSectionName: string, page: ProfilePagesWithSectionsModel) : Observable<number> {
+  CreatePageSection(pageSectionName: string, page: ProfilePageWithSectionsModel) : Observable<number> {
     var pageModel = { Name: pageSectionName, ProfilePageId: page.ProfilePage.ProfilePageId, ProfilePageSectionType: 1, DataId: 1007, SortIndex: 2 };
     var pageSectionId = this.http.post<number>(this.apiUrl + "/ProfilePageSections/" + page.ProfilePage.ProfilePageToken, pageModel);
 
@@ -35,7 +35,7 @@ export class ProfilePageService {
   }
 }
 
-export interface ProfilePagesWithSectionsModel {
+export interface ProfilePageWithSectionsModel {
   ProfilePage: ProfilePageModel,
   Sections: ProfilePageSectionModel[],
   showSections: boolean,

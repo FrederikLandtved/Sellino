@@ -51,12 +51,17 @@ namespace Sellino.API.Controllers
 
             if (profilePages != null)
             {
+                // Sort profilePages based on IsFrontpage
+                profilePages = profilePages.OrderByDescending(p => p.IsFrontpage).ToList();
+
                 foreach (ProfilePageModel profilePage in profilePages)
                 {
+                    List<ProfilePageSectionModel> sections = await _profilePageSectionService.GetProfilePageSections(profilePage.ProfilePageId);
+
                     model.Add(new ProfilePageWithSectionsModel
                     {
                         ProfilePage = profilePage,
-                        Sections = await _profilePageSectionService.GetProfilePageSections(profilePage.ProfilePageId)
+                        Sections = sections
                     });
                 }
 
@@ -65,6 +70,7 @@ namespace Sellino.API.Controllers
 
             return BadRequest(new { Error = ResponseConstants.NotFound });
         }
+
 
 
         [HttpGet]

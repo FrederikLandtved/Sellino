@@ -22,7 +22,7 @@
     &__item {
       cursor: pointer;
       transition: background .2s;
-      font-size: 14px;
+      font-size: 16px;
 
       &.active{
         border-top: 1px dashed var(--company-color);

@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MediaService } from 'src/app/services/media/media.service';
+import { ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
 
 @Component({
   selector: 'sl-profile-preview',
@@ -11,6 +12,7 @@ export class ProfilePreviewComponent implements OnInit, OnChanges {
   @Input() bio: string = '';
   @Input() profileMediaId: number | null = 0;
   @Input() coverMediaId: number | null = 0;
+  @Input() pageToShow: ProfilePageWithSectionsModel | null = null;
 
   profileMedia: string = '';
   coverMedia: string = '';

@@ -54,7 +54,7 @@ export class PagesComponent implements OnInit{
 
     if(index == this.currentSelectedPage){
       this.currentSelectedPage = null;
-    } else {
+    } else {      
       this.onPageSelect.emit(this.profilePages[index]);
       this.showCreateNewPage = false;
       this.currentSelectedSection = null;    

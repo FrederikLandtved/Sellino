@@ -22,7 +22,7 @@ namespace Sellino.Service.Services
             _mediaService = mediaService;
         }
 
-        public async Task<int> CreateProduct(string name, string description, int price, int productGroupId, int createdByUserId)
+        public async Task<int> CreateProduct(string name, string description, int price, int productGroupId, int productMediaId, int createdByUserId)
         {
             Product product = new Product
             {
@@ -33,7 +33,8 @@ namespace Sellino.Service.Services
                 CreatedByUserId = createdByUserId,
                 DateCreated = DateTimeOffset.UtcNow,
                 Description = description,
-                IsDeleted = false
+                IsDeleted = false,
+                ProductMediaId = productMediaId
             };
 
             return await _productRepository.CreateProduct(product);

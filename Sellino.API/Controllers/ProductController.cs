@@ -74,7 +74,7 @@ namespace Sellino.API.Controllers
         {
             var userId = _userHelper.GetUserId();
 
-            int productId = await _productService.CreateProduct(model.Name, model.Description, model.Price, model.ProductGroupId, userId);
+            int productId = await _productService.CreateProduct(model.Name, model.Description, model.Price, model.ProductGroupId, model.ProductMediaId, userId);
             return Ok(new { ProductId = productId });
         }
 

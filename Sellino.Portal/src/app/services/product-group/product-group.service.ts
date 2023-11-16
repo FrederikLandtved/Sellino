@@ -21,10 +21,6 @@ export class ProductGroupService {
 
   getProductsByProductGroupId(productGroupId: number): Observable<ProductGroupWithProducts> {
     var products = this.http.get<ProductGroupWithProducts>(this.apiUrl + '/ProductGroups/' + productGroupId + '/Products');
-
-    products.subscribe(data => {
-      return data;
-    });
     return products;
   }
 }

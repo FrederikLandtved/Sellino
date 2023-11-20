@@ -7,6 +7,7 @@ using Sellino.Domain.Models;
 using Sellino.Domain.Repositories;
 using Sellino.Service.Interfaces;
 using Sellino.Service.Models;
+using Sellino.Service.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -21,11 +22,16 @@ namespace Sellino.API.Controllers
         private readonly IConfiguration _configuration;
         private readonly IUserService _userService;
         private readonly IProfileService _profileService;
-        public AuthController(IConfiguration configuration, IUserService userService, IProfileService profileService)
+        private readonly IProductGroupService _productGroupService;
+        private readonly IProfilePageService _profilePageService;
+
+        public AuthController(IConfiguration configuration, IUserService userService, IProfileService profileService, IProductGroupService productGroupService, IProfilePageService profilePageService)
         {
             _configuration = configuration;
             _userService = userService;
             _profileService = profileService;
+            _productGroupService = productGroupService;
+            _profilePageService = profilePageService;
         }
 
         [HttpPost]
@@ -70,6 +76,10 @@ namespace Sellino.API.Controllers
 
                         if (profileId > 0)
                             await _profileService.CreateProfileAccessForUser(profileId, createdUserId, createdUserId);
+
+                        // Creates a default ProductGroup and ProfilePage when creating a new profile
+                        await _productGroupService.CreateProductGroup("Alle produkter", profileId);
+                        await _profilePageService.CreateProfilePage(new ProfilePageModel { IsFrontpage = true, Name = "Forside", ProfileId = profileId });
                     }
 
                     return Ok(new { response = "User was created! You can now login." });

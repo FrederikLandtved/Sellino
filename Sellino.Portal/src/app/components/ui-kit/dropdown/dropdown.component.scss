@@ -1,4 +1,10 @@
 @use '../../../../theme.scss' as *;
+  
+label {
+  font-weight: 500;
+  margin-bottom:7px;
+  display:inline-block;
+}
 
 .wrapper {
   position: relative;
@@ -13,6 +19,7 @@
       transform: rotate(180deg);    
     }
   }
+
 }
 
 .sl-dropdown {
@@ -58,19 +65,25 @@
   top: 45px;
   border: 1px solid rgb(202, 202, 202);
   width: 100%;
-  min-height: 100px;
 
   &__item {
     padding: 10px 12px;
     background: none;
-    border-bottom: solid 1px rgb(202, 202, 202);
 
     &:hover {
       cursor: pointer;
+      background-color: #f7f7f7;
     }
 
     &:last-child {
       border-bottom: none;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    &:first-child {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
     }
   }
 }

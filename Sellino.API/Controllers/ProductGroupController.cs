@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Sellino.API.Helpers;
 using Sellino.API.Models.Product;
 using Sellino.Domain.Models;
 using Sellino.Service.Interfaces;
@@ -12,10 +13,12 @@ namespace Sellino.API.Controllers
     public class ProductGroupController : ControllerBase
     {
         private readonly IProductGroupService _productGroupService;
+        private readonly UserHelper _userHelper;
 
-        public ProductGroupController(IProductGroupService productGroupService)
+        public ProductGroupController(IProductGroupService productGroupService, UserHelper userHelper)
         {
             _productGroupService = productGroupService;
+            _userHelper = userHelper;
         }
 
         [HttpGet]
@@ -41,6 +44,16 @@ namespace Sellino.API.Controllers
         public async Task<IActionResult> GetProductGroupsByProfile(Guid profileToken)
         {
             var productGroups = JsonSerializer.Serialize(await _productGroupService.GetProductGroupsByProfile(profileToken));
+
+            return Ok(productGroups);
+        }
+
+        [HttpGet]
+        [Route("/Profile/ProductGroups")]
+        public async Task<IActionResult> GetProductGroupsByCurrentUser()
+        {
+            int profileId = _userHelper.GetProfileId();
+            var productGroups = JsonSerializer.Serialize(await _productGroupService.GetProductGroupsByProfileId(profileId));
 
             return Ok(productGroups);
         }

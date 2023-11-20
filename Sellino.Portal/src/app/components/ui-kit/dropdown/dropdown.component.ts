@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'sl-dropdown',
@@ -6,10 +6,14 @@ import { Component, HostListener, Input } from '@angular/core';
   styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent {
+
   @Input() icon: string = 'las la-sort-numeric-down';
   @Input() title: string = 'Dropdown';
   @Input() options: DropdownOption[] = [];
-  
+  @Input() label: string = "";
+
+  @Output() onOptionClicked = new EventEmitter<DropdownOption>();
+
   public dropdownIsOpen: boolean = false;
   private wasInside = false;
 
@@ -26,8 +30,14 @@ export class DropdownComponent {
     this.wasInside = false;
   }
 
-  onContentClick() {
+  onDropdownClick() {
     this.dropdownIsOpen = !this.dropdownIsOpen;
+  }
+
+  onContentItemClick(clickedOption: DropdownOption) {
+    this.title = clickedOption.Title;
+    this.dropdownIsOpen = false;
+    this.onOptionClicked.emit(clickedOption);
   }
 }
 

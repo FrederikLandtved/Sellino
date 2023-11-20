@@ -23,6 +23,11 @@ export class ProductGroupService {
     var products = this.http.get<ProductGroupWithProducts>(this.apiUrl + '/ProductGroups/' + productGroupId + '/Products');
     return products;
   }
+
+  getProductGroupsByCurrentUser(): Observable<ProductGroup[]> {
+    var productGroups = this.http.get<ProductGroup[]>(this.apiUrl + '/Profile/ProductGroups');
+    return productGroups;
+  }
 }
 
 export interface ProductGroupWithProducts {

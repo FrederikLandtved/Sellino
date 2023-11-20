@@ -74,6 +74,15 @@ namespace Sellino.Service.Services
             return productGroupModels;
         }
 
+        public async Task<List<ProductGroupModel>> GetProductGroupsByProfileId(int profileId)
+        {
+            Sellino.Domain.Models.Profile profile = await _profileRepository.GetProfileById(profileId);
+
+            List<ProductGroup> productGroups = await _productGroupRepository.GetProductGroupsByProfileId(profileId);
+            List<ProductGroupModel> productGroupModels = _autoMapper.Map<List<ProductGroup>, List<ProductGroupModel>>(productGroups);
+
+            return productGroupModels;
+        }
 
         public async Task<bool> UpdateProductGroup(ProductGroupModel productGroup)
         {

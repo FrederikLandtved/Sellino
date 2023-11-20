@@ -17,7 +17,7 @@ export class InputComponent {
   
   @Input() value: string = '';
 
-  @Output() valueChange: EventEmitter<string> = new EventEmitter<string>(); 
+  @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
   isInputFocused: boolean = false;
 

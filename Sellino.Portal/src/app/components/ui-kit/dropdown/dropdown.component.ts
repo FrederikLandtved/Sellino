@@ -12,7 +12,7 @@ export class DropdownComponent {
   @Input() options: DropdownOption[] = [];
   @Input() label: string = "";
 
-  @Output() onOptionClicked = new EventEmitter<DropdownOption>();
+  @Output() onOptionClicked = new EventEmitter<number>();
 
   public dropdownIsOpen: boolean = false;
   private wasInside = false;
@@ -37,7 +37,7 @@ export class DropdownComponent {
   onContentItemClick(clickedOption: DropdownOption) {
     this.title = clickedOption.Title;
     this.dropdownIsOpen = false;
-    this.onOptionClicked.emit(clickedOption);
+    this.onOptionClicked.emit(clickedOption.Id);
   }
 }
 

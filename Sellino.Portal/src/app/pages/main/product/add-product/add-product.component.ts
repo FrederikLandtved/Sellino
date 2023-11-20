@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ButtonSelectorItem, ButtonSelector } from 'src/app/components/ui-kit/button-selector/button-selector.component';
 import { DropdownOption } from 'src/app/components/ui-kit/dropdown/dropdown.component';
 import { ProductGroupService } from 'src/app/services/product-group/product-group.service';
+import { CreateProductModel } from 'src/app/services/product/product';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -10,8 +12,9 @@ import { ProductGroupService } from 'src/app/services/product-group/product-grou
 })
 export class AddProductComponent implements OnInit {
   productGroupsOptions: DropdownOption[] = [];
+  productModel: CreateProductModel = new CreateProductModel("", "", "", 0, 0);
 
-  constructor(private productGroupService: ProductGroupService) {}
+  constructor(private productGroupService: ProductGroupService, private productService: ProductService) {}
     
   ngOnInit(): void {
     this.getProductGroups();
@@ -24,7 +27,11 @@ export class AddProductComponent implements OnInit {
         this.productGroupsOptions.push(option);
       });
     });
-  } 
+  }
+
+  onSubmitProduct() {
+    this.productService.CreateProduct(this.productModel).subscribe(data => console.log(data));
+  }
   
   
 

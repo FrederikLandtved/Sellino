@@ -62,8 +62,10 @@ namespace Sellino.API.Controllers
         [Route("/ProductGroups")]
         public async Task<IActionResult> CreateProductGroup([FromBody]CreateProductGroupModel model)
         {
-            int productGroupId = await _productGroupService.CreateProductGroup(model.Name, model.ProfileId);
-            return Ok(new { ProductGroupId = productGroupId });
+            int profileId = _userHelper.GetProfileId();
+            int productGroupId = await _productGroupService.CreateProductGroup(model.Name, profileId);
+
+            return Ok(productGroupId);
         }
 
         [HttpDelete]

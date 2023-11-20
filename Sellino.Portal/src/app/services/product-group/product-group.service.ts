@@ -28,6 +28,12 @@ export class ProductGroupService {
     var productGroups = this.http.get<ProductGroup[]>(this.apiUrl + '/Profile/ProductGroups');
     return productGroups;
   }
+
+  createProductGroup(productGroupName: string): Observable<number> {
+    const body = { name: productGroupName };
+  
+    return this.http.post<number>(this.apiUrl + '/ProductGroups', body);
+  }
 }
 
 export interface ProductGroupWithProducts {

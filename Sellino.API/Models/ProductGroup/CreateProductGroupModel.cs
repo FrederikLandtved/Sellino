@@ -3,6 +3,5 @@
     public class CreateProductGroupModel
     {
         public string Name { get; set; }
-        public int ProfileId { get; set; }
     }
 }

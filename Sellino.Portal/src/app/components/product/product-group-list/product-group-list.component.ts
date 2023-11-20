@@ -22,7 +22,10 @@ export class ProductGroupListComponent implements OnInit {
   getProductGroups() {
     this.productGroupService.getProductGroupsByCurrentUser().subscribe(data => {
       this.productGroups = data;
-      this.getProducts(this.productGroups[0]);
+
+      if(this.productGroups.length > 0){
+        this.getProducts(this.productGroups[0]);
+      }
     });
   }
 
@@ -30,7 +33,7 @@ export class ProductGroupListComponent implements OnInit {
     if(productGroup.ProductGroupId == this.selectedProductGroup.ProductGroup?.ProductGroupId){
       return;
     }
-    
+
     this.selectedProductGroup.ProductGroup = productGroup;
     this.getProducts(productGroup);
   }
@@ -47,6 +50,12 @@ export class ProductGroupListComponent implements OnInit {
   }
 
   createNewProductGroup() {
-
+    if(this.newProductGroupName != ""){
+      this.productGroupService.createProductGroup(this.newProductGroupName).subscribe(data => {
+        this.newProductGroupName = "";
+        this.showCreateNewProductGroup = false;
+        this.getProductGroups();
+      });
+    }
   }
 }

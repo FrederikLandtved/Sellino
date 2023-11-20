@@ -2,7 +2,7 @@
   --company-color: #0070F4;
   --company-color-dark: #0265DA;
   --text-on-company-color: #FFFFFF;
-
+  --text-on-company-color-dark: #FFFFFF;
   --secondary-company-color: #3FD77C;
   --secondary-text-color: #FFFFFF;
 }
@@ -15,7 +15,7 @@
 }
 
 body {
-  background: rgb(242 242 242);
+  background: rgb(248, 251, 255);
   overflow-y: scroll;
 }
 

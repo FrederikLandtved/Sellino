@@ -13,7 +13,7 @@ import { ThemeService } from 'src/app/services/theme/theme.service';
 export class ProfileComponent implements OnInit {
   tabs: Tab[] = [];
   currentTab: string = "";
-  profileModel: ProfileModel = {Name: '', Bio: 'Test', CompanyHexColor: '', DarkCompanyHexColor: '', TextOnCompanyHexColor: '', SecondaryCompanyHexColor: '', TextOnSecondaryCompanyHexColor: '', ProfileMediaId: 0, CoverMediaId: 0};
+  profileModel: ProfileModel = {Name: '', Bio: 'Test', CompanyHexColor: '', DarkCompanyHexColor: '', TextOnCompanyHexColor: '', SecondaryCompanyHexColor: '', TextOnSecondaryCompanyHexColor: '', TextOnDarkCompanyHexColor: '', ProfileMediaId: 0, CoverMediaId: 0};
   profilePages: ProfilePageWithSectionsModel[] = [];
   isLoadingUpdate: boolean = false;
   isLoadingProfile: boolean = true;
@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
     setTimeout(() => {
       this.profileService.UpdateProfile(this.profileModel)
       .subscribe(data => {
-        this.themeService.UpdateColorTheme(this.profileModel.CompanyHexColor, this.profileModel.TextOnCompanyHexColor, this.profileModel.DarkCompanyHexColor, this.profileModel.SecondaryCompanyHexColor, this.profileModel.TextOnSecondaryCompanyHexColor);
+        this.themeService.UpdateColorTheme(this.profileModel.CompanyHexColor, this.profileModel.TextOnCompanyHexColor, this.profileModel.DarkCompanyHexColor, this.profileModel.SecondaryCompanyHexColor, this.profileModel.TextOnSecondaryCompanyHexColor, this.profileModel.TextOnDarkCompanyHexColor);
         sessionStorage.setItem("profile", JSON.stringify(this.profileModel));
         this.isLoadingUpdate = false;
       });

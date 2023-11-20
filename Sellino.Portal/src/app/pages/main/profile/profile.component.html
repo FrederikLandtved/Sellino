@@ -40,6 +40,14 @@
 
     <sl-color-picker 
       [icon]="'las la-brush'" 
+      [label]="'Tekst på mørk virksomhedsfarve'" 
+      [color]="profileModel.TextOnDarkCompanyHexColor"
+      (valueChange)="profileModel.TextOnDarkCompanyHexColor = $event">
+    </sl-color-picker>
+
+    <sl-margin [px]="30"></sl-margin>
+    <sl-color-picker 
+      [icon]="'las la-brush'" 
       [label]="'Sekundær virksomhedsfarve'" 
       [color]="profileModel.SecondaryCompanyHexColor"
       (valueChange)="profileModel.SecondaryCompanyHexColor = $event">

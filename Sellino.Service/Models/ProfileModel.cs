@@ -10,6 +10,7 @@
         public int? CoverMediaId { get; set; }
         public string CompanyHexColor { get; set; }
         public string DarkCompanyHexColor { get; set; }
+        public string TextOnDarkCompanyHexColor { get; set; }
         public string TextOnCompanyHexColor { get; set; }
         public string SecondaryCompanyHexColor { get; set; }
         public string TextOnSecondaryCompanyHexColor { get; set; }

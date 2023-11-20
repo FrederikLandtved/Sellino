@@ -135,10 +135,11 @@
   &__content__header {
     display: flex;
     justify-content: center;
-    // background-color: var(--company-color-dark);
+    background-color: var(--company-color-dark);
+    
     // border-bottom-right-radius: 15px;
     // border-bottom-left-radius: 15px;
-    color: var(--text-on-company-color);
+    color: var(--text-on-company-color-dark);
     font-weight: 500;
     padding: 15px 0;
   }

@@ -27,6 +27,7 @@ namespace Sellino.Service.Services
                 CompanyHexColor = "#0070F4",
                 TextOnCompanyHexColor = "#ffffff",
                 DarkCompanyHexColor = "#0265DA",
+                TextOnDarkCompanyHexColor = "#ffffff",
                 SecondaryCompanyHexColor = "#3FD77C",
                 TextOnSecondaryCompanyHexColor = "#ffffff",
                 DateCreated = DateTimeOffset.UtcNow,
@@ -77,6 +78,7 @@ namespace Sellino.Service.Services
             profileToUpdate.CompanyHexColor = profile.CompanyHexColor;
             profileToUpdate.TextOnCompanyHexColor = profile.TextOnCompanyHexColor;
             profileToUpdate.DarkCompanyHexColor = profile.DarkCompanyHexColor;
+            profileToUpdate.TextOnDarkCompanyHexColor = profile.TextOnDarkCompanyHexColor;
             profileToUpdate.TextOnSecondaryCompanyHexColor = profile.TextOnSecondaryCompanyHexColor;
             profileToUpdate.SecondaryCompanyHexColor = profile.SecondaryCompanyHexColor;
             profileToUpdate.ProfileMediaId = profile.ProfileMediaId;

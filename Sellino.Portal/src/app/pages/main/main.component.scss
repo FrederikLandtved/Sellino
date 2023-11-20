@@ -48,6 +48,11 @@
 
       &.active {
         background: var(--company-color-dark);
+        color: var(--text-on-company-color-dark);
+
+        i {
+          color: var(--text-on-company-color-dark);
+        }
       }
 
       &:hover {
@@ -56,6 +61,7 @@
 
       &.active:hover {
         background: var(--company-color-dark);
+        color: var(--text-on-company-color-dark);
       }
 
       i {

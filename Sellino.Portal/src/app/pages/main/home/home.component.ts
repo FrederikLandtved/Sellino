@@ -9,22 +9,15 @@ import { ProductGroup, ProductGroupService } from 'src/app/services/product-grou
 export class HomeComponent implements OnInit {
   tabs: Tab[] = [];
   currentTab: string = "";
-  productGroups: ProductGroup[] = [];
 
   constructor(private productGroupService: ProductGroupService) {
 
   }
   ngOnInit(): void {
-    this.tabs = [{title: 'Produkter'}, { title: 'Produktgrupper' }];
-    this.getProductGroups();
+    this.tabs = [{title: 'Produktgrupper'}, { title: 'Produkter' }];
   }
 
   onTabClick(tab: Tab) {
     this.currentTab = tab.title;
-  }
-
-  getProductGroups() {
-    return;
-    this.productGroupService.getProductGroupsForProfile().subscribe(data => this.productGroups = data);
   }
 }

@@ -1,0 +1,45 @@
+<div class="profile-container__item round-container">
+  <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
+    <h3>Produktgrupper ({{ productGroups.length }})</h3>
+    <sl-button-round [title]="'las la-plus'" [type]="'secondary'" *ngIf="showCreateNewProductGroup == false" (onClick)="showCreateNewProductGroup = true" style="margin-top: -6px;"></sl-button-round>
+  </div>
+  <div style="margin-bottom: 20px;" *ngIf="showCreateNewProductGroup">
+    <div class="outlined-grey rounded-4 align-items-center p-10">
+      <div class="d-flex justify-content-between">
+        <sl-input [icon]="'las la-tag'" [placeholder]="'Navn på ny produktgruppe'" [value]="newProductGroupName" (valueChange)="newProductGroupName = $event"></sl-input>
+        <div class="d-flex">
+          <sl-button title="Gem" (onClick)="createNewProductGroup()" style="margin-right: 10px;"></sl-button>
+          <sl-button title="Annuller" type="outline" (onClick)="showCreateNewProductGroup = false"></sl-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let productGroup of productGroups">
+    <div class="list-item rounded-4 shadow-subtle" (click)="onSelect(productGroup)" [ngClass]="{'outlined': productGroup.ProductGroupId === selectedProductGroup.ProductGroup?.ProductGroupId}">
+      <h4> {{ productGroup.Name }} </h4>
+    </div>
+  </div>
+</div>
+
+<div class="profile-container__item round-container" style="display: flex; flex-direction: column; gap: 30px;">
+  <ng-container *ngIf="!loadingProducts">
+    <h3>Rediger {{ selectedProductGroup.ProductGroup?.Name }}</h3>
+
+    <sl-dropdown [title]="'Type'" label="Type af produktgruppe" icon="las la-grip-vertical"></sl-dropdown>
+
+    <div>
+      <h4>Produkter ({{ selectedProductGroup.Products?.length }})</h4>
+  
+      <div class="product-list d-flex">
+        <div *ngFor="let product of selectedProductGroup.Products" class="product-list__item" [ngStyle]="{ 'background-image': 'url(' + (product.ProductMedia | media) + ')' }"></div>
+        <div *ngIf="selectedProductGroup.Products?.length == 0">Ingen produkter fundet</div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="loadingProducts">
+    <div class="loading-container" *ngIf="loadingProducts">
+      <sl-loading></sl-loading>
+    </div>     
+  </ng-container>
+</div>

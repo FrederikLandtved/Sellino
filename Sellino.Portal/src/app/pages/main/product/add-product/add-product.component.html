@@ -5,12 +5,12 @@
     <h3>Produktinfo</h3>
 
     <div class="d-flex" style="gap: 30px">
-      <sl-input name="product-name" label="Navn" [(value)]="productModel.Name"></sl-input>
-      <sl-input name="price" label="Pris" [(value)]="productModel.Price"></sl-input>
+      <sl-input placeholder="Produktets navn" icon="las la-tag" name="product-name" label="Navn" [(value)]="productModel.Name"></sl-input>
+      <sl-input placeholder="DKK" icon="las la-coins" name="price" label="Pris" [(value)]="productModel.Price"></sl-input>
     </div>
 
     <div class="d-flex">
-      <sl-input name="product-description" label="Beskrivelse" [(value)]="productModel.Description"></sl-input>
+      <sl-input placeholder="Tilføj en dybdegående beskrivelse" icon="las la-align-left" name="product-description" label="Beskrivelse" [(value)]="productModel.Description"></sl-input>
     </div>
 
     <div class="d-flex">

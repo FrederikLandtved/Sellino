@@ -4,10 +4,10 @@
 
 <div class="profile-container d-flex" *ngIf="currentTab == 'Produkter'">
   <div class="profile-container__item round-container">
-    <div class="d-flex" style="gap: 30px;">
+    <div class="d-flex justify-content-between">
       <sl-input [icon]="'las la-search'" [placeholder]="'Søg efter produkt'"></sl-input>
-      <sl-dropdown [title]="'Sorter efter'"></sl-dropdown>
-      <sl-button [title]="'Tilføj produkt'" [routerLink]="['add-product']"></sl-button>
+      <!-- <sl-dropdown [title]="'Sorter efter'"></sl-dropdown> -->
+      <sl-button [title]="'Tilføj produkt'" type="secondary" [routerLink]="['add-product']"></sl-button>
     </div>
     <table cellspacing="0" cellpadding="0">
       <tr>
@@ -49,10 +49,4 @@
   </div>
 </div>
 
-<div class="profile-container d-flex" *ngIf="currentTab == 'Produktgrupper'">
-  <div class="profile-container__item round-container">
-    <div *ngFor="let item of productGroups">
-      {{ item.Name }}
-    </div>
-  </div>
-</div>
+<product-group-list *ngIf="currentTab == 'Produktgrupper'"></product-group-list>

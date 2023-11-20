@@ -41,9 +41,25 @@
   padding: 0 10px;
   width: 100%;
   margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid rgb(230, 230, 230);
+  padding: 10px 15px;
+
+  &.outlined {
+    border: 1px solid var(--company-color);
+  }
 }
 
-product-group-list {
-  display: flex;
-  gap: 30px;
+.product-list {
+  margin-top: 8px;
+  gap: 10px;
+
+  &__item {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center; 
+    border-radius: 3px;
+  }
 }
+

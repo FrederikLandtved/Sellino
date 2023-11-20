@@ -32,6 +32,7 @@ import { ButtonRoundComponent } from './components/ui-kit/button-round/button-ro
 import { PagesComponent } from './pages/main/profile/pages/pages.component';
 import { ProductGroupHorizontalComponent } from './components/ui-kit/product/product-group-horizontal/product-group-horizontal.component';
 import { MediaPipe } from './pipes/media.pipe';
+import { ProductGroupListComponent } from './components/product/product-group-list/product-group-list.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { MediaPipe } from './pipes/media.pipe';
     ButtonRoundComponent,
     PagesComponent,
     ProductGroupHorizontalComponent,
-    MediaPipe
+    MediaPipe,
+    ProductGroupListComponent
   ],
   imports: [
     BrowserModule,

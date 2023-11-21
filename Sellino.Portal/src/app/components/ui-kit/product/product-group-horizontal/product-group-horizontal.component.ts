@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MediaService } from 'src/app/services/media/media.service';
-import { Product, ProductGroupService, ProductGroupWithProducts } from 'src/app/services/product-group/product-group.service';
+import { ProductGroupService, ProductGroupWithProducts } from 'src/app/services/product-group/product-group.service';
 
 @Component({
   selector: 'product-group-horizontal',

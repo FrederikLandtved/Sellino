@@ -1,3 +1,5 @@
+import { MediaModel } from '../media/media';
+
 export class CreateProductModel {
   Name: string;
   Description: string;
@@ -12,4 +14,11 @@ export class CreateProductModel {
     this.ProductGroupId = productGroupId;
     this.ProductMediaId = productMediaId;
   }
+}
+
+export interface Product {
+  ProductId: number,
+  Name: string,
+  Description: string,
+  ProductMedia: MediaModel
 }

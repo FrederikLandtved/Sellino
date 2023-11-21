@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MediaModel } from '../media/media';
+import { Product } from '../product/product';
 
 @Injectable({
   providedIn: 'root'
@@ -45,11 +45,4 @@ export interface ProductGroup {
   ProductGroupId: number,
   ProductGroupToken: string,
   Name: string
-}
-
-export interface Product {
-  ProductId: number,
-  Name: string,
-  Description: string,
-  ProductMedia: MediaModel
 }

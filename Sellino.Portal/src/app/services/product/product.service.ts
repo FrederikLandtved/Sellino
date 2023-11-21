@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CreateProductModel } from './product';
+import { CreateProductModel, Product } from './product';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +14,10 @@ export class ProductService {
   CreateProduct(productModel: CreateProductModel) : Observable<number> {
     var productGroups = this.http.post<number>(this.apiUrl + '/Products', productModel);
     return productGroups;
+  }
+
+  GetProductsForProfile() : Observable<Product[]> {
+    var products = this.http.get<Product[]>(this.apiUrl + '/Products');
+    return products;
   }
 }

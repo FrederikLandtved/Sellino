@@ -43,7 +43,7 @@ namespace Sellino.API.Controllers
 
         [HttpPost]
         [Route("/ProfilePageSections/{profilePageToken}")]
-        public async Task<IActionResult> CreateProfilePage([FromRoute] Guid profilePageToken, [FromBody] CreateProfilePageSectionModel model)
+        public async Task<IActionResult> CreateProfilePageSection([FromRoute] Guid profilePageToken, [FromBody] CreateProfilePageSectionModel model)
         {
             var profileId = _userHelper.GetProfileId();
             int profilePageSectionId = 0;

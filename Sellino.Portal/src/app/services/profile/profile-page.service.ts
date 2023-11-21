@@ -27,8 +27,8 @@ export class ProfilePageService {
     return profilePage;
   }
 
-  CreatePageSection(pageSectionName: string, page: ProfilePageWithSectionsModel) : Observable<number> {
-    var pageModel = { Name: pageSectionName, ProfilePageId: page.ProfilePage.ProfilePageId, ProfilePageSectionType: 1, DataId: 1007, SortIndex: 2 };
+  CreatePageSection(pageSectionModel: ProfilePageSectionModel, page: ProfilePageWithSectionsModel) : Observable<number> {
+    var pageModel = { Name: pageSectionModel.Name, ProfilePageId: page.ProfilePage.ProfilePageId, ProfilePageSectionType: pageSectionModel.ProfilePageSectionType, DataId: pageSectionModel.DataId, SortIndex: pageSectionModel.SortIndex };
     var pageSectionId = this.http.post<number>(this.apiUrl + "/ProfilePageSections/" + page.ProfilePage.ProfilePageToken, pageModel);
 
     return pageSectionId;

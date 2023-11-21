@@ -1,13 +1,13 @@
 <div class="create-section d-flex justify-content-center align-items-center" [ngClass]="{'full-border': createStep !== 0}">
   <div *ngIf="createStep === 0" class="d-flex">
-    <sl-input [icon]="'las la-tag'" [placeholder]="'Navn på sektion'"></sl-input>
+    <sl-input [icon]="'las la-tag'" [placeholder]="'Navn på sektion'" [value]="createSectionModel.Name" (valueChange)="createSectionModel.Name = $event"></sl-input>
     <sl-button (onClick)="createStep = 1" title="Videre"></sl-button>
   </div>
   <div class="d-flex flex-column" style="width: 100%;" *ngIf="createStep === 1">
     <h4>Vælg sektionens type</h4>
     <h5>Produktgrupper</h5>
     <div class="choose-type d-flex">
-      <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onProductGroupClick()">
+      <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onProductGroupClick(true)">
         <div class="choose-type__item--horisontal d-flex" style="gap: 4px;">
           <div class="horisontal-item"></div>
           <div class="horisontal-item"></div>
@@ -15,7 +15,7 @@
         </div>
         <span>Horisontal</span>
       </div>
-      <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onProductGroupClick()">
+      <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onProductGroupClick(false)">
         <div class="choose-type__item--grid d-flex" style="gap: 4px;">
           <div class="grid-item"></div>
           <div class="grid-item"></div>
@@ -34,7 +34,9 @@
 
     <div class="d-flex" style="gap: 20px;">
       <sl-button type="secondary" (onClick)="createStep = 1" title="Tilbage"></sl-button>
-      <sl-dropdown [title]="'Vælg produktgruppe'" [icon]="'las la-boxes'" [options]="productGroupOptions"></sl-dropdown>
+      <sl-dropdown [title]="'Vælg produktgruppe'" [icon]="'las la-boxes'" [options]="productGroupOptions" (onOptionClicked)="onProductGroupChange($event)"></sl-dropdown>
     </div>
+
+    <sl-button (onClick)="onSubmitNewSection()" title="Gem"></sl-button>
   </div>
 </div>

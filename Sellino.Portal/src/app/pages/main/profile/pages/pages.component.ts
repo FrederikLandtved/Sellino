@@ -15,6 +15,7 @@ export class PagesComponent implements OnInit{
   currentSelectedPage: number | null = null;
   currentSelectedSection: number | null = null;
   isLoading: boolean = true;
+  
   @Output() onPageSelect = new EventEmitter<ProfilePageWithSectionsModel>();
 
   constructor(private profileService: ProfileService, private profilePageService: ProfilePageService) {}
@@ -32,15 +33,6 @@ export class PagesComponent implements OnInit{
           this.showCreateNewPage = false;
           this.getPages(false);
         });
-    }
-  }
-
-  createNewSection(item: ProfilePageWithSectionsModel) {
-    if(this.newPageSectionName != ""){
-      this.profilePageService.CreatePageSection(this.newPageSectionName, item).subscribe(data => {
-        this.getPages(false);
-        this.newPageSectionName = "";
-      });
     }
   }
 
@@ -89,5 +81,12 @@ export class PagesComponent implements OnInit{
         }
       }); 
     }, 500);
+  }
+
+  onCreateNewSection(model: ProfilePageSectionModel, item: ProfilePageWithSectionsModel) {
+    this.profilePageService.CreatePageSection(model, item).subscribe(data => {
+      this.getPages(false);
+      this.newPageSectionName = "";
+    });
   }
 }

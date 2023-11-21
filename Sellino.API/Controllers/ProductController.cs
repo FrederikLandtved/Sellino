@@ -32,10 +32,18 @@ namespace Sellino.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             var userId = _userHelper.GetUserId();
+            var profileId = _userHelper.GetProfileId();
+            List<ProductModel> products = new List<ProductModel>();
+            List<ProductGroupModel> productGroups = await _productGroupService.GetProductGroupsByProfileId(profileId);
 
-            var products = JsonSerializer.Serialize(await _productService.GetProducts());
+            foreach(ProductGroupModel model in productGroups)
+            {
+                products.AddRange(await _productService.GetProductsFromProductGroup(model.ProductGroupId));
+            }
 
-            return Ok(products);
+            products = products.OrderBy(x => x.ProductId).ToList();
+
+            return Ok(JsonSerializer.Serialize(products));
         }
 
         [HttpGet]

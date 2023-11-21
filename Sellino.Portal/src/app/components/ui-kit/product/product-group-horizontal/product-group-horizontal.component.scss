@@ -1,7 +1,7 @@
 .product-group-horizontal-container {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
-  h4 {
+  h3 {
     color: var(--text-on-company-color);
     font-weight: 400;
   }
@@ -14,7 +14,6 @@
     -ms-overflow-style: none; /* For IE and Edge */
     white-space: nowrap;
     padding-top: 10px;
-    padding-bottom: 20px;
   
     .product-group-inner {
       display: flex;

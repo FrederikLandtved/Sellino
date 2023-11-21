@@ -40,6 +40,11 @@
         <ng-container *ngIf="pageSection.ProfilePageSectionType == 1">
           <product-group-horizontal [headline]="pageSection.Name" [productGroupId]="pageSection.DataId"></product-group-horizontal>
         </ng-container>
+
+        <!-- 2: Grid product group -->
+        <ng-container *ngIf="pageSection.ProfilePageSectionType == 2">
+          <product-group-grid [headline]="pageSection.Name" [productGroupId]="pageSection.DataId"></product-group-grid>
+        </ng-container>
       </ng-container>
     </div>
   </ng-container>

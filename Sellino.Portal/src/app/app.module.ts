@@ -33,6 +33,7 @@ import { PagesComponent } from './pages/main/profile/pages/pages.component';
 import { ProductGroupHorizontalComponent } from './components/ui-kit/product/product-group-horizontal/product-group-horizontal.component';
 import { MediaPipe } from './pipes/media.pipe';
 import { ProductGroupListComponent } from './components/product/product-group-list/product-group-list.component';
+import { ProductGroupGridComponent } from './components/ui-kit/product/product-group-grid/product-group-grid.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ProductGroupListComponent } from './components/product/product-group-li
     PagesComponent,
     ProductGroupHorizontalComponent,
     MediaPipe,
-    ProductGroupListComponent
+    ProductGroupListComponent,
+    ProductGroupGridComponent
   ],
   imports: [
     BrowserModule,

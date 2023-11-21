@@ -1,6 +1,6 @@
 <div class="product-group-horizontal-container">
-    <h4 *ngIf="headline == ''">{{ productGroup.ProductGroup?.Name }}</h4>
-    <h4 *ngIf="headline != ''">{{ headline }}</h4>
+    <h3 *ngIf="headline == ''">{{ productGroup.ProductGroup?.Name }}</h3>
+    <h3 *ngIf="headline != ''">{{ headline }}</h3>
     <div class="product-group-horizontal">
       <div class="product-group-inner">
         <div class="product-group-item" *ngFor="let item of productGroup.Products" [ngStyle]="{ 'background-image': 'url(' + (item.ProductMedia | media) + ')' }">

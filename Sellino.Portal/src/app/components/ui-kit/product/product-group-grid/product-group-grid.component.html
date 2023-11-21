@@ -1,0 +1,10 @@
+<div class="product-group-grid-container">
+  <h3>{{ headline }}</h3>
+  <div class="flex-container" *ngFor="let container of itemsToShow">
+      <div class="flex-item" *ngFor="let item of container"  [ngStyle]="{ 'background-image': 'url(' + (item.ProductMedia | media) + ')' }">
+          <div class="flex-item-inner">
+
+          </div>
+      </div>
+  </div>
+</div>

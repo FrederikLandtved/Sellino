@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Sellino.Domain.Models
+namespace Sellino.Service.Models
 {
     public class ProductGroupModel
     {

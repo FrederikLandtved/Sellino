@@ -1,0 +1,62 @@
+.product-group-grid-container {
+  margin-bottom: 30px;
+
+  h3 {
+    color: var(--text-on-company-color);
+    font-weight: 400;
+    margin-bottom: 7px;
+  }
+  
+  .flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    justify-content: space-around;
+    line-height:30px;
+  }
+  
+  .flex-item {
+    margin: 7px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    flex: 1 0 auto;
+    height:auto;
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px;
+    cursor: pointer;
+    // background-image: url('https://cdn.shopify.com/s/files/1/0323/7029/4919/products/image_33761857-30cd-4a34-9439-87d0260149fc_1445x.jpg?v=1651671582');
+    background-size: cover;
+    border-radius: 7px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .flex-item-inner {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: grey;
+    border-radius: 7px;
+    opacity: 0.2;
+  }
+  .flex-item::before {
+    content:'';
+    float:left;
+    padding-top:100%;
+  }
+}

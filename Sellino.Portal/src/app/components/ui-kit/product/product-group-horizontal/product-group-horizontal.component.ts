@@ -12,7 +12,7 @@ export class ProductGroupHorizontalComponent implements OnInit {
   @Input() headline: String = 'Headline';
   productGroup: ProductGroupWithProducts = {};
 
-  constructor(private productGroupService: ProductGroupService, private mediaService: MediaService) {}
+  constructor(private productGroupService: ProductGroupService) {}
 
   ngOnInit(): void {
     this.productGroupService.getProductsByProductGroupId(this.productGroupId).subscribe(data => {

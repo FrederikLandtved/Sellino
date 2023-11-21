@@ -77,6 +77,10 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 .align-items-center {
   align-items: center;
 }

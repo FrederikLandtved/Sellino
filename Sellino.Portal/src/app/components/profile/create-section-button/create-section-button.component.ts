@@ -8,7 +8,7 @@ import { DropdownOption } from '../../ui-kit/dropdown/dropdown.component';
   styleUrls: ['./create-section-button.component.scss']
 })
 export class CreateSectionButtonComponent {
-  createStep: CreateSectionStep = CreateSectionStep.Start;
+  createStep: CreateSectionStep = CreateSectionStep.ChooseType;
   productGroupOptions: DropdownOption[] = [];
 
   constructor(private productGroupService: ProductGroupService) {}
@@ -21,13 +21,17 @@ export class CreateSectionButtonComponent {
 
   onProductGroupClick() {
     this.createStep = CreateSectionStep.ProductGroup;
-    this.productGroupService.getProductGroupsForProfile().subscribe((data) => {
+    this.productGroupService.getProductGroupsByCurrentUser().subscribe((data) => {
       // Map each ProductGroup to a DropdownOption
       this.productGroupOptions = data.map((productGroup) => ({
         Id: productGroup.ProductGroupId,
         Title: productGroup.Name,
       }));
     });
+  }
+
+  onImageClick() {
+    this.createStep = CreateSectionStep.Image;
   }
 }
 

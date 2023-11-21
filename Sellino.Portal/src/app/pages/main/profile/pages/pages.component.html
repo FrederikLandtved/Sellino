@@ -33,7 +33,8 @@
     </div>
 
     <div class="sections" *ngIf="item.showAddNewSection">
-      <div class="p-10 px-15">
+      <create-section-button></create-section-button>
+      <!-- <div class="p-10 px-15">
         <div class="d-flex justify-content-between">
           <sl-input [icon]="'las la-tag'" [placeholder]="'Navn på sektion'" [value]="newPageSectionName" (valueChange)="newPageSectionName = $event"></sl-input>
           <div class="d-flex">
@@ -41,7 +42,7 @@
             <sl-button title="Annuller" type="outline" (onClick)="item.showAddNewSection = false"></sl-button>
           </div>
         </div>      
-      </div>
+      </div> -->
     </div>
 
     <!-- Page Sections -->

@@ -79,6 +79,9 @@ export class PagesComponent implements OnInit{
 
         if(selectFirst){
           this.currentSelectedPage = 0;
+
+          // REMOVE THIS!
+          this.profilePages[this.currentSelectedPage].showAddNewSection = true;
         }
 
         if(this.currentSelectedPage != null){

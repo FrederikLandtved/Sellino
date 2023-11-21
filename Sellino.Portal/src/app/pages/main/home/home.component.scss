@@ -47,3 +47,13 @@ product-group-list {
   display: flex;
   gap: 30px;
 }
+
+img {
+  transition: transform 0.1s;
+  border-radius: 2px;
+}
+
+img:hover {
+  transform: scale(4);
+  box-shadow: rgba(149, 157, 165, 0.2 ) 0px 0px 3px;
+}

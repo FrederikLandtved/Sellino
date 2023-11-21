@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Tab } from 'src/app/interfaces/TabModel';
-import { ProductGroup, ProductGroupService } from 'src/app/services/product-group/product-group.service';
+import { ProductService } from 'src/app/services/product/product.service';
+import { Product } from 'src/app/services/product/product';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,12 +11,16 @@ import { ProductGroup, ProductGroupService } from 'src/app/services/product-grou
 export class HomeComponent implements OnInit {
   tabs: Tab[] = [];
   currentTab: string = "";
+  productList: Product[] = [];
 
-  constructor(private productGroupService: ProductGroupService) {
+  constructor(private productService: ProductService) { }
 
-  }
   ngOnInit(): void {
-    this.tabs = [{title: 'Produktgrupper'}, { title: 'Produkter' }];
+    this.tabs = [{title: 'Produkter'}, { title: 'Produktgrupper' }];
+
+    this.productService.GetProductsForProfile().subscribe(data => {
+      this.productList = data;
+    });
   }
 
   onTabClick(tab: Tab) {

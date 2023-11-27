@@ -18,11 +18,8 @@ export class ProfilePageService {
   }
 
   CreateProfilePage(profilePageName: string) : Observable<ProfilePageModel> {
-    var profilePageModel: ProfilePageModel = {Name: profilePageName, IsFrontpage: false};
-    console.log("yuhu");
-    
+    var profilePageModel: ProfilePageModel = {Name: profilePageName, IsFrontpage: false};    
     var profilePage = this.http.post<ProfilePageModel>(this.apiUrl + "/ProfilePages", profilePageModel);
-    console.log("efter");
     
     return profilePage;
   }

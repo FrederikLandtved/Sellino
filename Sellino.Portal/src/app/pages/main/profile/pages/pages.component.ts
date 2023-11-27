@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ProfilePageSectionModel, ProfilePageService, ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
-import { ProfileService } from 'src/app/services/profile/profile.service';
 
 @Component({
   selector: 'profile-pages',
@@ -18,7 +17,7 @@ export class PagesComponent implements OnInit{
   
   @Output() onPageSelect = new EventEmitter<ProfilePageWithSectionsModel>();
 
-  constructor(private profileService: ProfileService, private profilePageService: ProfilePageService) {}
+  constructor(private profilePageService: ProfilePageService) {}
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -71,9 +70,6 @@ export class PagesComponent implements OnInit{
 
         if(selectFirst){
           this.currentSelectedPage = 0;
-
-          // REMOVE THIS!
-          this.profilePages[this.currentSelectedPage].showAddNewSection = true;
         }
 
         if(this.currentSelectedPage != null){

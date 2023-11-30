@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div class="profile-container__item round-container" style="display: flex; flex-direction: column; gap: 30px;">
+<div class="profile-container__item round-container" style="min-width: 50%; max-width: 50%; display: flex; flex-direction: column; gap: 30px;">
   <ng-container *ngIf="!loadingProducts && productGroups.length > 0">
     <h3>Detaljer for {{ selectedProductGroup.ProductGroup?.Name }}</h3>
 
@@ -30,7 +30,7 @@
     <div>
       <h4>Produkter ({{ selectedProductGroup.Products?.length }})</h4>
   
-      <div class="product-list d-flex">
+      <div class="product-list d-flex" style="flex-flow: row wrap;">
         <div *ngFor="let product of selectedProductGroup.Products" class="product-list__item" [ngStyle]="{ 'background-image': 'url(' + (product.ProductMedia | media) + ')' }"></div>
         <div *ngIf="selectedProductGroup.Products?.length == 0">Ingen produkter fundet</div>
       </div>

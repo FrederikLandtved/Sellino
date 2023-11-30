@@ -78,7 +78,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ColorPickerModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-bottom-center'
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      timeOut: 2000
     })
   ],
   providers: [],

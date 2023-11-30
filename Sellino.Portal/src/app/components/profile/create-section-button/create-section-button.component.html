@@ -1,5 +1,5 @@
 <div class="create-section d-flex justify-content-center align-items-center" [ngClass]="{'full-border': createStep !== 0}">
-  <div *ngIf="createStep === 0" class="d-flex">
+  <div *ngIf="createStep === 0" class="d-flex g-30">
     <sl-input [icon]="'las la-tag'" [placeholder]="'Navn på sektion'" [value]="createSectionModel.Name" (valueChange)="createSectionModel.Name = $event"></sl-input>
     <sl-button (onClick)="createStep = 1" title="Videre"></sl-button>
   </div>
@@ -32,11 +32,12 @@
   <div class="d-flex flex-column" *ngIf="createStep === 4" style="width: 100%;">
     <h4>Vælg produktgruppe</h4>
 
-    <div class="d-flex" style="gap: 20px;">
+    <sl-dropdown [title]="'Vælg produktgruppe'" [icon]="'las la-boxes'" [options]="productGroupOptions" (onOptionClicked)="onProductGroupChange($event)"></sl-dropdown>
+    <sl-margin [px]="20"></sl-margin>
+    <div class="d-flex justify-content-between" style="gap: 20px; width: 100%;">
       <sl-button type="secondary" (onClick)="createStep = 1" title="Tilbage"></sl-button>
-      <sl-dropdown [title]="'Vælg produktgruppe'" [icon]="'las la-boxes'" [options]="productGroupOptions" (onOptionClicked)="onProductGroupChange($event)"></sl-dropdown>
+      <sl-button (onClick)="onSubmitNewSection()" title="Gem"></sl-button>
     </div>
-
-    <sl-button (onClick)="onSubmitNewSection()" title="Gem"></sl-button>
+    
   </div>
 </div>

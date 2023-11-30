@@ -32,7 +32,7 @@ export class LoginComponent {
         sessionStorage.setItem("jwt", token);
         sessionStorage.setItem("user", JSON.stringify(user));
         sessionStorage.setItem("profile", JSON.stringify(profile));
-        this.toastr.success("Velkommen til Sellino!");
+        this.toastr.success("Du er nu logget ind");
 
         this.router.navigate(["/"]);
       }, err => {

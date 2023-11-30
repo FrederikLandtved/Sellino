@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, first } from 'rxjs';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class LoginService {
 
   private apiUrl = 'https://localhost:7240';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private toastr: ToastrService, private http: HttpClient, private router: Router) { }
 
   authenticate(email: string, password: string) {
     let loginModel: LoginModel = {email: email, password: password};
@@ -23,8 +24,11 @@ export class LoginService {
 
     this.http.post<LoginModel>(this.apiUrl + '/Auth/AddUser', registerModel).subscribe(response => {
       this.router.navigate(['auth']);
+      this.toastr.success("Du kan nu logge ind!")
     }, err => {
-
+      console.log(err);
+      
+      this.toastr.error(err.error.response);
     })
   }
 

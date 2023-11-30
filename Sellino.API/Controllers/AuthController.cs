@@ -56,7 +56,7 @@ namespace Sellino.API.Controllers
                 }
             }
 
-            return Unauthorized("Invalid credentials.");
+            return BadRequest("Invalid credentials.");
         }
 
 

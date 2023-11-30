@@ -11,7 +11,11 @@
       <sl-input *ngIf="createProfile" [(value)]="profileNameForm" [icon]="'las la-store-alt'" [placeholder]="'Butikkens navn'" [name]="'profilename'"></sl-input>
       <sl-margin [px]="5"></sl-margin>
       
-      <sl-button [title]="!createProfile ? 'Opret bruger': 'Opret bruger og butik'" *ngIf="!isLoading" (click)="tryRegister()"></sl-button>
+      <sl-button  [title]="!createProfile ? 'Opret bruger': 'Opret bruger og butik'" 
+                  *ngIf="!isLoading" 
+                  (click)="tryRegister()" 
+                  [disabled]="firstNameForm == '' || lastNameForm == '' || emailForm == '' || passwordForm == '' || repeatPasswordForm == '' || (createProfile == true && profileNameForm == '')">
+      </sl-button>
       <sl-button [title]="'Tilbage til log ind'" [type]="'outline'" (click)="backToLogin()" *ngIf="!isLoading"></sl-button>
       <div class="d-flex justify-content-center" *ngIf="isLoading">
         <sl-loading></sl-loading>

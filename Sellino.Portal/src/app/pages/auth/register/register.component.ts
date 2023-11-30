@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/auth/login.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ export class RegisterComponent {
   isLoading: boolean = false;
   createProfile: boolean = false;
   
-  constructor(private route: Router, private authService: LoginService){}
+  constructor(private toastr: ToastrService, private route: Router, private authService: LoginService){}
 
   tryRegister(){
     this.isLoading = true;
@@ -27,14 +28,14 @@ export class RegisterComponent {
       if(this.stringsArePopulated([this.emailForm, this.firstNameForm, this.lastNameForm, this.passwordForm, this.repeatPasswordForm]) == true) {
         if(!this.emailIsValid(this.emailForm)){
           // Handle invalid email
-          console.log("Handle invalid email");
+          this.toastr.error("Emailens format er forkert");
           this.isLoading = false;
           return;
         }
   
         if(!(this.passwordForm == this.repeatPasswordForm)){
           // Handle different passwords
-          console.log("Handle different passwords");
+          this.toastr.error("Passwords er forskellige");
           this.isLoading = false;
           return;
         }

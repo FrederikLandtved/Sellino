@@ -13,7 +13,7 @@ export class InputComponent {
   @Input() name: string = '';
   @Input() label: string = '';
   @Input() formControlName: FormControl<any> = new FormControl('');
-  @Input() password: boolean = false;
+  @Input() type: string = 'text';
   
   @Input() value: string = '';
 

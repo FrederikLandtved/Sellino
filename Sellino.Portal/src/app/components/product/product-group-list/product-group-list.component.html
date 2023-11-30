@@ -23,9 +23,9 @@
 
 <div class="profile-container__item round-container" style="display: flex; flex-direction: column; gap: 30px;">
   <ng-container *ngIf="!loadingProducts && productGroups.length > 0">
-    <h3>Rediger {{ selectedProductGroup.ProductGroup?.Name }}</h3>
+    <h3>Detaljer for {{ selectedProductGroup.ProductGroup?.Name }}</h3>
 
-    <sl-dropdown [title]="'Type'" label="Type af produktgruppe" icon="las la-grip-vertical"></sl-dropdown>
+    <!-- <sl-dropdown [title]="'Type'" label="Type af produktgruppe" icon="las la-grip-vertical"></sl-dropdown> -->
 
     <div>
       <h4>Produkter ({{ selectedProductGroup.Products?.length }})</h4>

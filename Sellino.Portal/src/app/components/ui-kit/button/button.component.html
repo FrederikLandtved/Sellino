@@ -3,8 +3,10 @@
         [ngClass]="{
           'primary': type === 'primary',
           'secondary': type === 'secondary',
-          'outline': type === 'outline'
-        }">
+          'outline': type === 'outline',
+          'disabled': disabled === true
+        }"
+        [disabled]="disabled">
   <ng-container *ngIf="!isLoading">{{ title }}</ng-container>
   <ng-container *ngIf="isLoading"><sl-loading></sl-loading></ng-container>
 </button>

@@ -4,8 +4,8 @@
       <sl-input [(value)]="firstNameForm" [icon]="'las la-user'" [placeholder]="'Fornavn'" [name]="'firstname'"></sl-input>
       <sl-input [(value)]="lastNameForm" [icon]="'las la-user'" [placeholder]="'Efternavn'" [name]="'lastname'"></sl-input>
       <sl-input [(value)]="emailForm" [icon]="'las la-envelope'" [placeholder]="'E-mail'" [name]="'email'"></sl-input>
-      <sl-input [(value)]="passwordForm" [icon]="'las la-key'" [placeholder]="'Adgangskode'" [name]="'password'" [password]="true"></sl-input>
-      <sl-input [(value)]="repeatPasswordForm" [icon]="'las la-key'" [placeholder]="'Bekræft adgangskode'" [name]="'password'" [password]="true"></sl-input>
+      <sl-input [(value)]="passwordForm" [icon]="'las la-key'" [placeholder]="'Adgangskode'" [name]="'password'" type="password"></sl-input>
+      <sl-input [(value)]="repeatPasswordForm" [icon]="'las la-key'" [placeholder]="'Bekræft adgangskode'" [name]="'password'" type="password"></sl-input>
 
       <sl-checkbox (onChecked)="createProfile = $event"></sl-checkbox>
       <sl-input *ngIf="createProfile" [(value)]="profileNameForm" [icon]="'las la-store-alt'" [placeholder]="'Butikkens navn'" [name]="'profilename'"></sl-input>

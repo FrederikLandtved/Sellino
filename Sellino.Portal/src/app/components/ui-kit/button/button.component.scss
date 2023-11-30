@@ -13,6 +13,17 @@
   transition: background-color 0.3s;
   width: 100%;
 
+  &.disabled {
+    background-color: rgb(216, 216, 216);
+    color: rgb(158, 158, 158);
+    border: none;
+
+    &:hover {
+      opacity: 1;
+      cursor: not-allowed;
+    }
+  }
+
   &:hover {
     opacity: 0.8;
   }
@@ -30,4 +41,5 @@
     color: var(--secondary-text-color);
     border: 1px solid var(--secondary-company-color);
   }
+  
 }

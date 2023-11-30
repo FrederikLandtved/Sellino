@@ -2,7 +2,7 @@
   <div class="page-wrapper">
     <div class="login-container">
       <sl-input [(value)]="emailForm" [icon]="'las la-user'" [placeholder]="'E-mail'" [name]="'email'"></sl-input>
-      <sl-input [(value)]="passwordForm" [icon]="'las la-key'" [placeholder]="'Adgangskode'" [name]="'password'" [password]="true"></sl-input>
+      <sl-input [(value)]="passwordForm" [icon]="'las la-key'" [placeholder]="'Adgangskode'" [name]="'password'" type="password"></sl-input>
       <sl-button [title]="'Log ind'" *ngIf="!isLoading" (click)="tryLogin()"></sl-button>
       <sl-button [title]="'Opret bruger'" [type]="'outline'" *ngIf="!isLoading" (click)="goToRegister()"></sl-button>
 

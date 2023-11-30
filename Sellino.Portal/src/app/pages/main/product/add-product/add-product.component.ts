@@ -13,6 +13,7 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class AddProductComponent implements OnInit {
   productGroupsOptions: DropdownOption[] = [];
   productModel: CreateProductModel = new CreateProductModel("", "", "", 0, 0);
+  loadingCreateProduct: boolean = false;
 
   constructor(private productGroupService: ProductGroupService, private productService: ProductService) {}
     
@@ -30,7 +31,14 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmitProduct() {
-    this.productService.CreateProduct(this.productModel).subscribe(data => console.log(data));
+    this.loadingCreateProduct = true;
+
+    setTimeout(() => {
+      this.productService.CreateProduct(this.productModel).subscribe(data => {
+        location.reload();
+        this.loadingCreateProduct = false;
+      });
+    }, 500);
   }
   
   

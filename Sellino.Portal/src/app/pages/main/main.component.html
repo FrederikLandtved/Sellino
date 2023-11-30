@@ -19,7 +19,7 @@
           <li>
             <a [routerLink]="['insights']" [routerLinkActive]="['active']"><i class="las la-chart-bar"></i>Indsigt</a>
           </li>
-          <li>
+          <!-- <li>
             <a [routerLink]="['categories']" [routerLinkActive]="['active']"><i class="las la-tags"></i>Kategorier</a>
           </li>
           <li>
@@ -27,7 +27,7 @@
           </li>
           <li>
             <a href=""><i class="las la-users-cog"></i>Brugere</a>
-          </li>
+          </li> -->
           <li>
             <a href="" (click)="LogOut()"><i class="las la-sign-out-alt"></i>Log ud</a>
           </li>
@@ -48,8 +48,8 @@
       <div class="right">
         <div class="d-flex align-items-center">
         <!-- <i class="las la-bell" style="font-size: 30px;"></i> -->
-        <i class="las la-user-circle" style="font-size: 30px;"></i>
-        {{ homeModel.FirstName }}
+        <!-- <i class="las la-user-circle" style="font-size: 30px;"></i> -->
+        Logget ind som {{ homeModel.FirstName }}
       </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
   constructor(private profileService: ProfileService, private themeService: ThemeService, private profilePageService: ProfilePageService) {}
 
   ngOnInit(): void {
-    this.tabs = [ { title: 'Sider' }, {title: 'Farver'}, {title: 'Billeder'}, {title: 'Tekster'},{title: 'Returret'}, { title: 'Betaling' }];
+    this.tabs = [ { title: 'Sider' }, {title: 'Farver'}, {title: 'Billeder'}, {title: 'Tekster'}];
     this.getProfileForEditing();
   }
 

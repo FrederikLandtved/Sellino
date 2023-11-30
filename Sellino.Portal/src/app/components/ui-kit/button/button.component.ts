@@ -10,6 +10,7 @@ export class ButtonComponent {
   @Input() type: string = 'primary';
   @Output() onClick = new EventEmitter();
   @Input() isLoading: boolean = false;
+  @Input() disabled: boolean = false;
 
   onButtonClick() {
     this.onClick.emit();

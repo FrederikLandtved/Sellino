@@ -18,10 +18,7 @@ export class ProductGroupGridComponent implements OnInit  {
   ngOnInit(): void {
     this.productGroupService.getProductsByProductGroupId(this.productGroupId).subscribe(data => {
       this.productGroup = data;      
-      this.itemsToShow = divideArray(this.productGroup.Products, 2);
-
-      console.log(this.itemsToShow);
-      
+      this.itemsToShow = divideArray(this.productGroup.Products, 2);      
     });
   }
 }

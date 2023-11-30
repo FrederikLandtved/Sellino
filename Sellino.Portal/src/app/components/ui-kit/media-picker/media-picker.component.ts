@@ -25,13 +25,13 @@ export class MediaPickerComponent implements OnInit, OnChanges {
   constructor(private mediaService: MediaService) {}
 
   ngOnInit(): void {
-    if (this.mediaId !== null) {
+    if (this.mediaId !== null && this.mediaId !== 0) {
       this.loadMedia(this.mediaId);
     }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if ('mediaId' in changes) {
+    if ('mediaId' in changes && this.mediaId !== null && this.mediaId !== 0) {
       this.loadMedia(this.mediaId);
     }
   }

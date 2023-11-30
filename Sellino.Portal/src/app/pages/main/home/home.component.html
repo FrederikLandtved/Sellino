@@ -1,14 +1,15 @@
 <h2>Produkter</h2>
 
-<tab-rounded [tabOptions]="tabs" (onTabChanged)="onTabClick($event)"></tab-rounded>
+<div class="d-flex justify-content-between align-items-center">
+  <tab-rounded [tabOptions]="tabs" (onTabChanged)="onTabClick($event)"></tab-rounded>
+  <sl-button [title]="'Tilføj produkt'" type="secondary" [routerLink]="['add-product']"></sl-button>
+</div>
 
 <div class="profile-container d-flex" *ngIf="currentTab == 'Produkter'">
   <div class="profile-container__item round-container">
     <div class="d-flex justify-content-between">
-      <sl-input [icon]="'las la-search'" [placeholder]="'Søg efter produkt'" *ngIf="productList.length > 0"></sl-input>
       <span *ngIf="productList.length == 0">Der findes endnu ingen produkter på denne profil.</span>
       <!-- <sl-dropdown [title]="'Sorter efter'"></sl-dropdown> -->
-      <sl-button [title]="'Tilføj produkt'" type="secondary" [routerLink]="['add-product']"></sl-button>
     </div>
     <table cellspacing="0" cellpadding="0" *ngIf="productList.length > 0">
       <tr>

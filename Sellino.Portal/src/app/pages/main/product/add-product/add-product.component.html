@@ -18,7 +18,7 @@
     </div>
 
     <sl-margin [px]="30"></sl-margin>
-    <sl-media-picker (valueChange)="productModel.ProductMediaId = $event" label="Billede"></sl-media-picker>
+    <sl-media-picker [mediaId]="productModel.ProductMediaId" (valueChange)="productModel.ProductMediaId = $event" label="Billede"></sl-media-picker>
   </div>
 </div>
 

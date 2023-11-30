@@ -4,6 +4,7 @@ import { DropdownOption } from 'src/app/components/ui-kit/dropdown/dropdown.comp
 import { ProductGroupService } from 'src/app/services/product-group/product-group.service';
 import { CreateProductModel } from 'src/app/services/product/product';
 import { ProductService } from 'src/app/services/product/product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-product',
@@ -15,7 +16,7 @@ export class AddProductComponent implements OnInit {
   productModel: CreateProductModel = new CreateProductModel("", "", "", 0, 0);
   loadingCreateProduct: boolean = false;
 
-  constructor(private productGroupService: ProductGroupService, private productService: ProductService) {}
+  constructor(private toastr: ToastrService, private productGroupService: ProductGroupService, private productService: ProductService) {}
     
   ngOnInit(): void {
     this.getProductGroups();
@@ -35,8 +36,8 @@ export class AddProductComponent implements OnInit {
 
     setTimeout(() => {
       this.productService.CreateProduct(this.productModel).subscribe(data => {
-        location.reload();
         this.loadingCreateProduct = false;
+        this.toastr.success("Produktet '" + this.productModel.Name + "' blev oprettet!");
       });
     }, 500);
   }

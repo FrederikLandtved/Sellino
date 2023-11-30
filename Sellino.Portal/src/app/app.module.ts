@@ -34,6 +34,8 @@ import { ProductGroupHorizontalComponent } from './components/ui-kit/product/pro
 import { MediaPipe } from './pipes/media.pipe';
 import { ProductGroupListComponent } from './components/product/product-group-list/product-group-list.component';
 import { ProductGroupGridComponent } from './components/ui-kit/product/product-group-grid/product-group-grid.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { ProductGroupGridComponent } from './components/ui-kit/product/product-g
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ColorPickerModule
+    ColorPickerModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

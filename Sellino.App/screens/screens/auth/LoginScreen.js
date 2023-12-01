@@ -1,13 +1,12 @@
-import { LinearGradient } from "expo-linear-gradient";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SlButton from "../../components/ui-kit/form/Button";
 import SlFormGroup from "../../components/ui-kit/form/Input";
-import { mainColors } from '../../constants/Colors';
 import { useEffect, useState } from "react";
 import { unauthorizedPost } from "../../services/FetchService";
 import { useAuth } from "../../context/AuthContext";
 import * as SecureStore from 'expo-secure-store';
+import { ImagesAssets } from "../../../assets/ImagesAssets";
 
 function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
@@ -45,12 +44,34 @@ function LoginScreen({ navigation }) {
   }
 
     return (
-      <LinearGradient
-        style={styles.header}
-        colors={[mainColors.headerColorSecondary, mainColors.headerColorPrimary]}
-      >
-        <SafeAreaView style={[styles.loginContainer]}>
-          <View style={styles.flexItem}>
+        <SafeAreaView style={[styles.loginWrapper]}>
+          <View style={[styles.loginContainer]}>
+            <Image style={styles.logo} source={ ImagesAssets.Logo}/>
+            <SlFormGroup 
+              labelText='Email' 
+              placeholder='E-mail' 
+              secondary
+              onInputChange={(text) => setEmail(text)}
+            />
+            <SlFormGroup 
+              labelText='Adgangskode' 
+              placeholder='Adgangskode' 
+              secondary
+              onInputChange={(text) => setEmail(text)}
+            />
+            <SlButton 
+              buttonText='Log ind'
+              onButtonPress={() => onLoginPress()}
+              isLoading={isLoading}
+              isDisabled={false}
+              />
+            <SlButton 
+              buttonText='Opret en bruger' 
+              onButtonPress={() => navigation.navigate('Register')}
+              secondary
+            />
+          </View>
+          {/* <View style={styles.flexItem}>
             <>
               <Text style={styles.welcomeText}>Velkommen til</Text>
               <Text style={styles.sellinoText}>Sellino 😄</Text>
@@ -91,23 +112,33 @@ function LoginScreen({ navigation }) {
                 secondary
               />
             </>
-          </View>
+          </View> */}
         </SafeAreaView>
-      </LinearGradient>
     );
 }
 
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-  loginContainer: {
-    display: 'flex',
-    flexDirection: 'column',
+  loginWrapper: {
     height: '100%',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     gap: 10,
     paddingLeft: 20,
-    paddingRight: 20
+    paddingRight: 20,
+    backgroundColor: '#F8F8F8'
+  },
+  loginContainer: {
+    backgroundColor: 'white',
+    padding: 30,
+    borderStyle: 'solid',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: '#E5E5E5',
+    borderWidth: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 16
   },
   flexItem: {
     flex: 1,
@@ -116,6 +147,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center'
 
+  },
+  logo: {
+    width: 100,
+    height: 60,
+    resizeMode: 'contain',
   },
   flexItemLarge: {
     flex: 2

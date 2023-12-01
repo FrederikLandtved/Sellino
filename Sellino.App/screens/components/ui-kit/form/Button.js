@@ -24,7 +24,7 @@ function SlButton(props) {
       { isLoading === true ? 
         <ActivityIndicator color="white"></ActivityIndicator> 
         : 
-        <Text style={[styles.buttonText, isDisabled || isLoading ? styles.textDisabled : '']}>{props.buttonText}</Text>
+        <Text style={[props.secondary ? styles.secondaryButtonText : styles.buttonText, isDisabled || isLoading ? styles.textDisabled : '']}>{props.buttonText}</Text>
       }
       </TouchableOpacity>
     </View>
@@ -42,25 +42,30 @@ const styles = StyleSheet.create({
         width: '100%'    
     },
     button: {
-        height: 60,
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 8
+      height: 45,
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 8
     },
     primaryButton: {
-        backgroundColor: '#19B959'
-    },
-    secondaryButton: {
-        borderColor: 'white',
-        borderStyle: 'solid',
-        borderWidth: 1
+        backgroundColor: '#0070F4'
     },
     buttonText: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: 600
+      color:'white',
+      fontSize: 16,
+      fontWeight: 600
+    },
+    secondaryButtonText: {
+      color:'#0070F4',
+      fontSize: 16,
+      fontWeight: 600
+    },
+    secondaryButton: {
+      borderColor: '#0070F4',
+      borderStyle: 'solid',
+      borderWidth: 1,
     },
     disabled: {
       backgroundColor: 'darkgrey'

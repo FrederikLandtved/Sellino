@@ -36,6 +36,8 @@ import { ProductGroupListComponent } from './components/product/product-group-li
 import { ProductGroupGridComponent } from './components/ui-kit/product/product-group-grid/product-group-grid.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { TextEditorComponent } from './components/ui-kit/text-editor/text-editor.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductGroupHorizontalComponent,
     MediaPipe,
     ProductGroupListComponent,
-    ProductGroupGridComponent
+    ProductGroupGridComponent,
+    TextEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +84,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
       timeOut: 2000
-    })
+    }),
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

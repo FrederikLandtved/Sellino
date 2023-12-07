@@ -2,10 +2,15 @@
   <h3>{{ headline }}</h3>
   <!-- <h5>Subtitle</h5> -->
   <div class="flex-container" *ngFor="let container of itemsToShow">
-      <div class="flex-item" *ngFor="let item of container"  [ngStyle]="{ 'background-image': 'url(' + (item.ProductMedia | media) + ')' }">
-          <div class="flex-item-inner">
+    <div class="d-flex flex-column" style="width: 100%;" *ngFor="let item of container">
+      <div class="flex-item" [ngStyle]="{ 'background-image': 'url(' + (item.ProductMedia | media) + ')' }">
 
-          </div>
       </div>
+      <div class="text-container d-flex flex-column">
+        <span class="ellipsis productgroup">Vinterjakker</span>
+        <span class="ellipsis name">{{ item.Name }}</span>
+        <span class="ellipsis price">DKK {{ item.Price }}</span>
+      </div>
+    </div>
   </div>
 </div>

@@ -36,6 +36,7 @@ import { ProductGroupListComponent } from './components/product/product-group-li
 import { ProductGroupGridComponent } from './components/ui-kit/product/product-group-grid/product-group-grid.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalComponent } from './components/ui-kit/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductGroupHorizontalComponent,
     MediaPipe,
     ProductGroupListComponent,
-    ProductGroupGridComponent
+    ProductGroupGridComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

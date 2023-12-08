@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, TemplateRef } from '@angular/core';
+import { ModalService } from 'src/app/services/modal/modal.service';
 import { ProfilePageSectionModel, ProfilePageService, ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class PagesComponent implements OnInit{
   
   @Output() onPageSelect = new EventEmitter<ProfilePageWithSectionsModel>();
 
-  constructor(private profilePageService: ProfilePageService) {}
+  constructor(private profilePageService: ProfilePageService, private modalService: ModalService) {}
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -83,6 +84,12 @@ export class PagesComponent implements OnInit{
     this.profilePageService.CreatePageSection(model, item).subscribe(data => {
       this.getPages(false);
       this.newPageSectionName = "";
+    });
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalService.open(template, {size: 'lg', title: 'Tilføj ny side'}).subscribe((action: any) => {
+      console.log(action);
     });
   }
 }

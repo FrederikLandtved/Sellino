@@ -1,0 +1,14 @@
+<div class="modal {{ size }} round-container">
+  <div class="modal-header">
+    {{ title }}
+    <i class="las la-times modal-close" (click)="close()"></i>
+  </div>
+  <div class="modal-content">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal-footer">
+    <button (click)="submit()">Submit</button>
+  </div>
+</div>
+
+<div class="modal-backdrop" (click)="close()"></div>

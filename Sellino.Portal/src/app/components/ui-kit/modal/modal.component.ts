@@ -20,8 +20,7 @@ export class ModalComponent {
   }
 
   submit() {
-    this.elementRef.nativeElement.remove();{
-      this.submitEvent.emit();
-    }
+    this.elementRef.nativeElement.remove();
+    this.submitEvent.emit();
   }
 }

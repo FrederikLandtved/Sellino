@@ -1,0 +1,29 @@
+:host::ng-deep {
+  .dialog-container {
+    width: 800px;
+    min-height: 600px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  
+    .dialog-close {
+      cursor: pointer;
+    }
+  
+    .dialog-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .dialog-actions {
+      display: flex;
+      justify-content: end;
+
+      button {
+        width: 200px;
+      }
+    }
+  }
+}

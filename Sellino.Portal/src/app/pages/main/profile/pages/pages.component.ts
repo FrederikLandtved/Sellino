@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CreateProfilePageSectionComponent } from 'src/app/components/modal-templates/profile-page-section/create-profile-page-section/create-profile-page-section.component';
 import { CreateProfilePageComponent } from 'src/app/components/modal-templates/profile-page/create-profile-page/create-profile-page.component';
-import { ProfilePageSectionModel, ProfilePageService, ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
+import { ProfilePageModel, ProfilePageSectionModel, ProfilePageService, ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
 
 @Component({
   selector: 'profile-pages',
@@ -10,7 +11,6 @@ import { ProfilePageSectionModel, ProfilePageService, ProfilePageWithSectionsMod
 })
 export class PagesComponent implements OnInit{
   showCreateNewPage: boolean = false;
-  newProfileName: string = "";
   newPageSectionName: string = "";
   profilePages: ProfilePageWithSectionsModel[] = [];
   currentSelectedPage: number | null = null;
@@ -24,22 +24,6 @@ export class PagesComponent implements OnInit{
   ngOnInit(): void {
     this.isLoading = true;
     this.getPages(true);
-  }
-
-  createNewPage() {
-    if(this.newProfileName != "") {
-      this.profilePageService.CreateProfilePage(this.newProfileName)
-        .subscribe(data => {
-          this.newProfileName = "";
-          this.showCreateNewPage = false;
-          this.getPages(false);
-        });
-    }
-  }
-
-  toggleCreateNewPage() {
-    this.currentSelectedPage = null;
-    this.showCreateNewPage = !this.showCreateNewPage;
   }
 
   togglePage(index: number) {
@@ -77,6 +61,9 @@ export class PagesComponent implements OnInit{
         if(this.currentSelectedPage != null){
           this.onPageSelect.emit(this.profilePages[this.currentSelectedPage]);
         }
+
+        this.openNewSectionDialog(this.profilePages[0])
+
       }); 
     }, 500);
   }
@@ -88,7 +75,7 @@ export class PagesComponent implements OnInit{
     });
   }
 
-  openDialog(){
+  openNewProfileDialog(){
     const dialogRef = this.dialog.open(CreateProfilePageComponent, {
       data: {},
     });
@@ -99,6 +86,19 @@ export class PagesComponent implements OnInit{
           .subscribe(data => {
             this.getPages(false);
           });
+      }    
+    });
+  }
+
+  openNewSectionDialog(profilePage: ProfilePageWithSectionsModel) {
+    const dialogRef = this.dialog.open(CreateProfilePageSectionComponent, {
+      data: { profileName: profilePage.ProfilePage.Name },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {      
+      if(result && result != '') {
+
+
       }    
     });
   }

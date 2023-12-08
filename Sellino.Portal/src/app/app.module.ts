@@ -38,6 +38,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreateProfilePageComponent } from './components/modal-templates/profile-page/create-profile-page/create-profile-page.component';
+import { CreateProfilePageSectionComponent } from './components/modal-templates/profile-page-section/create-profile-page-section/create-profile-page-section.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { CreateProfilePageComponent } from './components/modal-templates/profile
     MediaPipe,
     ProductGroupListComponent,
     ProductGroupGridComponent,
-    CreateProfilePageComponent
+    CreateProfilePageComponent,
+    CreateProfilePageSectionComponent
   ],
   imports: [
     BrowserModule,

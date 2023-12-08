@@ -1,0 +1,12 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h3>Tilføj en ny sektion til {{ profileName }}</h3>
+    <i class="las la-times dialog-close" (click)="onCloseDialog()"></i>
+  </div>
+  <div class="dialog-content">
+    <sl-input [icon]="'las la-tag'" [placeholder]="'Navn'" [value]="newSectionName" (valueChange)="newSectionName = $event"></sl-input>
+  </div>
+  <div class="dialog-actions">
+    <sl-button title="Gem" [disabled]="newSectionName == ''" (onClick)="onSubmit()"></sl-button>
+  </div>
+</div>

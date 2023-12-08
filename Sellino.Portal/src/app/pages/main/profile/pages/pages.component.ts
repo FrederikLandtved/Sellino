@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateProfilePageComponent } from 'src/app/components/modal-templates/profile-page/create-profile-page/create-profile-page.component';
 import { ProfilePageSectionModel, ProfilePageService, ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
 
 @Component({
@@ -17,7 +19,7 @@ export class PagesComponent implements OnInit{
   
   @Output() onPageSelect = new EventEmitter<ProfilePageWithSectionsModel>();
 
-  constructor(private profilePageService: ProfilePageService) {}
+  constructor(private profilePageService: ProfilePageService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -83,6 +85,21 @@ export class PagesComponent implements OnInit{
     this.profilePageService.CreatePageSection(model, item).subscribe(data => {
       this.getPages(false);
       this.newPageSectionName = "";
+    });
+  }
+
+  openDialog(){
+    const dialogRef = this.dialog.open(CreateProfilePageComponent, {
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {      
+      if(result && result != '') {
+        this.profilePageService.CreateProfilePage(result)
+          .subscribe(data => {
+            this.getPages(false);
+          });
+      }    
     });
   }
 }

@@ -36,6 +36,8 @@ import { ProductGroupListComponent } from './components/product/product-group-li
 import { ProductGroupGridComponent } from './components/ui-kit/product/product-group-grid/product-group-grid.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CreateProfilePageComponent } from './components/modal-templates/profile-page/create-profile-page/create-profile-page.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductGroupHorizontalComponent,
     MediaPipe,
     ProductGroupListComponent,
-    ProductGroupGridComponent
+    ProductGroupGridComponent,
+    CreateProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +84,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
       timeOut: 2000
-    })
+    }),
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

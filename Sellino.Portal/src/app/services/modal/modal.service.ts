@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { ComponentFactoryResolver, Injectable, Injector, TemplateRef, Inject, Type } from '@angular/core';
+import { ComponentFactoryResolver, Injectable, Injector, TemplateRef, Inject, Type, ApplicationRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ModalComponent } from 'src/app/components/ui-kit/modal/modal.component';
 
@@ -17,8 +17,7 @@ export class ModalService {
     
     const modalComponent = modalComponentFactory.create(this.injector);
     const componentRef = componentFactory.create(this.injector);
-  
-    // Insert the custom component into the modal
+
     modalComponent.instance.dynamicContent.insert(componentRef.hostView);
   
     modalComponent.instance.size = options?.size;
@@ -26,7 +25,7 @@ export class ModalService {
     modalComponent.instance.closeEvent.subscribe(() => this.closeModal());
     modalComponent.instance.submitEvent.subscribe(() => this.submitModal());
     modalComponent.hostView.detectChanges();
-  
+
     this.document.body.appendChild(modalComponent.location.nativeElement);
     this.modalNotifier = new Subject();
   

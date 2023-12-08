@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'sl-dropdown',
@@ -17,6 +17,8 @@ export class DropdownComponent {
   public dropdownIsOpen: boolean = false;
   private wasInside = false;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   @HostListener('click')
   clickInside() {
     this.wasInside = true;
@@ -28,16 +30,22 @@ export class DropdownComponent {
       this.dropdownIsOpen = false;
     }
     this.wasInside = false;
+    this.cdr.detectChanges();
   }
 
   onDropdownClick() {
+    console.log("hej");
+    
     this.dropdownIsOpen = !this.dropdownIsOpen;
+    this.cdr.detectChanges();
   }
 
   onContentItemClick(clickedOption: DropdownOption) {
     this.title = clickedOption.Title;
     this.dropdownIsOpen = false;
     this.onOptionClicked.emit(clickedOption.Id);
+    this.cdr.detectChanges();
+
   }
 }
 

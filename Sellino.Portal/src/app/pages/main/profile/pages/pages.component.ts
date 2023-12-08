@@ -24,6 +24,7 @@ export class PagesComponent implements OnInit{
   ngOnInit(): void {
     this.isLoading = true;
     this.getPages(true);
+    this.openCreateProfileModal()
   }
 
   createNewPage() {
@@ -88,7 +89,7 @@ export class PagesComponent implements OnInit{
     });
   }
 
-  openCreateProfileModal(template: TemplateRef<any>) {
+  openCreateProfileModal() {
     this.modalService.open(CreateProfilePageComponent, {size: 'lg', title: 'Tilføj ny side'}).subscribe((action: any) => {
       console.log(action);
     });

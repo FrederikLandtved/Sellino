@@ -1,3 +1,5 @@
-<sl-dropdown></sl-dropdown>
-<sl-input icon="las la-home" [placeholder]="'Navn på ny side'" [value]="newProfileName" (valueChange)="newProfileName = $event"></sl-input>
-<sl-button title="Hej!" (onClick)="logasd()"></sl-button>
+<div class="yuhu">
+  <sl-input [icon]="'las la-tag'" [placeholder]="'Navn'" [value]="newProfileName" (valueChange)="newProfileName = $event"></sl-input>
+  <sl-button (onClick)="logas()"></sl-button>
+  <sl-button [disabled]="newProfileName == ''"></sl-button>
+</div>

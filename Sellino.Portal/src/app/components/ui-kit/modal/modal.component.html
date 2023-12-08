@@ -1,10 +1,10 @@
 <div class="modal {{ size }} round-container">
   <div class="modal-header">
     {{ title }}
-    <i class="las la-times modal-close" (click)="close()"></i>
+    <span class="modal-close" (click)="close()">x</span>
   </div>
   <div class="modal-content">
-    <ng-content></ng-content>
+    <ng-container #dynamicContentContainer></ng-container>
   </div>
   <div class="modal-footer">
     <button (click)="submit()">Submit</button>

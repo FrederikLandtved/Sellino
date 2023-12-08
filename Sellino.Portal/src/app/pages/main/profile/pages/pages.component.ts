@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output, TemplateRef } from '@angular/core';
+import { CreateProfilePageComponent } from 'src/app/components/modal-templates/profile-page/create-profile-page/create-profile-page.component';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { ProfilePageSectionModel, ProfilePageService, ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
 
@@ -87,8 +88,8 @@ export class PagesComponent implements OnInit{
     });
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalService.open(template, {size: 'lg', title: 'Tilføj ny side'}).subscribe((action: any) => {
+  openCreateProfileModal(template: TemplateRef<any>) {
+    this.modalService.open(CreateProfilePageComponent, {size: 'lg', title: 'Tilføj ny side'}).subscribe((action: any) => {
       console.log(action);
     });
   }

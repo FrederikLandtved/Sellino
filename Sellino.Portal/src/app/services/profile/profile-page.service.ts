@@ -36,7 +36,6 @@ export interface ProfilePageWithSectionsModel {
   ProfilePage: ProfilePageModel,
   Sections: ProfilePageSectionModel[],
   showSections: boolean,
-  showAddNewSection: boolean
 }
 
 export interface ProfilePageSectionModel {

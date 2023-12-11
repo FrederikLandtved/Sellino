@@ -4,7 +4,7 @@
     <div *ngIf="icon !== ''" class="sl-dropdown__icon d-flex align-items-center justify-content-center">
       <i [ngClass]="icon"></i>
     </div>
-    <div class="sl-dropdown__title d-flex align-items-center justify-content-between" (click)="onDropdownClick()">
+    <div class="sl-dropdown__title d-flex align-items-center justify-content-between" [ngClass]="{'muted' : selectedId === null}" (click)="onDropdownClick()">
       <span>{{ title }}</span>
       <div class="chevron d-flex align-items-center">
         <i class="las la-angle-down"></i>

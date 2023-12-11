@@ -14,6 +14,8 @@ export class DropdownComponent {
 
   @Output() onOptionClicked = new EventEmitter<number>();
 
+  selectedId: number | null = null;
+
   public dropdownIsOpen: boolean = false;
   private wasInside = false;
 
@@ -37,6 +39,7 @@ export class DropdownComponent {
   onContentItemClick(clickedOption: DropdownOption) {
     this.title = clickedOption.Title;
     this.dropdownIsOpen = false;
+    this.selectedId = clickedOption.Id;
     this.onOptionClicked.emit(clickedOption.Id);
   }
 }

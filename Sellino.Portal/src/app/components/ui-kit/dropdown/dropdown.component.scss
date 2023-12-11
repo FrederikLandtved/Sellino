@@ -57,6 +57,10 @@ label {
         transition: transform 0.2s ease;
       }
     }
+    
+    &.muted {
+      color: rgb(131, 131, 131);
+    }
   }
 }
 

@@ -1,12 +1,48 @@
 <div class="dialog-container">
   <div class="dialog-header">
-    <h3>Tilføj en ny sektion til {{ profileName }}</h3>
+    <h3>Tilføj en ny sektion til {{ profile?.ProfilePage?.Name }}</h3>
     <i class="las la-times dialog-close" (click)="onCloseDialog()"></i>
   </div>
+
   <div class="dialog-content">
-    <sl-input [icon]="'las la-tag'" [placeholder]="'Navn'" [value]="newSectionName" (valueChange)="newSectionName = $event"></sl-input>
+    <sl-input label="Indtast navn" [icon]="'las la-tag'" [placeholder]="'Navn'" [value]="createSectionModel.Name" (valueChange)="createSectionModel.Name = $event"></sl-input>
+    <sl-margin [px]="30"></sl-margin>
+    <sl-dropdown [options]="productGroupsOptions" (onOptionClicked)="createSectionModel.DataId = $event" title="Vælg produktgruppe" label="Produktgruppe"></sl-dropdown>
+    <sl-margin [px]="30"></sl-margin>
+
+    <div class="d-flex flex-column" style="width: 100%;">
+      <h4>Vælg hvordan produktgruppen skal vises</h4>
+      <div class="choose-type d-flex">
+        <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onSelectSectionType(1)">
+          <div class="checkmark-container" *ngIf="createSectionModel.ProfilePageSectionType == 1">
+            <i class="las la-check"></i>
+          </div>
+          <div class="choose-type__item--horisontal d-flex" style="gap: 4px;">
+            <div class="horisontal-item"></div>
+            <div class="horisontal-item"></div>
+            <div class="horisontal-item"></div>
+          </div>
+          <span>Horisontal</span>
+        </div>
+        <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onSelectSectionType(2)">
+          <div class="checkmark-container" *ngIf="createSectionModel.ProfilePageSectionType == 2">
+            <i class="las la-check"></i>
+          </div>
+          <div class="choose-type__item--grid d-flex" style="gap: 4px;">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+          </div>
+          <div class="choose-type__item--grid d-flex" style="gap: 4px;">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+          </div>
+          <span>Grid</span>
+        </div>
+      </div>
+    </div>
   </div>
+
   <div class="dialog-actions">
-    <sl-button title="Gem" [disabled]="newSectionName == ''" (onClick)="onSubmit()"></sl-button>
+    <sl-button title="Gem" [disabled]="createSectionModel.Name == '' || createSectionModel.DataId == 0 || createSectionModel.ProfilePageSectionType == 0" (onClick)="onSubmit()"></sl-button>
   </div>
 </div>

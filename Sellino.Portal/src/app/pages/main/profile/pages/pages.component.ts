@@ -27,8 +27,6 @@ export class PagesComponent implements OnInit{
   }
 
   togglePage(index: number) {
-    this.profilePages[index].showAddNewSection = false;
-
     if(index == this.currentSelectedPage){
       this.currentSelectedPage = null;
     } else {      
@@ -61,18 +59,8 @@ export class PagesComponent implements OnInit{
         if(this.currentSelectedPage != null){
           this.onPageSelect.emit(this.profilePages[this.currentSelectedPage]);
         }
-
-        this.openNewSectionDialog(this.profilePages[0])
-
       }); 
     }, 500);
-  }
-
-  onCreateNewSection(model: ProfilePageSectionModel, item: ProfilePageWithSectionsModel) {
-    this.profilePageService.CreatePageSection(model, item).subscribe(data => {
-      this.getPages(false);
-      this.newPageSectionName = "";
-    });
   }
 
   openNewProfileDialog(){
@@ -92,13 +80,12 @@ export class PagesComponent implements OnInit{
 
   openNewSectionDialog(profilePage: ProfilePageWithSectionsModel) {
     const dialogRef = this.dialog.open(CreateProfilePageSectionComponent, {
-      data: { profileName: profilePage.ProfilePage.Name },
+      data: { profile: profilePage },
     });
 
     dialogRef.afterClosed().subscribe(result => {      
       if(result && result != '') {
-
-
+        this.getPages(false);
       }    
     });
   }

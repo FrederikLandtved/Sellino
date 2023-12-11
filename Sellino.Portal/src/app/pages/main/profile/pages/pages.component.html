@@ -21,10 +21,6 @@
       </div>
     </div>
 
-    <div class="sections" *ngIf="item.showAddNewSection">
-      <create-section-button (onSubmit)="onCreateNewSection($event, item)"></create-section-button>
-    </div>
-
     <!-- Page Sections -->
     <div *ngIf="i == currentSelectedPage" class="sections">
       <ng-container *ngIf="item.Sections.length > 0">

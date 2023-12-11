@@ -8,10 +8,10 @@
       <sl-input [(value)]="repeatPasswordForm" [icon]="'las la-key'" [placeholder]="'Bekræft adgangskode'" [name]="'password'" type="password"></sl-input>
 
       <sl-checkbox (onChecked)="createProfile = $event"></sl-checkbox>
-      <sl-input *ngIf="createProfile" [(value)]="profileNameForm" [icon]="'las la-store-alt'" [placeholder]="'Butikkens navn'" [name]="'profilename'"></sl-input>
+      <sl-input *ngIf="createProfile" [(value)]="profileNameForm" [icon]="'las la-store-alt'" [placeholder]="'Profilens navn'" [name]="'profilename'"></sl-input>
       <sl-margin [px]="5"></sl-margin>
       
-      <sl-button  [title]="!createProfile ? 'Opret bruger': 'Opret bruger og butik'" 
+      <sl-button  [title]="!createProfile ? 'Opret bruger': 'Opret bruger og profil'" 
                   *ngIf="!isLoading" 
                   (click)="tryRegister()" 
                   [disabled]="firstNameForm == '' || lastNameForm == '' || emailForm == '' || passwordForm == '' || repeatPasswordForm == '' || (createProfile == true && profileNameForm == '')">

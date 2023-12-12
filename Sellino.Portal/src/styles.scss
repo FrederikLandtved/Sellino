@@ -24,6 +24,7 @@ $SellinoPortal-theme: mat.define-light-theme((
   --text-on-company-color-dark: #FFFFFF;
   --secondary-company-color: #3FD77C;
   --secondary-text-color: #FFFFFF;
+  --danger-background: #e06060;
 }
 
 * {
@@ -212,6 +213,10 @@ table {
       height: 50px;
     }
   }
+
+  th {
+    font-weight: 500;
+  } 
 }
 
 

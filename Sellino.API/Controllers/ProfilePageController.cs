@@ -120,24 +120,40 @@ namespace Sellino.API.Controllers
             return BadRequest();
         }
 
-        //[HttpDelete]
-        //[Route("/Profiles/{profileToken}")]
-        //public async Task<IActionResult> DeleteProfile(Guid profileToken)
-        //{
-        //    await _profileService.DeleteProfile(profileToken);
-        //    return Ok();
-        //}
+        [HttpDelete]
+        [Route("/ProfilePages/{profilePageToken}")]
+        public async Task<IActionResult> DeleteProfile(Guid profilePageToken)
+        {
+            if(profilePageToken != Guid.Empty)
+            {
+                bool isDeleted = await _profilePageService.DeleteProfilePage(profilePageToken);
 
-        //[HttpPut]
-        //[Route("/Profile/Edit")]
-        //public async Task<IActionResult> UpdateProfile([FromBody]ProfileModel model)
-        //{
-        //    int profileId = _userHelper.GetProfileId();
+                return Ok(isDeleted);
+            }
 
-        //    await _profileService.UpdateProfile(model);
+            return BadRequest();
+        }
 
-        //    return Ok();
-        //}
+        [HttpPut]
+        [Route("/ProfilePages/{profilePageToken}/Edit")]
+        public async Task<IActionResult> UpdateProfile([FromBody] ProfilePageModel model)
+        {
+            if(model.ProfilePageId > 0)
+            {
+                int profileId = _userHelper.GetProfileId();
+
+                if (model.IsFrontpage)
+                {
+                    await _profilePageService.UpdateFrontPage(model);
+                }
+
+                bool isUpdated = await _profilePageService.UpdateProfilePage(model);
+
+                return Ok(isUpdated);
+            }
+
+            return BadRequest();
+        }
 
         //[HttpPost]
         //[Route("/UserProfiles")]

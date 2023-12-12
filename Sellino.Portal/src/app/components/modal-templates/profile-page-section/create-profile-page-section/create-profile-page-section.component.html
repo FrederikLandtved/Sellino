@@ -7,7 +7,7 @@
   <div class="dialog-content">
     <sl-input label="Indtast navn" [icon]="'las la-tag'" [placeholder]="'Navn'" [value]="createSectionModel.Name" (valueChange)="createSectionModel.Name = $event"></sl-input>
     <sl-margin [px]="30"></sl-margin>
-    <sl-dropdown [options]="productGroupsOptions" (onOptionClicked)="createSectionModel.DataId = $event" title="Vælg produktgruppe" label="Produktgruppe"></sl-dropdown>
+    <sl-dropdown [options]="productGroupsOptions" (onOptionClicked)="createSectionModel.DataId = $event" title="Vælg produktgruppe" label="Vælg produktgruppe"></sl-dropdown>
     <sl-margin [px]="30"></sl-margin>
 
     <div class="d-flex flex-column" style="width: 100%;">

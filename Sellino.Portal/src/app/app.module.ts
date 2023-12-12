@@ -39,6 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreateProfilePageComponent } from './components/modal-templates/profile-page/create-profile-page/create-profile-page.component';
 import { CreateProfilePageSectionComponent } from './components/modal-templates/profile-page-section/create-profile-page-section/create-profile-page-section.component';
+import { DeleteProfilePageComponent } from './components/modal-templates/profile-page/delete-profile-page/delete-profile-page.component';
+import { EditProfilePageComponent } from './components/modal-templates/profile-page/edit-profile-page/edit-profile-page.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { CreateProfilePageSectionComponent } from './components/modal-templates/
     ProductGroupListComponent,
     ProductGroupGridComponent,
     CreateProfilePageComponent,
-    CreateProfilePageSectionComponent
+    CreateProfilePageSectionComponent,
+    DeleteProfilePageComponent,
+    EditProfilePageComponent
   ],
   imports: [
     BrowserModule,

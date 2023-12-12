@@ -41,5 +41,11 @@
     color: var(--secondary-text-color);
     border: 1px solid var(--secondary-company-color);
   }
+
+  &.danger {
+    background-color: var(--danger-background);
+    color: white;
+    border: none;
+  }
   
 }

@@ -18,7 +18,7 @@ export class ProfilePageService {
   }
 
   CreateProfilePage(profilePageName: string) : Observable<ProfilePageModel> {
-    var profilePageModel: ProfilePageModel = {Name: profilePageName, IsFrontpage: false};    
+    var profilePageModel: ProfilePageModel = {Name: profilePageName, IsFrontpage: false, ProfileId: 0};    
     var profilePage = this.http.post<ProfilePageModel>(this.apiUrl + "/ProfilePages", profilePageModel);
     
     return profilePage;
@@ -29,6 +29,21 @@ export class ProfilePageService {
     var pageSectionId = this.http.post<number>(this.apiUrl + "/ProfilePageSections/" + page.ProfilePage.ProfilePageToken, pageModel);
 
     return pageSectionId;
+  }
+
+  DeleteProfilePage(profilePageToken: string) : Observable<boolean> {
+    var isDeleted = this.http.delete<boolean>(this.apiUrl + '/ProfilePages/' + profilePageToken);
+
+    return isDeleted;
+  }
+
+  UpdateProfilePage(model: ProfilePageModel, profilePageToken: string) : Observable<boolean> {
+    console.log("model", model);
+    
+    var updatePageModel = { model: model, profilePageToken: profilePageToken };
+    var isUpdated = this.http.put<boolean>(this.apiUrl + '/ProfilePages/' + profilePageToken + '/Edit', model);
+
+    return isUpdated;
   }
 }
 
@@ -51,4 +66,5 @@ export interface ProfilePageModel {
   IsFrontpage: boolean;
   ProfilePageId?: number;
   ProfilePageToken?: string
+  ProfileId: number
 }

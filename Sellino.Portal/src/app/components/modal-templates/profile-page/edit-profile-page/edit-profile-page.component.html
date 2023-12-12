@@ -1,0 +1,14 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h3>Rediger siden {{ profile?.ProfilePage?.Name }}</h3>
+    <i class="las la-times dialog-close" (click)="onCloseDialog()"></i>
+  </div>
+  <div class="dialog-content">
+    <sl-input icon="las la-tag" name="product-name" label="Navn" [value]="this.profile?.ProfilePage!.Name" (valueChange)="editPageModel.Name = $event"></sl-input>
+    <sl-margin [px]="20"></sl-margin>
+    <sl-checkbox *ngIf="!this.profile?.ProfilePage!.IsFrontpage" label="Forside" [isChecked]="this.profile?.ProfilePage!.IsFrontpage" (onChecked)="editPageModel.IsFrontpage = $event"></sl-checkbox>
+  </div>
+  <div class="dialog-actions">
+    <sl-button title="Gem ændringer" [disabled]="this.profile?.ProfilePage!.Name == ''" (onClick)="onSubmit()"></sl-button>
+  </div>
+</div>

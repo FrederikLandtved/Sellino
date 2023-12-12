@@ -12,5 +12,6 @@ namespace Sellino.Service.Interfaces
         Task<ProfilePageModel> GetProfilePageById(int profilePageId);
         Task<List<ProfilePageModel>> GetProfilePagesByProfileId(int profileId);
         Task<bool> UpdateProfilePage(ProfilePageModel profilePage);
+        Task<bool> UpdateFrontPage(ProfilePageModel profilePage);
     }
 }

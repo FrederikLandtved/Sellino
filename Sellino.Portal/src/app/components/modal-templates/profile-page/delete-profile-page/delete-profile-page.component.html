@@ -1,0 +1,12 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h3>Er du sikker på, at du vil slette siden {{ profile?.ProfilePage?.Name }}?</h3>
+    <i class="las la-times dialog-close" (click)="onCloseDialog()"></i>
+  </div>
+  <div class="dialog-content">
+    <span>Handlingen kan ikke fortrydes!</span>
+  </div>
+  <div class="dialog-actions">
+    <sl-button [title]="'Slet ' + profile?.ProfilePage?.Name" type="danger" (onClick)="onSubmit()"></sl-button>
+  </div>
+</div>

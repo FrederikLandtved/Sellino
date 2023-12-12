@@ -71,5 +71,19 @@ namespace Sellino.Service.Services
 
             return await _profilePageRepository.UpdateProfilePage(profilePageToUpdate);
         }
+
+        public async Task<bool> UpdateFrontPage(ProfilePageModel profilePage)
+        {
+            List<ProfilePage> pages = await _profilePageRepository.GetProfilePagesByProfileId(profilePage.ProfileId);
+            ProfilePage currentFrontpage = pages.First(x => x.IsFrontpage);
+
+            if(currentFrontpage.ProfilePageId == profilePage.ProfilePageId || profilePage.ProfilePageId == currentFrontpage.ProfilePageId)
+            {
+                return false;
+            }
+
+            currentFrontpage.IsFrontpage = false;
+            return await _profilePageRepository.UpdateProfilePage(currentFrontpage);
+        }
     }
 }

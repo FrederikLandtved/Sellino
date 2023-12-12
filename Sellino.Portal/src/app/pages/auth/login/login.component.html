@@ -1,14 +1,24 @@
 <form #loginForm="ngForm">
   <div class="page-wrapper">
-    <div class="login-container">
-      <sl-input [(value)]="emailForm" [icon]="'las la-user'" [placeholder]="'E-mail'" [name]="'email'"></sl-input>
-      <sl-input [(value)]="passwordForm" [icon]="'las la-key'" [placeholder]="'Adgangskode'" [name]="'password'" type="password"></sl-input>
-      <sl-button [disabled]="emailForm == '' || passwordForm == ''" [title]="'Log ind'" *ngIf="!isLoading" (click)="tryLogin()"></sl-button>
-      <sl-button [title]="'Opret bruger'" [type]="'outline'" *ngIf="!isLoading" (click)="goToRegister()"></sl-button>
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <h1>Sellino</h1>
+      <div class="login-container">
+        <sl-input [(value)]="emailForm" [icon]="'las la-user'" [placeholder]="'E-mail'" [name]="'email'"></sl-input>
+        <sl-input [(value)]="passwordForm" [icon]="'las la-key'" [placeholder]="'Adgangskode'" [name]="'password'" type="password"></sl-input>
+        <sl-button [disabled]="emailForm == '' || passwordForm == ''" [title]="'Log ind'" *ngIf="!isLoading" (click)="tryLogin()"></sl-button>
+        <sl-button [title]="'Opret bruger'" [type]="'secondary'" *ngIf="!isLoading" (click)="goToRegister()"></sl-button>
+  
+        <div class="d-flex justify-content-center" *ngIf="isLoading">
+          <sl-loading></sl-loading>
+        </div>    
+      </div>
 
-      <div class="d-flex justify-content-center" *ngIf="isLoading">
-        <sl-loading></sl-loading>
-      </div>    
+      <sl-margin [px]="30"></sl-margin>
+
+      <div class="forgot-password d-flex align-items-center">
+        <a href="#">Glemt adgangskode? <i class="las la-angle-right"></i></a>
+      </div>
     </div>
+
   </div>
 </form>

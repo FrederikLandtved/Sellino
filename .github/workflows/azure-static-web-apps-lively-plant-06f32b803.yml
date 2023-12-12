@@ -30,9 +30,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_LIVELY_PLANT_06F32B803 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
-          app_location: "Sellino.Portal/dist/sellino.portal" # Adjust based on your project structure
+          app_location: "/Sellino.Portal/" # Adjust based on your project structure
           api_location: "" # Api source code path - optional
-          output_location: "" # Built app content directory - optional
+          output_location: "dist/sellino.portal" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:

@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../product/product';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductGroupService {
-  private apiUrl = 'https://localhost:7240';
+  private apiUrl = environment.apiUrl;
 
   //remove
   private profileToken = 'F63C6C50-920F-4619-96FD-B71982B28890';

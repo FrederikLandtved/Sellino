@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable, first } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  private apiUrl = 'https://localhost:7240';
+  private apiUrl = environment.apiUrl;
 
   constructor(private toastr: ToastrService, private http: HttpClient, private router: Router) { }
 

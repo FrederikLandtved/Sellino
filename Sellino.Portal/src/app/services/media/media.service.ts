@@ -3,11 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MediaModel } from './media';
 import { DomSanitizer } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class MediaService {
-  private apiUrl = 'https://localhost:7240';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
 

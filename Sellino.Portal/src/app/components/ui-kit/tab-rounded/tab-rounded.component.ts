@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Tab } from 'src/app/interfaces/TabModel';
 
 @Component({
-  selector: 'tab-rounded',
+  selector: 'sl-tab-rounded',
   templateUrl: './tab-rounded.component.html',
   styleUrls: ['./tab-rounded.component.scss']
 })
@@ -22,4 +21,9 @@ export class TabRoundedComponent implements OnInit {
       this.onTabChanged.emit(tab);
     }
   }
+}
+
+export interface Tab {
+  title: string,
+  disabled?: boolean
 }

@@ -1,6 +1,6 @@
 <h2>Profil</h2>
 <div class="d-flex justify-content-between align-items-center">
-  <tab-rounded [tabOptions]="tabs" (onTabChanged)="onTabClick($event)"></tab-rounded>
+  <sl-tab-rounded [tabOptions]="tabs" (onTabChanged)="onTabClick($event)"></sl-tab-rounded>
   <sl-loading *ngIf="isLoadingUpdate"></sl-loading>
   <sl-button  *ngIf="!isLoadingUpdate" [type]="'secondary'" [title]="'Gem ændringer'" (onClick)="onSubmitUpdate()"></sl-button>
 </div>

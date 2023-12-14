@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tab } from 'src/app/interfaces/TabModel';
+import { Tab } from 'src/app/components/ui-kit/tab-rounded/tab-rounded.component';
 
 @Component({
   selector: 'app-insights',

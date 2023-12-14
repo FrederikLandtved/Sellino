@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tab } from 'src/app/interfaces/TabModel';
+import { Tab } from 'src/app/components/ui-kit/tab-rounded/tab-rounded.component';
 import { ProfileModel } from 'src/app/services/profile/profile';
 import { ProfilePageModel, ProfilePageService, ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';

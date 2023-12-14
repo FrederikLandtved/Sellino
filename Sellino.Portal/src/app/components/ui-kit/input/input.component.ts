@@ -14,6 +14,7 @@ export class InputComponent {
   @Input() label: string = '';
   @Input() formControlName: FormControl<any> = new FormControl('');
   @Input() type: string = 'text';
+  @Input() suffix: string = '';
   
   @Input() value: string = '';
 

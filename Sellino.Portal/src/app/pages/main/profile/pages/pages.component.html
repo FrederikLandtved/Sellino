@@ -16,8 +16,8 @@
       <span class="sections-amount highlighted" *ngIf="i != currentSelectedPage" [ngClass]="{'green': item.Sections.length > 0, 'red': item.Sections.length == 0}"> {{ item.Sections.length }} sektion{{ item.Sections.length == 1 ? '' : 'er' }}</span>
       <div *ngIf="i == currentSelectedPage && currentSelectedSection == null" class="action-buttons">
         <span class="highlighted add" (click)="openNewSectionDialog(item)"><i class="las la-plus"></i></span>
-        <span class="highlighted edit"><i class="las la-pencil-alt" (click)="openEditPage(item)"></i></span>
-        <span class="highlighted delete" *ngIf="!item.ProfilePage.IsFrontpage"><i class="las la-trash" (click)="openDeletePage(item)"></i></span>
+        <span class="highlighted edit" (click)="openEditPage(item)"><i class="las la-pencil-alt"></i></span>
+        <span class="highlighted delete" *ngIf="!item.ProfilePage.IsFrontpage" (click)="openDeletePage(item)"><i class="las la-trash"></i></span>
       </div>
     </div>
 

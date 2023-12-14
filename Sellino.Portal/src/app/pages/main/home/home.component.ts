@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Tab } from 'src/app/interfaces/TabModel';
 import { ProductService } from 'src/app/services/product/product.service';
 import { Product } from 'src/app/services/product/product';
+import { Tab } from 'src/app/components/ui-kit/tab-rounded/tab-rounded.component';
 
 @Component({
   selector: 'app-home',

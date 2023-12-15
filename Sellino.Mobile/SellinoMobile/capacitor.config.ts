@@ -4,6 +4,7 @@ const config: CapacitorConfig = {
   appId: 'com.sellinomobile.app',
   appName: 'SellinoMobile',
   webDir: 'dist/sellino-mobile/browser',
+  backgroundColor: '#ffffff',
   server: {
     androidScheme: 'https',
     url: 'http://192.168.87.66:4200',

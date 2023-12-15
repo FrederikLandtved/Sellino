@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: source-sans-pro, sans-serif;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: source-sans-pro;
+  src: url('../src/assets/fonts/SourceSansPro-ExtraLight.otf') format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: source-sans-pro;
+  src: url('../src/assets/fonts/SourceSansPro-Light.otf') format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: source-sans-pro;
+  src: url('../src/assets/fonts/SourceSansPro-Regular.otf') format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: source-sans-pro;
+  src: url('../src/assets/fonts/SourceSansPro-Semibold.otf') format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: source-sans-pro;
+  src: url('../src/assets/fonts/SourceSansPro-Bold.otf') format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: source-sans-pro;
+  src: url('../src/assets/fonts/SourceSansPro-Black.otf') format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: lobster-two;
+  src: url('../src/assets/fonts/LobsterTwo-Regular.ttf') format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+h1 {
+  font-family: lobster-two;
+  color: #0070F4;
+  font-weight: 500;
+  text-align: center;
+  font-size: 30px;
+}

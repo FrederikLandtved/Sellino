@@ -15,6 +15,10 @@ export class HomeService {
   getHomePage(): Observable<HomeModel> {
     return this.http.get<HomeModel>(this.apiUrl + '/GetHomePage');
   }
+
+  touch(): Observable<string> {
+    return this.http.get<string>(this.apiUrl + '/Auth/Touch');
+  }
 }
 
 export interface HomeModel {

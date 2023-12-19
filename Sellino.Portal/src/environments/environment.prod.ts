@@ -1,5 +1,5 @@
 export const environment = {
-  apiUrl: "https://localhost:7240PROD",
+  apiUrl: "https://walrus-app-6oisd.ondigitalocean.app",
   production: true,
   currentUser: JSON
 };

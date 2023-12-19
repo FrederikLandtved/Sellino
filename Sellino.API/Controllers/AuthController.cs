@@ -125,5 +125,12 @@ namespace Sellino.API.Controllers
             string finalToken = new JwtSecurityTokenHandler().WriteToken(token).ToString();
             return finalToken;
         }
+
+        [HttpGet]
+        [Route("Touch")]
+        public async Task<IActionResult> Touch()
+        {
+            return Ok("The API is running");
+        }
     }
 }

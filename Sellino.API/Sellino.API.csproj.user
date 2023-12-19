@@ -3,6 +3,9 @@
   <PropertyGroup>
     <ShowAllFiles>true</ShowAllFiles>
     <NameOfLastUsedPublishProfile>C:\Users\Frederik\Dev\Sellino\.github\workflows\master_sellinoapi.yml</NameOfLastUsedPublishProfile>
-    <ActiveDebugProfile>Docker</ActiveDebugProfile>
+    <ActiveDebugProfile>Sellino.API</ActiveDebugProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

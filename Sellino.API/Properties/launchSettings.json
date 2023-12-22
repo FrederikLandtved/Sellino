@@ -8,7 +8,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7240;http://localhost:5240"
+      "applicationUrl": "https://localhost:7240;http://localhost:5240;https://lively-plant-06f32b803.4.azurestaticapps.net/"
     },
     "IIS Express": {
       "commandName": "IISExpress",

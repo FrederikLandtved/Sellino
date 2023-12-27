@@ -39,5 +39,5 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/Sellino.Mobile/SellinoMobile" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "dist/sellino-mobile" # Built app content directory - optional
+          output_location: "dist/sellino-mobile/browser" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######

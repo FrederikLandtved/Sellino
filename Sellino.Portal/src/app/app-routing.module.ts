@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["localhost:7240", "https://lively-plant-06f32b803.4.azurestaticapps.net"],
+        allowedDomains: ["lively-plant-06f32b803.4.azurestaticapps.net", "localhost:7240"],
         disallowedRoutes: []
       }
     }),

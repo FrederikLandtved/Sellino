@@ -102,12 +102,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
+builder.Services.AddCors(o => o.AddPolicy("StandardPolicy", builder =>
+{
+    builder.WithOrigins("https://lively-plant-06f32b803.4.azurestaticapps.net", "http://localhost:4200")
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+}));
+
 var app = builder.Build();
 
-app.UseCors(option =>
-{
-    option.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
-});
+app.UseCors("StandardPolicy");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

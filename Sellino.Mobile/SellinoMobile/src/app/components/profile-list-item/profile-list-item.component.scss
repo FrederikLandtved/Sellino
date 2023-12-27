@@ -9,7 +9,9 @@
     gap: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 0px;
     margin-bottom: 20px;
+    cursor: pointer;
   }
+  
 
   &__header {
     display: flex;
@@ -37,6 +39,10 @@
       .profile-bio {
         font-size: 12px;
         font-weight: 400;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 230px;
       }
     }
   }
@@ -45,14 +51,29 @@
     display: flex;
     max-width: 100%;
     overflow-x: scroll;
-    padding-bottom: 10px;
 
     .product {
       min-width: 120px;
+      max-width: 120px;
+      background-size: cover;
+      background-position: center;
       height: 160px;
       background-color: white;
       border-radius: 7px;
-      margin-right: 10px;
+      margin-right: 10px; 
+    }
+
+    &::-webkit-scrollbar {
+      width: 0em;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      outline: 1px solid transparent;
     }
   }
 }

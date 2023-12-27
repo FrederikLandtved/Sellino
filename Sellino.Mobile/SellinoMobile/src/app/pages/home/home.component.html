@@ -3,7 +3,13 @@
   
   <h2>Udforsk profiler</h2>
   <p>De nyeste profiler bliver vist først</p>
-  <profile-list-item profileName="Mala ApS" bio="MALA sælger tøj og sko af høj kvalitet" backgroundColor="#D9DED6" textColor="black"></profile-list-item>
-  <profile-list-item profileName="Kirstens Keramik" bio="Håndlavet keramik fra Danmark" backgroundColor="#97B59F" textColor="white"></profile-list-item>
-  <profile-list-item profileName="Game Start" bio="Det vildeste udstyr til gaming!" backgroundColor="#7389FC" textColor="white"></profile-list-item>
+  @for (item of profiles; track $index) {
+    <profile-list-item 
+      profileName="{{item.Profile.Name}}" 
+      bio="{{item.Profile.Bio}}" 
+      backgroundColor="{{item.Profile.CompanyHexColor}}" 
+      textColor="{{item.Profile.TextOnCompanyHexColor}}"
+      [products]="item.Products">
+    </profile-list-item>
+  }
 </div>

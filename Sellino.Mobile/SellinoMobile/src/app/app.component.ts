@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ProfileListItemComponent } from './components/profile-list-item/profile-list-item.component';
+import { HomeService } from './services/home.service';
 
 
 @Component({
@@ -11,6 +12,12 @@ import { ProfileListItemComponent } from './components/profile-list-item/profile
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'SellinoMobile';
+
+  constructor(private homeService: HomeService) {}
+
+  ngOnInit(): void {
+    this.homeService.GetHomePage().subscribe(data => console.log(data));
+  }
 }

@@ -17,12 +17,16 @@ namespace Sellino.API.Controllers
     public class ProfileController : ControllerBase
     {
         private readonly IProfileService _profileService;
+        private readonly IProductService _productService;
+        private readonly IProductGroupService _productGroupService;
         private readonly UserHelper _userHelper;
 
-        public ProfileController(IProfileService profileService, UserHelper userHelper)
+        public ProfileController(IProfileService profileService, UserHelper userHelper, IProductService productService, IProductGroupService productGroupService)
         {
             _profileService = profileService;
             _userHelper = userHelper;
+            _productService = productService;
+            _productGroupService = productGroupService;
         }
 
         [HttpGet]
@@ -118,5 +122,46 @@ namespace Sellino.API.Controllers
             return BadRequest();
 
         }
+
+        [HttpGet]
+        [Route("/Profiles/Products")]
+        public async Task<IActionResult> GetProfilesWithProducts()
+        {
+            List<ProfileModel> profiles = await _profileService.GetProfiles();
+
+            if (profiles == null || !profiles.Any())
+            {
+                return Ok(new List<ProfileWithProductsModel>());
+            }
+
+            List<ProfileWithProductsModel> profilesWithProducts = new List<ProfileWithProductsModel>();
+
+            foreach (ProfileModel model in profiles)
+            {
+                ProfileWithProductsModel profileWithProductsModel = await CreateProfileWithProductsModelAsync(model);
+                profilesWithProducts.Add(profileWithProductsModel);
+            }
+
+            return Ok(profilesWithProducts);
+        }
+
+        private async Task<ProfileWithProductsModel> CreateProfileWithProductsModelAsync(ProfileModel model)
+        {
+            List<ProductGroupModel> productGroups = await _productGroupService.GetProductGroupsByProfile(model.ProfileToken);
+
+            ProfileWithProductsModel profileWithProductsModel = new ProfileWithProductsModel
+            {
+                Profile = model,
+                Products = new List<ProductModel>()
+            };
+
+            foreach (ProductGroupModel productGroup in productGroups)
+            {
+                profileWithProductsModel.Products.AddRange(await _productService.GetProductsFromProductGroup(productGroup.ProductGroupId));
+            }
+
+            return profileWithProductsModel;
+        }
+
     }
 }

@@ -11,20 +11,9 @@
     </div>
   </div>
   <div class="profile-list-item__content">
-    <div class="product">
-
-    </div>
-    <div class="product">
-      
-    </div>
-    <div class="product">
-      
-    </div>
-    <div class="product">
-      
-    </div>
-    <div class="product">
-      
-    </div>
+    @for (item of products; track $index) {
+      <div class="product" [ngStyle]="{ 'background-image': 'url(' + (item.ProductMedia | media) + ')' }">
+      </div>
+    }
   </div>
 </div>

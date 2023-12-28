@@ -1,0 +1,54 @@
+<!-- <div class="preview-container shadow-darker">
+  <ng-container *ngIf="!isLoading">
+    <div class="preview-container__header" [ngStyle]="{ 'background-image': 'url(' + coverMedia + ')' }" *ngIf="pageToShow != null && pageToShow.ProfilePage.IsFrontpage">
+      <div class="overlay-container"></div>
+      <div class="profile-name">{{ profileName }}</div>
+      <div>
+        <div class="profile-info-image d-flex">
+          <img [src]="profileMedia" alt="" *ngIf="profileMedia">
+          <div *ngIf="!profileMedia" class="profile-media-placeholder">
+            <i class="las la-store-alt"></i>
+          </div>
+          <div class="profile-info-actions">
+            <div class="d-flex justify-content-between" style="padding: 2px 20px 5px 20px;">
+              <div class="number">
+                <div class="integer">392</div>
+                <div class="label">Produkter</div>
+              </div>
+              <div class="number">
+                <div class="integer">10.827</div>
+                <div class="label">Følgere</div>
+              </div>
+              <div class="number">
+                <div class="integer">21</div>
+                <div class="label">Følger</div>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="msg-button" style="margin-left: 20px;">Beskeder</div>
+              <div class="msg-button">Ordrer</div>
+            </div>
+          </div>
+        </div>
+        <div class="bio">{{ bio }}</div>
+      </div>
+    </div>
+    <div class="preview-container__content__header">{{ pageToShow.ProfilePage.Name }}</div>
+    <div class="preview-container__content p-20">
+      <ng-container *ngFor="let pageSection of pageToShow?.Sections">
+        <ng-container *ngIf="pageSection.ProfilePageSectionType == 1">
+          <product-group-horizontal [headline]="pageSection.Name" [productGroupId]="pageSection.DataId"></product-group-horizontal>
+        </ng-container>
+
+        <ng-container *ngIf="pageSection.ProfilePageSectionType == 2">
+          <product-group-grid [headline]="pageSection.Name" [productGroupId]="pageSection.DataId"></product-group-grid>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isLoading">
+    <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100%;">
+    <sl-loading></sl-loading>
+  </div>
+  </ng-container>
+</div> -->

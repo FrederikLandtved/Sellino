@@ -8,13 +8,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileListItemComponent } from './components/profile/profile-list-item/profile-list-item.component';
 import { MediaPipe } from './pipes/media.pipe';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProfileListItemComponent,
-    MediaPipe
+    MediaPipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@
   <p>De nyeste profiler bliver vist først</p>
   @for (item of profiles; track $index) {
     <profile-list-item 
+      [routerLink]="['profile', item.Profile.ProfileToken]"
       profileName="{{item.Profile.Name}}" 
       bio="{{item.Profile.Bio}}" 
       backgroundColor="{{item.Profile.CompanyHexColor}}" 

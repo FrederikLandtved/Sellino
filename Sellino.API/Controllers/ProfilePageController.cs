@@ -71,8 +71,6 @@ namespace Sellino.API.Controllers
             return BadRequest(new { Error = ResponseConstants.NotFound });
         }
 
-
-
         [HttpGet]
         [Route("/ProfilePages/{profilePageToken}")]
         public async Task<IActionResult> GetProfilePage(Guid profilePageToken)

@@ -1,7 +1,3 @@
-# Sellino App
+# Sellino - Web development bachelor project
 
-Sellino.App is made using React Native (Expo).
-
-Sellino.API, Service and Domain is made using C#, .NET and Entity Framework.
-
-Features token interception (JWT) when interacting with the API. 
+[![Build Mobile Application](https://github.com/FrederikLandtved/Sellino/actions/workflows/azure-static-web-apps-yellow-bay-0e3cc2303.yml/badge.svg)](https://github.com/FrederikLandtved/Sellino/actions/workflows/azure-static-web-apps-yellow-bay-0e3cc2303.yml)

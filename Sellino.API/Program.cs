@@ -104,7 +104,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Services.AddCors(o => o.AddPolicy("StandardPolicy", builder =>
 {
-    builder.WithOrigins("https://lively-plant-06f32b803.4.azurestaticapps.net", "http://localhost:4200")
+    builder.WithOrigins("https://lively-plant-06f32b803.4.azurestaticapps.net", "http://localhost:4200", "https://walrus-app-6oisd.ondigitalocean.app/")
            .AllowAnyMethod()
            .AllowAnyHeader();
 }));

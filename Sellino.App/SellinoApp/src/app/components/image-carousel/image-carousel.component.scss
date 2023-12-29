@@ -1,0 +1,49 @@
+.image-carousel-container {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+.image-carousel-item {
+  position: relative;
+  min-height: 175px;
+  max-height: 175px;
+  min-width: 300px;
+  max-width: 300px;
+  margin-right: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-image: url(https://images.unsplash.com/photo-1634133118312-c05b73856800?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;
+  background-position: center;
+  background-position-y: -86px; 
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  .overlay-text {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    color: white;
+    font-size: 16px;
+    z-index: 999;
+
+    .headline {
+      font-weight: 300;
+      font-size: 13px;
+    }
+
+    .title {
+      font-size: 16px;
+    }
+  }
+}

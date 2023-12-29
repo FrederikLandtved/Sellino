@@ -1,0 +1,65 @@
+.story-list-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  padding-left: 15px;
+  padding-bottom: 15px;
+
+  .story-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+
+    span {
+      font-size: 11px;
+      margin-top: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 55px;
+      text-align: center;
+    }
+  }
+
+  .story-list-circle {
+    height: 71px;
+    width: 71px;
+    border-radius: 100%;
+    background: linear-gradient(130deg, #19B959, #7af571, #0070F4);
+    background-size: 200% 200%;
+    box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 10px 0px;
+    -webkit-animation: Animation 3s ease infinite;
+    -moz-animation: Animation 3s ease infinite;
+    animation: Animation 3s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .story-list-image {
+    height: 64px;
+    width: 64px;
+    background-color: rgb(225, 225, 225);
+    border-radius: 100%;
+    border: 2px solid white;
+  }
+
+  @-webkit-keyframes Animation {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+  }
+  @-moz-keyframes Animation {
+      0%{background-position:10% 0%}
+      50%{background-position:91% 100%}
+      100%{background-position:10% 0%}
+  }
+  @keyframes Animation { 
+      0%{background-position:10% 0%}
+      50%{background-position:91% 100%}
+      100%{background-position:10% 0%}
+  }
+}

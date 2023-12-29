@@ -1,21 +1,30 @@
-h1 {
-  margin: 20px 0;
-}
+// h1 {
+//   margin: 20px 0;
+// }
 
 h2 {
   font-weight: 500;
-  color: whitesmoke;
+  color: black;
   margin-bottom: 0;
   font-size: 20px;
+}
+
+h3 {
+  margin-bottom: 12px;
 }
 
 p {
   margin: 0;
   margin-bottom: 20px;
   font-size: 15px;
-  color: whitesmoke;
+  color: black;
 }
 
-.home-component {
-  padding: 10px;
+.p-20 {
+  padding: 20px;
+}
+
+.image-carousel-container {
+  background: linear-gradient(130deg, #4c8e7a, #189f66);
+  color: white;
 }

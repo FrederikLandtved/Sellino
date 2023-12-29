@@ -73,7 +73,7 @@ namespace Sellino.Service.Services
             {
                 if (profileModel.ProfileMediaId > 0)
                 {
-                    MediaModel mediaModel = await _mediaService.GetMedia(profileModel.ProfileMediaId);
+                    MediaModel mediaModel = await _mediaService.GetMedia((int)profileModel.ProfileMediaId);
                     profileModel.ProfileMedia = mediaModel;
                 }
             }

@@ -13,6 +13,10 @@
     margin-right: 10px;
     cursor: pointer;
 
+    &:focus {
+      background: blue;
+    }
+
     span {
       font-size: 11px;
       margin-top: 5px;

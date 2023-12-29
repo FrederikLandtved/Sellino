@@ -11,7 +11,8 @@
   <div class="p-20">
     <h3>Udforsk profiler</h3>
     @for (item of profiles; track $index) {
-      <profile-list-item 
+      <profile-list-item
+        [profileMedia]="item.Profile.ProfileMedia"
         [routerLink]="['profile', item.Profile.ProfileToken]"
         profileName="{{item.Profile.Name}}" 
         bio="{{item.Profile.Bio}}" 

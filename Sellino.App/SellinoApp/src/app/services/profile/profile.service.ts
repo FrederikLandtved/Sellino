@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProfileService {
-  // private apiUrl = "https://localhost:7240";
-  private apiUrl = "https://walrus-app-6oisd.ondigitalocean.app";
+  private apiUrl = "https://localhost:7240";
+  // private apiUrl = "https://walrus-app-6oisd.ondigitalocean.app";
 
   constructor(private http: HttpClient) { }
 

@@ -11,4 +11,5 @@ export class ProfileListItemComponent {
   @Input() backgroundColor: string = 'black';
   @Input() textColor: string = 'yellow';
   @Input() products: any[] = [];
+  @Input() profileMedia: any = {};
 }

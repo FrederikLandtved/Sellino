@@ -9,12 +9,14 @@ namespace Sellino.Service.Services
     public class ProfileService : IProfileService
     {
         private readonly IProfileRepository _profileRepository;
+        private readonly IMediaService _mediaService;
         private readonly AutoMapper.IMapper _autoMapper;
 
-        public ProfileService(IProfileRepository profileRepository, AutoMapper.IMapper autoMapper)
+        public ProfileService(IProfileRepository profileRepository, AutoMapper.IMapper autoMapper, IMediaService mediaService)
         {
             _profileRepository = profileRepository;
             _autoMapper = autoMapper;
+            _mediaService = mediaService;
         }
 
         public async Task<int> CreateProfile(string name, string bio, int createdByUserId)
@@ -67,6 +69,14 @@ namespace Sellino.Service.Services
             List<Profile> profiles = await _profileRepository.GetProfiles();
             List<ProfileModel> profileModels = _autoMapper.Map<List<Profile>, List<ProfileModel>>(profiles);
 
+            foreach (var profileModel in profileModels)
+            {
+                if (profileModel.ProfileMediaId > 0)
+                {
+                    MediaModel mediaModel = await _mediaService.GetMedia(profileModel.ProfileMediaId);
+                    profileModel.ProfileMedia = mediaModel;
+                }
+            }
             return profileModels;
         }
 

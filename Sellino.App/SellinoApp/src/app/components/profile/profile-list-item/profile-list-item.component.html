@@ -1,7 +1,7 @@
 <div class="profile-list-item__container" [style.background-color]="backgroundColor">
   <div class="profile-list-item__header">
     <div class="profile-list-item__header--left">
-      <div class="image-container">
+      <div class="image-container" [ngStyle]="{ 'background-image': 'url(' + (profileMedia | media) + ')' }">
         <img src="" alt="">
       </div>
     </div>

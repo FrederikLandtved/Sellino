@@ -23,23 +23,21 @@ export class LoginComponent {
     
     this.isLoading = true;
 
-    setTimeout(() => {
-      this.loginService.authenticate(this.emailForm, this.passwordForm).subscribe(response => {
-        const token = (<any>response).Token;
-        const user = (<any>response).User;
-        const profile = (<any>response).Profile;
-  
-        sessionStorage.setItem("jwt", token);
-        sessionStorage.setItem("user", JSON.stringify(user));
-        sessionStorage.setItem("profile", JSON.stringify(profile));
-        this.toastr.success("Du er nu logget ind");
+    this.loginService.authenticate(this.emailForm, this.passwordForm).subscribe(response => {
+      const token = (<any>response).Token;
+      const user = (<any>response).User;
+      const profile = (<any>response).Profile;
 
-        this.router.navigate(["/"]);
-      }, err => {
-        this.toastr.error("Forkert email eller adgangskode.");
-        this.isLoading = false;
-      });
-    }, 0);
+      sessionStorage.setItem("jwt", token);
+      sessionStorage.setItem("user", JSON.stringify(user));
+      sessionStorage.setItem("profile", JSON.stringify(profile));
+      this.toastr.success("Du er nu logget ind");
+
+      this.router.navigate(["/"]);
+    }, err => {
+      this.toastr.error("Forkert email eller adgangskode.");
+      this.isLoading = false;
+    });
   }
 
   goToRegister(){

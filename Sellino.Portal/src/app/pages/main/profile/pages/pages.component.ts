@@ -49,7 +49,6 @@ export class PagesComponent implements OnInit{
 
   getPages(selectFirst: boolean) {
     this.isLoading = true;
-    setTimeout(() => {
       this.profilePageService.GetProfilePages().subscribe(data => {
         this.profilePages = data;
         this.isLoading = false;
@@ -61,8 +60,7 @@ export class PagesComponent implements OnInit{
         if(this.currentSelectedPage != null){
           this.onPageSelect.emit(this.profilePages[this.currentSelectedPage]);
         }
-      }); 
-    }, 500);
+      });
   }
 
   openNewProfileDialog(){

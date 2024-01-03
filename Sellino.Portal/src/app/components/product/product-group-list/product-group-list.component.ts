@@ -40,13 +40,11 @@ export class ProductGroupListComponent implements OnInit {
 
   getProducts(productGroup: ProductGroup) {
     this.loadingProducts = true;
-
-    setTimeout(() => {
-      this.productGroupService.getProductsByProductGroupId(productGroup.ProductGroupId).subscribe(data => {
-        this.selectedProductGroup = data;
-        this.loadingProducts = false;
-      });
-    }, 200);
+    
+    this.productGroupService.getProductsByProductGroupId(productGroup.ProductGroupId).subscribe(data => {
+      this.selectedProductGroup = data;
+      this.loadingProducts = false;
+    });
   }
 
   createNewProductGroup() {

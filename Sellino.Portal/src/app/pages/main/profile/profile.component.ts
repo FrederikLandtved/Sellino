@@ -43,15 +43,13 @@ export class ProfileComponent implements OnInit {
 
   onSubmitUpdate() {
     this.isLoadingUpdate = true;
-
-    setTimeout(() => {
-      this.profileService.UpdateProfile(this.profileModel)
-      .subscribe(data => {
-        this.themeService.UpdateColorTheme(this.profileModel.CompanyHexColor, this.profileModel.TextOnCompanyHexColor, this.profileModel.DarkCompanyHexColor, this.profileModel.SecondaryCompanyHexColor, this.profileModel.TextOnSecondaryCompanyHexColor, this.profileModel.TextOnDarkCompanyHexColor);
-        sessionStorage.setItem("profile", JSON.stringify(this.profileModel));
-        this.isLoadingUpdate = false;
-      });
-    }, 1000);
+    
+    this.profileService.UpdateProfile(this.profileModel)
+    .subscribe(data => {
+      this.themeService.UpdateColorTheme(this.profileModel.CompanyHexColor, this.profileModel.TextOnCompanyHexColor, this.profileModel.DarkCompanyHexColor, this.profileModel.SecondaryCompanyHexColor, this.profileModel.TextOnSecondaryCompanyHexColor, this.profileModel.TextOnDarkCompanyHexColor);
+      sessionStorage.setItem("profile", JSON.stringify(this.profileModel));
+      this.isLoadingUpdate = false;
+    });
 
   }
 }

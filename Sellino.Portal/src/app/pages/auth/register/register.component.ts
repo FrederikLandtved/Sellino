@@ -24,7 +24,6 @@ export class RegisterComponent {
   tryRegister(){
     this.isLoading = true;
 
-    setTimeout(() => {
       if(this.stringsArePopulated([this.emailForm, this.firstNameForm, this.lastNameForm, this.passwordForm, this.repeatPasswordForm]) == true) {
         if(!this.emailIsValid(this.emailForm)){
           // Handle invalid email
@@ -55,7 +54,6 @@ export class RegisterComponent {
         console.log("Handle not all inputs populated");
         return;
       }
-    }, 1000);
 
   }
 

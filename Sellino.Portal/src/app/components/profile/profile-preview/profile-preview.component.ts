@@ -44,7 +44,7 @@ export class ProfilePreviewComponent implements OnInit, OnChanges {
 
       setTimeout(() => {
         this.isLoading = false;
-      }, 600);
+      }, 100);
     }
   }
 

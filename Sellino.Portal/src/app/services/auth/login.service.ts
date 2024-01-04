@@ -20,8 +20,8 @@ export class LoginService {
     return this.http.post<LoginModel>(this.apiUrl + '/Auth/Login', loginModel);
   }
 
-  register(email: string, password: string, firstName: string, lastName: string, createProfile: boolean, profileName: string = "") {
-    let registerModel: RegisterModel = { email: email, password: password, firstName: firstName, lastName: lastName, createProfile: createProfile, profileName: profileName };
+  register(email: string, password: string, firstName: string, lastName: string, profileName: string = "") {
+    let registerModel: RegisterModel = { email: email, password: password, firstName: firstName, lastName: lastName, createProfile: true, profileName: profileName };
 
     this.http.post<LoginModel>(this.apiUrl + '/Auth/AddUser', registerModel).subscribe(response => {
       this.router.navigate(['auth']);

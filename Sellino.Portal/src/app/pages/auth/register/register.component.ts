@@ -17,7 +17,7 @@ export class RegisterComponent {
   profileNameForm: string = '';
 
   isLoading: boolean = false;
-  createProfile: boolean = false;
+  // createProfile: boolean = false;
   
   constructor(private toastr: ToastrService, private route: Router, private authService: LoginService){}
 
@@ -39,14 +39,14 @@ export class RegisterComponent {
           return;
         }
   
-        if(!(this.createProfile == true)){
-          // Handle different passwords
-          const createProfile = this.stringsArePopulated([this.profileNameForm]);
-          this.isLoading = false;
-          return;
-        }
+        // if(!(this.createProfile == true)){
+        //   // Handle different passwords
+        //   const createProfile = this.stringsArePopulated([this.profileNameForm]);
+        //   this.isLoading = false;
+        //   return;
+        // }
   
-        this.authService.register(this.emailForm, this.passwordForm, this.firstNameForm, this.lastNameForm, this.createProfile, this.profileNameForm);
+        this.authService.register(this.emailForm, this.passwordForm, this.firstNameForm, this.lastNameForm, this.profileNameForm);
         this.isLoading = false;
   
       } else {

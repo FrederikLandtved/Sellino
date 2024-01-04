@@ -13,12 +13,15 @@ export class ProductGroupGridComponent implements OnInit  {
   productGroup: ProductGroupWithProducts = {};
   itemsToShow: any[] = [];
 
+  isLoading: boolean = true;
+
   constructor(private productGroupService: ProductGroupService) {}
 
   ngOnInit(): void {
     this.productGroupService.getProductsByProductGroupId(this.productGroupId).subscribe(data => {
       this.productGroup = data;      
-      this.itemsToShow = divideArray(this.productGroup.Products, 2);      
+      this.itemsToShow = divideArray(this.productGroup.Products, 2);
+      this.isLoading = false;
     });
   }
 }

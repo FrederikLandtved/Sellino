@@ -1,7 +1,7 @@
 <div class="product-group-horizontal-container">
     <h3 *ngIf="headline == ''">{{ productGroup.ProductGroup?.Name }}</h3>
     <h3 *ngIf="headline != ''">{{ headline }}</h3>
-    <div class="product-group-horizontal">
+    <div class="product-group-horizontal" *ngIf="!isLoading">
       <div class="product-group-inner">
         <div class="product-group-item" *ngFor="let item of productGroup.Products" [ngStyle]="{ 'background-image': 'url(' + (item.ProductMedia | media) + ')' }">
             <div class="product-group-item-inner">
@@ -11,5 +11,8 @@
             </div> 
           </div>
       </div> 
-  </div>
+    </div>
+    <div class="w-100 d-flex justify-content-center" *ngIf="isLoading">
+      <sl-loading></sl-loading>
+    </div>
 </div>

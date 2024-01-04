@@ -9,6 +9,8 @@ import { ProductGroupService, ProductGroupWithProducts } from 'src/app/services/
 export class ProductGroupHorizontalComponent implements OnInit {
   @Input() productGroupId: number = 0;
   @Input() headline: String = 'Headline';
+
+  isLoading: boolean = true;
   productGroup: ProductGroupWithProducts = {};
 
   constructor(private productGroupService: ProductGroupService) {}
@@ -16,6 +18,7 @@ export class ProductGroupHorizontalComponent implements OnInit {
   ngOnInit(): void {
     this.productGroupService.getProductsByProductGroupId(this.productGroupId).subscribe(data => {
       this.productGroup = data;
+      this.isLoading = false;
     });
   }
 }

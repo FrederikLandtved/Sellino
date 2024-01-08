@@ -64,6 +64,7 @@ namespace Sellino.API.Controllers
         //    return Ok(products);
         //}
 
+        [AllowAnonymous]
         [HttpGet]
         [Route("/ProductGroups/{productGroupId}/Products")]
         public async Task<IActionResult> GetProductGroupWithProducts(int productGroupId)

@@ -1,10 +1,11 @@
-{{ profileToken }}
-
-<!-- <div class="preview-container shadow-darker">
+<div class="preview-container shadow-darker" [ngStyle]="{'background-color':backgroundColor}">
   <ng-container *ngIf="!isLoading">
     <div class="preview-container__header" [ngStyle]="{ 'background-image': 'url(' + coverMedia + ')' }" *ngIf="pageToShow != null && pageToShow.ProfilePage.IsFrontpage">
       <div class="overlay-container"></div>
-      <div class="profile-name">{{ profileName }}</div>
+      <div class="profile-name">{{ profileModel.Name }}</div>
+      <div class="back-button" [routerLink]="['../../']" [ngStyle]="{'background-color':profileModel.SecondaryCompanyHexColor, 'color':profileModel.TextOnSecondaryCompanyHexColor}">
+        <i class="las la-arrow-left"></i>
+      </div>
       <div>
         <div class="profile-info-image d-flex">
           <img [src]="profileMedia" alt="" *ngIf="profileMedia">
@@ -27,30 +28,42 @@
               </div>
             </div>
             <div class="d-flex">
-              <div class="msg-button" style="margin-left: 20px;">Beskeder</div>
-              <div class="msg-button">Ordrer</div>
+              <div class="msg-button" style="margin-left: 20px;" [ngStyle]="{'background-color':profileModel.CompanyHexColor, 'color':profileModel.TextOnCompanyHexColor}">Følg</div>
+              <div class="msg-button" [ngStyle]="{'background-color':profileModel.CompanyHexColor, 'color':profileModel.TextOnCompanyHexColor}">Send besked</div>
             </div>
           </div>
         </div>
-        <div class="bio">{{ bio }}</div>
+        <div class="bio">{{ profileModel.Bio }}</div>
       </div>
     </div>
-    <div class="preview-container__content__header">{{ pageToShow.ProfilePage.Name }}</div>
+    <div class="preview-container__content__header" *ngIf="pageToShow != null && !pageToShow.ProfilePage.IsFrontpage">{{ pageToShow.ProfilePage.Name }}</div>
     <div class="preview-container__content p-20">
       <ng-container *ngFor="let pageSection of pageToShow?.Sections">
         <ng-container *ngIf="pageSection.ProfilePageSectionType == 1">
-          <product-group-horizontal [headline]="pageSection.Name" [productGroupId]="pageSection.DataId"></product-group-horizontal>
+          <product-group-horizontal 
+            [headline]="pageSection.Name" 
+            [productGroupId]="pageSection.DataId"
+            [loadingColor]="profileModel.SecondaryCompanyHexColor"
+            [headlineColor]="profileModel.TextOnCompanyHexColor"
+          ></product-group-horizontal>
         </ng-container>
 
         <ng-container *ngIf="pageSection.ProfilePageSectionType == 2">
-          <product-group-grid [headline]="pageSection.Name" [productGroupId]="pageSection.DataId"></product-group-grid>
+          <product-group-grid 
+            [headline]="pageSection.Name" 
+            [productGroupId]="pageSection.DataId" 
+            [headlineColor]="profileModel.TextOnCompanyHexColor"
+            [itemTextColor]="profileModel.TextOnSecondaryCompanyHexColor"
+            [itemBackgroundColor]="profileModel.SecondaryCompanyHexColor"
+            [loadingColor]="profileModel.SecondaryCompanyHexColor"
+          ></product-group-grid>
         </ng-container>
       </ng-container>
     </div>
   </ng-container>
   <ng-container *ngIf="isLoading">
     <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100%;">
-    <sl-loading></sl-loading>
+    <sl-loading [color]="loadingIndicatorColor"></sl-loading>
   </div>
   </ng-container>
-</div> -->
+</div>

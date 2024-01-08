@@ -1,0 +1,99 @@
+.product-group-grid-container {
+  margin-bottom: 30px;
+
+  h3, h5 {
+    color: var(--text-on-company-color);
+    font-weight: 300;
+  }
+
+  h3 {
+    font-weight: 500;
+    margin-bottom: 10px;
+
+  }
+
+  h5 {
+    margin-bottom: 7px;
+    margin-top: 4px;
+  }
+  
+  .flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    justify-content: space-around;
+    line-height:30px;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .flex-item {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    flex: 1 0 auto;
+    height:auto;
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px;
+    cursor: pointer;
+    // background-image: url('https://cdn.shopify.com/s/files/1/0323/7029/4919/products/image_33761857-30cd-4a34-9439-87d0260149fc_1445x.jpg?v=1651671582');
+    background-size: cover;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .flex-item::before {
+    content:'';
+    float:left;
+    padding-top:100%;
+  }
+
+  .text-container {
+    background-color: var(--secondary-company-color);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: 5px 10px;
+
+    .ellipsis {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 140px;
+    }
+
+    .productgroup {
+      font-size: 12px;
+      padding: 0;
+      color: var(--secondary-text-color);
+      font-weight: 300;
+    }
+
+    .name {
+      font-weight: 500;
+      font-size: 15px;
+      margin-top: -8px;
+      color: var(--secondary-text-color)
+    }
+
+    .price {
+      font-size: 15px;
+      margin-top: -4px;
+      color: var(--secondary-text-color)
+    }
+  }
+}

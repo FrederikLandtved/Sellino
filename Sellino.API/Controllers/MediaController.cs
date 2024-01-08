@@ -10,7 +10,6 @@ using Sellino.Service.Interfaces;
 
 namespace Sellino.API.Controllers
 {
-    [Authorize]
     [Route("[controller]")]
     [ApiController]
     public class MediaController : ControllerBase

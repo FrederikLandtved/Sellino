@@ -71,6 +71,36 @@ namespace Sellino.API.Controllers
             return BadRequest(new { Error = ResponseConstants.NotFound });
         }
 
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("/Profiles/{profileId}/ProfilePages/Sections")]
+        public async Task<IActionResult> GetProfilePagesWithSectionsByProfile(int profileId)
+        {
+            List<ProfilePageWithSectionsModel> model = new List<ProfilePageWithSectionsModel>();
+            List<ProfilePageModel> profilePages = await _profilePageService.GetProfilePagesByProfileId(profileId);
+
+            if (profilePages != null)
+            {
+                // Sort profilePages based on IsFrontpage
+                profilePages = profilePages.OrderByDescending(p => p.IsFrontpage).ToList();
+
+                foreach (ProfilePageModel profilePage in profilePages)
+                {
+                    List<ProfilePageSectionModel> sections = await _profilePageSectionService.GetProfilePageSections(profilePage.ProfilePageId);
+
+                    model.Add(new ProfilePageWithSectionsModel
+                    {
+                        ProfilePage = profilePage,
+                        Sections = sections
+                    });
+                }
+
+                return Ok(JsonSerializer.Serialize(model));
+            }
+
+            return BadRequest(new { Error = ResponseConstants.NotFound });
+        }
+
         [HttpGet]
         [Route("/ProfilePages/{profilePageToken}")]
         public async Task<IActionResult> GetProfilePage(Guid profilePageToken)

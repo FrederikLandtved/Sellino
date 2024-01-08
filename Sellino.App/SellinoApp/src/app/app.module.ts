@@ -11,6 +11,9 @@ import { MediaPipe } from './pipes/media.pipe';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StoryListComponent } from './components/story-list/story-list.component';
 import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
+import { ProductGroupGridComponent } from './components/product/product-group-grid/product-group-grid.component';
+import { ProductGroupHorizontalComponent } from './components/product/product-group-horizontal/product-group-horizontal.component';
+import { LoadingComponent } from './components/ui-kit/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { ImageCarouselComponent } from './components/image-carousel/image-carous
     MediaPipe,
     ProfileComponent,
     StoryListComponent,
-    ImageCarouselComponent
+    ImageCarouselComponent,
+    ProductGroupGridComponent,
+    ProductGroupHorizontalComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

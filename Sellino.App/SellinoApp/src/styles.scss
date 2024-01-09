@@ -225,3 +225,18 @@ table {
     font-weight: 500;
   } 
 }
+
+.sl-button {
+  background-color: var(--company-color);
+  border: 0;
+  height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+  color: var(--text-on-company-color);
+
+  &:active {
+    opacity: 0.8;
+  }
+}

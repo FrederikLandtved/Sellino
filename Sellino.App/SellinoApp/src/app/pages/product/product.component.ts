@@ -13,6 +13,7 @@ export class ProductDetailsComponent implements OnInit {
   isLoading: boolean = true;
   productToken: string | null = "";
   product: Product | null = null;
+  amountToBuy: number = 0;
 
   constructor(private location: Location, private route: ActivatedRoute, private productService: ProductService) {}
 
@@ -24,6 +25,10 @@ export class ProductDetailsComponent implements OnInit {
         this.isLoading = false;
       })
     });
+  }
+
+  updateAmountToBuy(amount: number) {
+    this.amountToBuy = amount;
   }
 
   navigateBack() {

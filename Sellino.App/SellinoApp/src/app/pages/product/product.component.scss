@@ -36,6 +36,16 @@
       overflow-y: scroll;
       padding-bottom: 20px;
     }
+
+    .price {
+      background-color: var(--secondary-company-color);
+      color: var(--secondary-text-color);
+      padding: 10px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      height: 30px;
+    }
   }
 
   .footer {

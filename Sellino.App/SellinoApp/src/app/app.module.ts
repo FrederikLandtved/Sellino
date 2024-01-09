@@ -15,6 +15,7 @@ import { ProductGroupGridComponent } from './components/product/product-group-gr
 import { ProductGroupHorizontalComponent } from './components/product/product-group-horizontal/product-group-horizontal.component';
 import { LoadingComponent } from './components/ui-kit/loading/loading.component';
 import { ProductDetailsComponent } from './pages/product/product.component';
+import { CounterComponent } from './components/ui-kit/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProductDetailsComponent } from './pages/product/product.component';
     ProductGroupGridComponent,
     ProductGroupHorizontalComponent,
     LoadingComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

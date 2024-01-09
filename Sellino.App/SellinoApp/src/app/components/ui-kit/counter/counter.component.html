@@ -1,0 +1,5 @@
+<div class="counter-container d-flex">
+  <button (click)="subtract()" [ngClass]="{'disabled':this.counter == 0}"><i class="las la-minus"></i></button>
+  <span>{{ counter }}</span>
+  <button (click)="add()" [ngClass]="{'disabled':this.counter == 10}"><i class="las la-plus"></i></button>
+</div>

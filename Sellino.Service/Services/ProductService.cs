@@ -50,6 +50,12 @@ namespace Sellino.Service.Services
             Product product = await _productRepository.GetProduct(productToken);
             ProductModel model = _autoMapper.Map<ProductModel>(product);
 
+            if (model.ProductMediaId > 0)
+            {
+                MediaModel mediaModel = await _mediaService.GetMedia(model.ProductMediaId);
+                model.ProductMedia = mediaModel;
+            }
+
             return model;
         }
 

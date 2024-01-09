@@ -20,5 +20,6 @@ export interface Product {
   ProductId: number,
   Name: string,
   Description: string,
-  ProductMedia: MediaModel
+  ProductMedia: MediaModel,
+  Price: number
 }

@@ -9,8 +9,6 @@ import { ProductGroupService, ProductGroupWithProducts } from '../../../services
 export class ProductGroupHorizontalComponent implements OnInit {
   @Input() productGroupId: number = 0;
   @Input() headline: String = 'Headline';
-  @Input() headlineColor: string = 'black';
-  @Input() loadingColor: string = 'black';
 
   isLoading: boolean = true;
   productGroup: ProductGroupWithProducts = {};

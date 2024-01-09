@@ -14,6 +14,7 @@ import { ImageCarouselComponent } from './components/image-carousel/image-carous
 import { ProductGroupGridComponent } from './components/product/product-group-grid/product-group-grid.component';
 import { ProductGroupHorizontalComponent } from './components/product/product-group-horizontal/product-group-horizontal.component';
 import { LoadingComponent } from './components/ui-kit/loading/loading.component';
+import { ProductDetailsComponent } from './pages/product/product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoadingComponent } from './components/ui-kit/loading/loading.component'
     ImageCarouselComponent,
     ProductGroupGridComponent,
     ProductGroupHorizontalComponent,
-    LoadingComponent
+    LoadingComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,33 @@
+<ng-container *ngIf="!isLoading && product">
+  <div class="product-container">
+    <div class="back-button" (click)="navigateBack()">
+      <i class="las la-arrow-left"></i>
+    </div>
+    <div class="image-container" [ngStyle]="{ 'background-image': 'url(' + (product.ProductMedia | media) + ')' }">
+
+    </div>
+    <div class="text-container">
+      <div class="d-flex justify-content-between">
+        <div class="mb-20">Produktgruppe</div>
+        <div>DKK {{ product.Price }}</div>
+      </div>
+      <h2 class="mb-20"> {{ product.Name }}</h2>
+      <p> {{ product.Description }}</p>
+    </div>
+    <div class="footer d-flex justify-content-between align-items-center">
+      <div class="left d-flex flex-column">
+        <span>Vælg antal</span>
+        <span>Test</span>
+      </div>
+      <div class="right">
+        <button>Gå til kassen</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isLoading">
+  <div class="d-flex justify-content-center align-items-center" style="width: 100vw; height: 100vh;">
+    <sl-loading [color]="'black'"></sl-loading>
+  </div>
+</ng-container>

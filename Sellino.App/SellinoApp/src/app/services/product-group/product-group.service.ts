@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from './product';
+import { apiEndpoint } from '../apiEndpoint';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductGroupService {
-  private apiUrl = "https://localhost:7240";
+  private apiUrl = apiEndpoint;
 
   constructor(private http: HttpClient) { }
 

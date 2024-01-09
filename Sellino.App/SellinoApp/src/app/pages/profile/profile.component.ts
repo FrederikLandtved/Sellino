@@ -17,7 +17,6 @@ export class ProfileComponent implements OnInit {
   profileMedia: string = '';
   coverMedia: string = '';
   pageToShow: ProfilePageWithSectionsModel | null = null;
-  backgroundColor: string = 'white';
   loadingIndicatorColor: string = 'black';
   constructor(private route: ActivatedRoute, private profileService: ProfileService, private mediaService: MediaService, private profilePageService: ProfilePageService) {}
 
@@ -27,7 +26,6 @@ export class ProfileComponent implements OnInit {
   
         this.profileService.GetProfile(this.profileToken).subscribe(data => {
           this.isLoading = true;
-          this.backgroundColor = data.CompanyHexColor;
           this.loadingIndicatorColor = data.SecondaryCompanyHexColor;
           
           setTimeout(() => {

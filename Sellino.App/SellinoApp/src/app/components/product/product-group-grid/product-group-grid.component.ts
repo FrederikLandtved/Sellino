@@ -9,10 +9,6 @@ import { ProductGroupService, ProductGroupWithProducts } from '../../../services
 export class ProductGroupGridComponent implements OnInit  {
   @Input() productGroupId: number = 0;
   @Input() headline: string = 'Headline';
-  @Input() headlineColor: string = 'black';
-  @Input() itemBackgroundColor: string = '#d3d3d3';
-  @Input() itemTextColor: string = 'white';
-  @Input() loadingColor: string = 'black';
 
   productGroup: ProductGroupWithProducts = {};
   itemsToShow: any[] = [];

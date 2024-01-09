@@ -4,6 +4,7 @@
   margin: 0 auto;
   overflow-y: auto;
   background: white;
+  background-color: var(--company-color);
   transition: background 0.4s ease;
 
 /* Hide scrollbar for Chrome, Safari, and Opera */
@@ -53,7 +54,8 @@
       justify-content: center;
       align-items: center;
       border-radius: 100%;
-      background-color:rgba(24, 24, 24, 0.8);
+      background-color: var(--secondary-company-color);
+      color: var(--secondary-text-color);
       z-index: 9;
     }
 
@@ -135,7 +137,7 @@
         border-radius: 10px;
         padding: 3px 20px;
         font-size: 12px;
-        font-weight: 300;
+        font-weight: 400;
         margin-left: 8px;
         margin-top: 3px;
         z-index: 2;

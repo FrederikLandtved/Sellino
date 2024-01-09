@@ -1,9 +1,9 @@
-<div class="preview-container shadow-darker" [ngStyle]="{'background-color':backgroundColor}">
+<div class="preview-container shadow-darker">
   <ng-container *ngIf="!isLoading">
     <div class="preview-container__header" [ngStyle]="{ 'background-image': 'url(' + coverMedia + ')' }" *ngIf="pageToShow != null && pageToShow.ProfilePage.IsFrontpage">
       <div class="overlay-container"></div>
       <div class="profile-name">{{ profileModel.Name }}</div>
-      <div class="back-button" [routerLink]="['../../']" [ngStyle]="{'background-color':profileModel.SecondaryCompanyHexColor, 'color':profileModel.TextOnSecondaryCompanyHexColor}">
+      <div class="back-button" [routerLink]="['../../']">
         <i class="las la-arrow-left"></i>
       </div>
       <div>
@@ -28,8 +28,8 @@
               </div>
             </div>
             <div class="d-flex">
-              <div class="msg-button" style="margin-left: 20px;" [ngStyle]="{'background-color':profileModel.CompanyHexColor, 'color':profileModel.TextOnCompanyHexColor}">Følg</div>
-              <div class="msg-button" [ngStyle]="{'background-color':profileModel.CompanyHexColor, 'color':profileModel.TextOnCompanyHexColor}">Send besked</div>
+              <div class="msg-button" style="margin-left: 20px;">Følg</div>
+              <div class="msg-button">Send besked</div>
             </div>
           </div>
         </div>
@@ -43,19 +43,13 @@
           <product-group-horizontal 
             [headline]="pageSection.Name" 
             [productGroupId]="pageSection.DataId"
-            [loadingColor]="profileModel.SecondaryCompanyHexColor"
-            [headlineColor]="profileModel.TextOnCompanyHexColor"
           ></product-group-horizontal>
         </ng-container>
 
         <ng-container *ngIf="pageSection.ProfilePageSectionType == 2">
           <product-group-grid 
             [headline]="pageSection.Name" 
-            [productGroupId]="pageSection.DataId" 
-            [headlineColor]="profileModel.TextOnCompanyHexColor"
-            [itemTextColor]="profileModel.TextOnSecondaryCompanyHexColor"
-            [itemBackgroundColor]="profileModel.SecondaryCompanyHexColor"
-            [loadingColor]="profileModel.SecondaryCompanyHexColor"
+            [productGroupId]="pageSection.DataId"
           ></product-group-grid>
         </ng-container>
       </ng-container>

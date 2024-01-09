@@ -46,6 +46,7 @@ namespace Sellino.API.Controllers
             return Ok(JsonSerializer.Serialize(products));
         }
 
+        [AllowAnonymous]
         [HttpGet]
         [Route("/Products/{productToken}")]
         public async Task<IActionResult> GetProduct(Guid productToken)

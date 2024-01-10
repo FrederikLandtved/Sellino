@@ -39,6 +39,11 @@ namespace Sellino.Domain.Repositories
             return await _productRepository.Products.FirstAsync(x => x.ProductToken == productToken);
         }
 
+        public async Task<Product> GetProduct(int productId)
+        {
+            return await _productRepository.Products.FirstAsync(x => x.ProductId == productId);
+        }
+
         public async Task<List<Product>> GetProducts()
         {
             return await _productRepository.Products.ToListAsync();

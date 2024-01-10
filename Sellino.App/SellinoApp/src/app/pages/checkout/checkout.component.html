@@ -1,0 +1,63 @@
+<div class="checkout-container">
+  <div class="header">
+    <h2 class="mb-20">Check out</h2>
+    <div class="d-flex g-30">
+      <div class="speech d-flex">
+        <p *ngIf="currentProfileState">Tak fordi du handler hos {{ currentProfileState.Profile.Name }}! Hos os garanterer vi levering inden for 2 hverdage.</p>
+      </div>
+      <div class="profile-image" [ngStyle]="{ 'background-image': 'url(' + (currentProfileState.Profile.ProfileMedia | media) + ')' }">
+
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <h3 class="mb-20">Din bestilling</h3>
+
+    <table class="mb-20">
+      <tr>
+        <th>Produktets navn</th>
+        <th class="right-align">Antal</th>
+        <th class="right-align">Beløb</th>
+      </tr>
+      <tr *ngIf="product && amount">
+        <td>{{ product.Name }}</td>
+        <td class="right-align">{{ amount }}</td>
+        <td class="right-align">{{ product.Price }}</td>
+      </tr>
+    </table>
+
+    <div class="total-amount d-flex justify-content-between" *ngIf="product && amount">
+      <h4>I alt</h4>
+      <h4>DKK {{ amount * product.Price }}</h4>
+    </div>
+
+    <hr>
+
+    <h3 class="mb-20">Dine oplysninger</h3>
+
+    <form>
+      <div class="sl-input-group mb-20 d-flex flex-column">
+        <label for="fullname">Fulde navn</label>
+        <input type="text" name="fullname" [(ngModel)]="userInformation.Name">
+      </div>
+
+      <div class="sl-input-group mb-20 d-flex flex-column">
+        <label for="address">Adresse</label>
+        <input type="text" name="address" [(ngModel)]="userInformation.Address">
+      </div>
+
+      <div class="d-flex g-30 mb-20 justify-content-between">
+        <div class="sl-input-group mb-20 d-flex flex-column">
+          <label for="zipcode">Postnr.</label>
+          <input type="number" name="zipcode" [(ngModel)]="userInformation.ZipCode">
+        </div>
+        <div class="sl-input-group mb-20 d-flex flex-column">
+          <label for="fullname">By</label>
+          <input type="text" name="fullname" [(ngModel)]="userInformation.City">
+        </div>
+      </div>
+    </form>
+
+    <button class="sl-button secondary w-100">Gennemfør køb hos {{ currentProfileState.Profile.Name }}</button>
+  </div>
+</div>

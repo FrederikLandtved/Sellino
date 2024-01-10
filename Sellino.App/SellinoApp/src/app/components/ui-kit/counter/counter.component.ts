@@ -5,6 +5,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.scss'
 })
+
 export class CounterComponent {
   counter: number = 0;
   @Output() onCounterChange = new EventEmitter<number>();

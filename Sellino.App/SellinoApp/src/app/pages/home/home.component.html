@@ -13,8 +13,7 @@
     @for (item of profiles; track $index) {
       <profile-list-item
         [profileMedia]="item.Profile.ProfileMedia"
-        (click)="onProfileClick(item.Profile)"
-        [routerLink]="['profile', item.Profile.ProfileToken]"
+        (click)="onProfileClick(item)"
         profileName="{{item.Profile.Name}}" 
         bio="{{item.Profile.Bio}}" 
         backgroundColor="{{item.Profile.CompanyHexColor}}" 

@@ -10,7 +10,7 @@ import { apiEndpoint } from '../apiEndpoint';
 export class ProfileService {
   private apiUrl = apiEndpoint;
   // private apiUrl = "https://walrus-app-6oisd.ondigitalocean.app";
-
+  public currentProfileState: any;
   constructor(private http: HttpClient) { }
 
   GetProfilesWithProducts() {
@@ -19,5 +19,13 @@ export class ProfileService {
 
   GetProfile(profileToken: string) : Observable<ProfileModel> {
     return this.http.get<ProfileModel>(this.apiUrl + '/Profiles/' + profileToken);
+  }
+
+  SetCurrentProfileState(profile: any) {
+    this.currentProfileState = profile;
+  }
+
+  GetCurrentProfileState() {
+    return this.currentProfileState;
   }
 }

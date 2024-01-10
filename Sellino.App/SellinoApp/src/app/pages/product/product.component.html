@@ -20,7 +20,7 @@
         <sl-counter (onCounterChange)="updateAmountToBuy($event)"></sl-counter>
       </div>
       <div class="right">
-        <button class="sl-button">Gå til kassen</button>
+        <button class="sl-button" (click)="goToCheckout()">Gå til kassen</button>
       </div>
     </div>
   </div>
@@ -28,6 +28,6 @@
 
 <ng-container *ngIf="isLoading">
   <div class="d-flex justify-content-center align-items-center" style="width: 100vw; height: 100vh;">
-    <sl-loading [color]="'black'"></sl-loading>
+    <sl-loading></sl-loading>
   </div>
 </ng-container>

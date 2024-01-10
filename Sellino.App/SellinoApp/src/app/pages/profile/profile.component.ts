@@ -17,16 +17,15 @@ export class ProfileComponent implements OnInit {
   profileMedia: string = '';
   coverMedia: string = '';
   pageToShow: ProfilePageWithSectionsModel | null = null;
-  loadingIndicatorColor: string = 'black';
+
   constructor(private route: ActivatedRoute, private profileService: ProfileService, private mediaService: MediaService, private profilePageService: ProfilePageService) {}
 
   ngOnInit(): void {
       this.route.paramMap.subscribe((params: ParamMap) => {
         this.profileToken = params.get('token');
-  
+
         this.profileService.GetProfile(this.profileToken).subscribe(data => {
           this.isLoading = true;
-          this.loadingIndicatorColor = data.SecondaryCompanyHexColor;
           
           setTimeout(() => {
             this.profileModel = data;
@@ -46,7 +45,7 @@ export class ProfileComponent implements OnInit {
             })
     
             this.isLoading = false;  
-          }, 1000);
+          }, 500);
         });
       });
   }

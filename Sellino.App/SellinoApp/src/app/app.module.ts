@@ -16,6 +16,8 @@ import { ProductGroupHorizontalComponent } from './components/product/product-gr
 import { LoadingComponent } from './components/ui-kit/loading/loading.component';
 import { ProductDetailsComponent } from './pages/product/product.component';
 import { CounterComponent } from './components/ui-kit/counter/counter.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,12 +32,14 @@ import { CounterComponent } from './components/ui-kit/counter/counter.component'
     ProductGroupHorizontalComponent,
     LoadingComponent,
     ProductDetailsComponent,
-    CounterComponent
+    CounterComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../services/product-group/product';
 
@@ -15,7 +15,7 @@ export class ProductDetailsComponent implements OnInit {
   product: Product | null = null;
   amountToBuy: number = 0;
 
-  constructor(private location: Location, private route: ActivatedRoute, private productService: ProductService) {}
+  constructor(private location: Location, private route: ActivatedRoute, private productService: ProductService, private router: Router) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -33,5 +33,9 @@ export class ProductDetailsComponent implements OnInit {
 
   navigateBack() {
     this.location.back();
+  }
+
+  goToCheckout() {
+    this.router.navigate(['checkout/' + this.productToken + '/' + this.amountToBuy]);
   }
 }

@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './loading.component.scss'
 })
 export class LoadingComponent {
-  @Input() color: string = 'grey';
+
 }
 
 

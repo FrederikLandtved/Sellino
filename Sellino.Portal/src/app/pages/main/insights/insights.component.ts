@@ -10,6 +10,6 @@ export class InsightsComponent implements OnInit {
   tabs: Tab[] = [];
 
   ngOnInit(): void {
-    this.tabs = [{title: 'Produkter'}, { title: 'Indkøbskurv' }, {title: 'Profilen', disabled: true}];
+    this.tabs = [{title: 'Produkter'}, { title: 'Indkøbskurv', disabled: true }, {title: 'Profilen', disabled: true}];
   }
 }

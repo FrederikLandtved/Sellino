@@ -29,5 +29,16 @@ namespace Sellino.Domain.Repositories
 
             return orders;
         }
+
+        public async Task<bool> UpdateOrderComplete(int orderId)
+        {
+            Order orderToUpdate = await _orderRepository.Orders.FirstAsync(x => x.OrderId == orderId);
+            orderToUpdate.IsCompleted = !orderToUpdate.IsCompleted;
+
+            _orderRepository.Orders.Update(orderToUpdate);
+            await _orderRepository.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

@@ -1,6 +1,6 @@
 <h2>Ordrer</h2>
 
-<div class="orders-container d-flex">
+<div class="orders-container d-flex" *ngIf="isLoading == false && orders.length > 0">
   <div class="orders-container__item round-container">
     <table>
       <tr>
@@ -12,22 +12,27 @@
         <th>Leveringsadresse</th>
         <th>Fuldført</th>
       </tr>
-      <tr *ngFor="let order of orders">
+      <tr *ngFor="let order of orders" [ngClass]="{'unactive' : order.IsCompleted}">
         <td>{{ order.OrderId }}</td>
         <td>Jakke</td>
         <td>{{ order.Amount }}</td>
         <td>{{ order.FullPrice }} kr.</td>
         <td>{{ order.FullName }}</td>
         <td>{{ order.Address }}, {{ order.ZipCode }} {{ order.City }}</td>
-        <td>{{ order.IsCompleted }}</td>
+        <td class="center"><sl-checkbox label="" [isChecked]="order.IsCompleted" (onChecked)="updateOrderCompleted(order)"></sl-checkbox></td>
       </tr>
     </table>
 
   </div>
-  
+</div>
+
+<div class="orders-container d-flex" *ngIf="isLoading == false && orders.length == 0">
+  <div class="orders-container__item round-container">
+    <span>Der er endnu ingen ordrer.</span>
+  </div>
 </div>
 
 <div *ngIf="isLoadingMore" class="d-flex flex-column justify-content-center align-items-center" style="margin-top: 50px; gap: 10px">
-  <h5>Henter nye ordrer...</h5>
+  <h5>Henter ordrer...</h5>
   <sl-loading></sl-loading>
 </div>

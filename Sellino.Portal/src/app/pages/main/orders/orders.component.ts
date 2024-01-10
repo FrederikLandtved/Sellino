@@ -36,4 +36,11 @@ export class OrdersComponent implements OnInit {
       this.isLoading = false;
     });
   }
+
+  updateOrderCompleted(order: Order) {
+    this.orderService.UpdateOrderCompleted(order.OrderId).subscribe(data => {
+      console.log(data);
+      this.loadOrders();
+    });
+  }
 }

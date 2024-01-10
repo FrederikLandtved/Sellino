@@ -14,6 +14,10 @@ export class OrderService {
   GetOrders() : Observable<Order[]> {
     return this.http.get<Order[]>(this.apiUrl + '/Orders');
   }
+
+  UpdateOrderCompleted(orderId: number) : Observable<number> {
+    return this.http.put<number>(this.apiUrl + '/Orders/' + orderId, {});
+  }
 }
 
 export interface Order {

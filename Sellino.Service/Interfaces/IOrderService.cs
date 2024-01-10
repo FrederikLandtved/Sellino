@@ -6,5 +6,6 @@ namespace Sellino.Service.Interfaces
     {
         Task<int> CreateOrder(CreateOrderModel order);
         Task<List<OrderModel>> GetOrders(int profileId);
+        Task<bool> UpdateOrderComplete(int orderId);
     }
 }

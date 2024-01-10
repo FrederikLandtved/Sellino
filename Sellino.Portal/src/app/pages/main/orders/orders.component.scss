@@ -21,6 +21,15 @@ h2 {
   table {
     tr {
       height: 50px;
+
+      &.unactive {
+        color: rgb(150, 150, 150);
+      }
+    }
+    
+    .center {
+      height: 50px;
+      padding-bottom: 30px;
     }
   }
 }

@@ -46,7 +46,17 @@ namespace Sellino.API.Controllers
 
             List<OrderModel> orders = await _orderService.GetOrders(profileId);
 
+            // Newest first
+            orders = orders.OrderBy(x => x.IsCompleted).ThenByDescending(x => x.OrderId).ToList();
+
             return Ok(orders);
+        }
+
+        [HttpPut]
+        [Route("/Orders/{orderId}")]
+        public async Task<IActionResult> UpdateOrderComplete(int orderId)
+        {
+            return Ok(await _orderService.UpdateOrderComplete(orderId));
         }
     }
 }

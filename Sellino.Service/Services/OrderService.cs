@@ -65,5 +65,10 @@ namespace Sellino.Service.Services
 
             return orderModels;
         }
+
+        public async Task<bool> UpdateOrderComplete(int orderId)
+        {
+            return await _orderRepository.UpdateOrderComplete(orderId);
+        }
     }
 }

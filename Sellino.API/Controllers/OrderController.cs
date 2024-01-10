@@ -19,10 +19,9 @@ namespace Sellino.API.Controllers
         private readonly UserHelper _userHelper;
         private readonly IOrderService _orderService;
 
-        public OrderController(UserHelper userHelper, IProfileService profileService, IOrderService orderService)
+        public OrderController(UserHelper userHelper, IOrderService orderService)
         {
             _userHelper = userHelper;
-            _profileService = profileService;
             _orderService = orderService;
         }
 

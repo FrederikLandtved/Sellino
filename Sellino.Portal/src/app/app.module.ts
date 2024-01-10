@@ -41,6 +41,7 @@ import { CreateProfilePageComponent } from './components/modal-templates/profile
 import { CreateProfilePageSectionComponent } from './components/modal-templates/profile-page-section/create-profile-page-section/create-profile-page-section.component';
 import { DeleteProfilePageComponent } from './components/modal-templates/profile-page/delete-profile-page/delete-profile-page.component';
 import { EditProfilePageComponent } from './components/modal-templates/profile-page/edit-profile-page/edit-profile-page.component';
+import { OrdersComponent } from './pages/main/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { EditProfilePageComponent } from './components/modal-templates/profile-p
     CreateProfilePageComponent,
     CreateProfilePageSectionComponent,
     DeleteProfilePageComponent,
-    EditProfilePageComponent
+    EditProfilePageComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

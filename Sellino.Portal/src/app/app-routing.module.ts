@@ -13,6 +13,7 @@ import { AuthGuard } from './services/auth/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
 import { tokenGetter } from './services/auth/login.service';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { OrdersComponent } from './pages/main/orders/orders.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent, canActivate: [AuthGuard],
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
         { path: 'profile', component: ProfileComponent },
         { path: 'add-product', component: AddProductComponent },
         { path: 'categories', component: CategoriesComponent },
-        { path: 'ui-kit', component: UiKitComponent}
+        { path: 'ui-kit', component: UiKitComponent},
+        { path: 'orders', component: OrdersComponent }
       ]
   },
   { path: 'auth', component: AuthComponent, 

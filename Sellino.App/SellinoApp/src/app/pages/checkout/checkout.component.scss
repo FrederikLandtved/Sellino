@@ -2,10 +2,50 @@
   width: 100vw;
   height: 100vh;
 
+  .order-confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .back-button {
+    position: absolute;
+    color: white;
+    min-height: 30px;
+    max-height: 30px;
+    min-width: 30px;
+    max-width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background-color: var(--secondary-company-color);
+    color: var(--secondary-text-color);
+    z-index: 9;
+  }
+
   .header {
     position: relative;
     background-color: var(--company-color);
-    padding: 40px 25px;
+    padding: 25px;
     width: 100%;
 
     h2{

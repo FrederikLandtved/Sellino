@@ -20,7 +20,12 @@
         <sl-counter (onCounterChange)="updateAmountToBuy($event)"></sl-counter>
       </div>
       <div class="right">
-        <button class="sl-button" (click)="goToCheckout()">Gå til kassen</button>
+        <button 
+          class="sl-button" 
+          (click)="goToCheckout()"
+          [disabled]="amountToBuy == 0" >
+            Gå til kassen
+        </button>
       </div>
     </div>
   </div>

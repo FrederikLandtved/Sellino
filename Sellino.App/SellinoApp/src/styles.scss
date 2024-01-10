@@ -244,6 +244,15 @@ table {
     background-color: var(--secondary-company-color);
     color: var(--secondary-text-color);
   }
+
+  &:disabled {
+    background-color: rgb(209, 209, 209);
+    color: rgb(155, 155, 155);
+
+    &:active {
+      opacity: 1;
+    }
+  }
 }
 
 .sl-input-group {

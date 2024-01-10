@@ -1,0 +1,33 @@
+<h2>Ordrer</h2>
+
+<div class="orders-container d-flex">
+  <div class="orders-container__item round-container">
+    <table>
+      <tr>
+        <th>Ordrenr.</th>
+        <th>Produktnavn</th>
+        <th>Antal</th>
+        <th>Beløb</th>
+        <th>Kundens navn</th>
+        <th>Leveringsadresse</th>
+        <th>Fuldført</th>
+      </tr>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.OrderId }}</td>
+        <td>Jakke</td>
+        <td>{{ order.Amount }}</td>
+        <td>{{ order.FullPrice }} kr.</td>
+        <td>{{ order.FullName }}</td>
+        <td>{{ order.Address }}, {{ order.ZipCode }} {{ order.City }}</td>
+        <td>{{ order.IsCompleted }}</td>
+      </tr>
+    </table>
+
+  </div>
+  
+</div>
+
+<div *ngIf="isLoadingMore" class="d-flex flex-column justify-content-center align-items-center" style="margin-top: 50px; gap: 10px">
+  <h5>Henter nye ordrer...</h5>
+  <sl-loading></sl-loading>
+</div>

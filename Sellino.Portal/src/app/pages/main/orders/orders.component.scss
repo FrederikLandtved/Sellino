@@ -1,0 +1,26 @@
+@use '../../../../theme.scss' as *;
+
+h2 {
+  margin-bottom: 20px !important;
+}
+
+.orders-container {
+  width: 100%;
+  gap: 30px;
+
+
+  h3 {
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    flex: 1;
+    background: white;
+  }
+
+  table {
+    tr {
+      height: 50px;
+    }
+  }
+}

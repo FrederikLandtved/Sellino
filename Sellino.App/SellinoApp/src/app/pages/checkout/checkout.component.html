@@ -1,6 +1,17 @@
 <div class="checkout-container">
+  <div *ngIf="orderFulfilled" class="order-confirmation-modal">
+    <div class="modal-content">
+      <h3>Tak for dit køb!</h3>
+      <p>Din ordre er modtaget og vil nu blive gjort klar til at blive sendt til dig.</p>
+      <button class="sl-button secondary" [routerLink]="['']">Gå tilbage til forsiden</button>
+    </div>
+  </div>
+
   <div class="header">
-    <h2 class="mb-20">Check out</h2>
+    <div class="back-button" (click)="navigateBack()">
+      <i class="las la-arrow-left"></i>
+    </div>
+    <h2 class="mb-20" style="padding-top: 50px;">Check out</h2>
     <div class="d-flex g-30">
       <div class="speech d-flex">
         <p *ngIf="currentProfileState">Tak fordi du handler hos {{ currentProfileState.Profile.Name }}! Hos os garanterer vi levering inden for 2 hverdage.</p>
@@ -38,26 +49,31 @@
     <form>
       <div class="sl-input-group mb-20 d-flex flex-column">
         <label for="fullname">Fulde navn</label>
-        <input type="text" name="fullname" [(ngModel)]="userInformation.Name">
+        <input type="text" name="fullname" [(ngModel)]="details.Name">
       </div>
 
       <div class="sl-input-group mb-20 d-flex flex-column">
         <label for="address">Adresse</label>
-        <input type="text" name="address" [(ngModel)]="userInformation.Address">
+        <input type="text" name="address" [(ngModel)]="details.Address">
       </div>
 
       <div class="d-flex g-30 mb-20 justify-content-between">
         <div class="sl-input-group mb-20 d-flex flex-column">
           <label for="zipcode">Postnr.</label>
-          <input type="number" name="zipcode" [(ngModel)]="userInformation.ZipCode">
+          <input type="number" name="zipcode" [(ngModel)]="details.ZipCode">
         </div>
         <div class="sl-input-group mb-20 d-flex flex-column">
           <label for="fullname">By</label>
-          <input type="text" name="fullname" [(ngModel)]="userInformation.City">
+          <input type="text" name="fullname" [(ngModel)]="details.City">
         </div>
       </div>
     </form>
 
-    <button class="sl-button secondary w-100">Gennemfør køb hos {{ currentProfileState.Profile.Name }}</button>
+    <button 
+      class="sl-button secondary w-100" 
+      [disabled]="details.Name == '' || details.Address == '' || details.ZipCode == null || details.City == ''" 
+      (click)="createOrder()">
+        Gennemfør køb hos {{ currentProfileState.Profile.Name }}
+    </button>
   </div>
 </div>

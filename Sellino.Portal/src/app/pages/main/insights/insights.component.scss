@@ -1,8 +1,54 @@
 .insights-container {
   gap: 30px;
-  
+
   .stat-container {
-    width: 300px;
-    height: 200px;
+    flex: 1;
+    background-color: white;
+
+    .stat {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-on-company-color);
+      background-color: var(--company-color);
+      padding: 6px 10px;
+      border-radius: 4px;
+      margin-top: 20px;
+      width: fit-content;
+    }
+  }
+}
+
+
+.shimmer-bg {
+  height: 35px;
+  width: 100px;
+  margin-top: 20px;
+  border-radius: 4px;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  background: #ddd;
+  background: linear-gradient(to right, #ececec 8%, #ffffff 18%, #ececec 33%);
+  background-size: 1200px 100%;
+}
+
+
+@-webkit-keyframes shimmer {
+  0% {
+      background-position: -100% 0;
+  }
+  100% {
+      background-position: 100% 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+      background-position: -1200px 0;
+  }
+  100% {
+      background-position: 1200px 0;
   }
 }

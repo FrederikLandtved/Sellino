@@ -4,10 +4,28 @@
 
 <div class="insights-container d-flex">
   <div class="round-container stat-container">
-    <h3>Omsætning</h3>
+    <h3>Omsætning i alt</h3>
+    <div class="stat" *ngIf="!isLoading">{{ totalRevenue }} kr.</div>
+    <div class="shimmer-bg" *ngIf="isLoading"></div>
   </div>
   <div class="round-container stat-container">
-    <h3>Solgte produkter</h3>
+    <h3>Gennemsnitligt ordrebeløb</h3>
+    <div class="stat" *ngIf="!isLoading">{{ averageOrderTotal }} kr.</div>
+    <div class="shimmer-bg" *ngIf="isLoading"></div>
+  </div>
+  <!-- <div class="round-container stat-container">
+    <h3>Mest købte produkt</h3>
+    <div class="stat">Shelljacket</div>
+  </div> -->
+  <div class="round-container stat-container">
+    <h3>Afsluttede ordrer</h3>
+    <div class="stat" *ngIf="!isLoading">{{ completedOrders }} ud af {{ this.orders.length }} <i class=""></i></div>
+    <div class="shimmer-bg" *ngIf="isLoading"></div>
+  </div>
+</div>
+
+<div class="insights-container d-flex" style="margin-top: 30px; height: 50vh; opacity: 0.4">
+  <div class="round-container stat-container">
 
   </div>
 </div>

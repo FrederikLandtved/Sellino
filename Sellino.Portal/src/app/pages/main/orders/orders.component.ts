@@ -18,7 +18,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.loadOrders();
 
-    interval(10000).pipe(
+    interval(20000).pipe(
       switchMap(() => {
         this.isLoadingMore = true;
         this.loadOrders();

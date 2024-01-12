@@ -42,6 +42,7 @@ import { CreateProfilePageSectionComponent } from './components/modal-templates/
 import { DeleteProfilePageComponent } from './components/modal-templates/profile-page/delete-profile-page/delete-profile-page.component';
 import { EditProfilePageComponent } from './components/modal-templates/profile-page/edit-profile-page/edit-profile-page.component';
 import { OrdersComponent } from './pages/main/orders/orders.component';
+import { QuillConfigModule, QuillModule } from 'ngx-quill'
 
 @NgModule({
   declarations: [
@@ -93,7 +94,33 @@ import { OrdersComponent } from './pages/main/orders/orders.component';
       preventDuplicates: true,
       timeOut: 2000
     }),
-    MatDialogModule
+    MatDialogModule,
+    QuillModule.forRoot(),
+    QuillConfigModule.forRoot({
+      modules: {
+        syntax: false,
+        toolbar: [
+          ['bold', 'italic', 'underline'],
+          // ['blockquote', 'code-block'],
+      
+          [{ 'header': 1 }, { 'header': 2 }],
+          [{ 'align': [] }],
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          [{ 'indent': '-1'}, { 'indent': '+1' }],
+          // [{ 'direction': 'rtl' }],
+      
+          [{ 'size': [false, 'large', 'huge'] }],
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      
+          // [{ 'color': [] }, { 'background': [] }],
+          // [{ 'font': [] }],
+      
+          // ['clean'],
+      
+          // ['link', 'image', 'video']     
+        ]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

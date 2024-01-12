@@ -53,6 +53,7 @@ export class PagesComponent implements OnInit{
     setTimeout(() => {
       this.profilePageService.GetProfilePages().subscribe(data => {
         this.profilePages = data;
+        this.openNewSectionDialog(this.profilePages[0])
         this.isLoading = false;
 
         if(selectFirst){

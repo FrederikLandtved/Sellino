@@ -13,6 +13,7 @@ export class CreateProfilePageSectionComponent implements OnInit {
   profile: ProfilePageWithSectionsModel | null = null;
   productGroupsOptions: DropdownOption[] = [];
   createSectionModel: ProfilePageSectionModel = { Name: "", ProfilePageSectionId: 0, ProfilePageSectionType: 0, DataId: 0, SortIndex: 0 };
+  textEditor: string = '';
 
   constructor(private dialog: MatDialogRef<CreateProfilePageSectionComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private productGroupService: ProductGroupService, private profilePageService: ProfilePageService) {}
@@ -32,18 +33,18 @@ export class CreateProfilePageSectionComponent implements OnInit {
     });
   }
 
-  onCreateNewSection(model: ProfilePageSectionModel, item: ProfilePageWithSectionsModel) {    
-    this.profilePageService.CreatePageSection(model, item).subscribe(data => {
-      console.log(data);
-    });
-  }
-
   onSelectSectionType(sectionTypeId: number) {
     this.createSectionModel.ProfilePageSectionType = sectionTypeId;
   }
 
   onCloseDialog() {
     this.dialog.close();
+  }
+
+  onCreateNewSection(model: ProfilePageSectionModel, item: ProfilePageWithSectionsModel) {    
+    this.profilePageService.CreatePageSection(model, item).subscribe(data => {
+      console.log(data);
+    });
   }
 
   onSubmit() {

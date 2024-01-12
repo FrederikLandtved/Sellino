@@ -1,48 +1,74 @@
 <div class="dialog-container">
-  <div class="dialog-header">
-    <h3>Tilføj en ny sektion til {{ profile?.ProfilePage?.Name }}</h3>
-    <i class="las la-times dialog-close" (click)="onCloseDialog()"></i>
-  </div>
-
-  <div class="dialog-content">
-    <sl-input label="Indtast navn" [icon]="'las la-tag'" [placeholder]="'Navn'" [value]="createSectionModel.Name" (valueChange)="createSectionModel.Name = $event"></sl-input>
-    <sl-margin [px]="30"></sl-margin>
-    <sl-dropdown [options]="productGroupsOptions" (onOptionClicked)="createSectionModel.DataId = $event" title="Vælg produktgruppe" label="Vælg produktgruppe"></sl-dropdown>
-    <sl-margin [px]="30"></sl-margin>
-
-    <div class="d-flex flex-column" style="width: 100%;">
-      <h4>Vælg hvordan produktgruppen skal vises</h4>
-      <div class="choose-type d-flex">
-        <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onSelectSectionType(1)">
-          <div class="checkmark-container" *ngIf="createSectionModel.ProfilePageSectionType == 1">
-            <i class="las la-check"></i>
+  <div class="start">
+    <div class="dialog-header">
+      <h3>Tilføj en ny sektion til {{ profile?.ProfilePage?.Name }}</h3>
+      <i class="las la-times dialog-close" (click)="onCloseDialog()"></i>
+    </div>
+  
+    <div class="dialog-content">
+      <sl-input label="Indtast navn" [icon]="'las la-tag'" [placeholder]="'Navn'" [value]="createSectionModel.Name" (valueChange)="createSectionModel.Name = $event"></sl-input>
+      
+      <sl-margin [px]="40"></sl-margin>
+  
+      <div class="d-flex flex-column" style="width: 100%;">
+        <h4>Vælg type af sektion</h4>
+        <div class="choose-type d-flex">
+          <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onSelectSectionType(1)">
+            <div class="checkmark-container" *ngIf="createSectionModel.ProfilePageSectionType == 1">
+              <i class="las la-check"></i>
+            </div>
+            <div class="choose-type__item--horisontal d-flex" style="gap: 4px;">
+              <div class="horisontal-item"></div>
+              <div class="horisontal-item"></div>
+              <div class="horisontal-item"></div>
+            </div>
+            <span>Horisontal</span>
           </div>
-          <div class="choose-type__item--horisontal d-flex" style="gap: 4px;">
-            <div class="horisontal-item"></div>
-            <div class="horisontal-item"></div>
-            <div class="horisontal-item"></div>
+          <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onSelectSectionType(2)">
+            <div class="checkmark-container" *ngIf="createSectionModel.ProfilePageSectionType == 2">
+              <i class="las la-check"></i>
+            </div>
+            <div class="choose-type__item--grid d-flex" style="gap: 4px;">
+              <div class="grid-item"></div>
+              <div class="grid-item"></div>
+            </div>
+            <div class="choose-type__item--grid d-flex" style="gap: 4px;">
+              <div class="grid-item"></div>
+              <div class="grid-item"></div>
+            </div>
+            <span>Grid</span>
           </div>
-          <span>Horisontal</span>
-        </div>
-        <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onSelectSectionType(2)">
-          <div class="checkmark-container" *ngIf="createSectionModel.ProfilePageSectionType == 2">
-            <i class="las la-check"></i>
+          <div class="choose-type__item d-flex flex-column justify-content-center align-items-center rounded-8" (click)="onSelectSectionType(3)">
+            <div class="checkmark-container" *ngIf="createSectionModel.ProfilePageSectionType == 3">
+              <i class="las la-check"></i>
+            </div>
+            <div class="choose-type__item--grid d-flex" style="gap: 4px;">
+              <i class="las la-i-cursor" style="font-size: 20px; margin-bottom: 8px; margin-top: 5px"></i>
+            </div>
+            <span>Tekst editor</span>
           </div>
-          <div class="choose-type__item--grid d-flex" style="gap: 4px;">
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-          </div>
-          <div class="choose-type__item--grid d-flex" style="gap: 4px;">
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-          </div>
-          <span>Grid</span>
         </div>
       </div>
+  
+      <sl-margin [px]="40"></sl-margin>
+      <ng-container *ngIf="createSectionModel.ProfilePageSectionType == 1 || createSectionModel.ProfilePageSectionType == 2">
+        <sl-dropdown [options]="productGroupsOptions" (onOptionClicked)="createSectionModel.DataId = $event" title="Vælg produktgruppe" label="Vælg produktgruppe"></sl-dropdown>
+      </ng-container>
+  
+      <ng-container *ngIf="createSectionModel.ProfilePageSectionType == 3">
+        <h4>Udfyld tekst</h4>
+        <quill-editor [(ngModel)]="textEditor"></quill-editor>
+      </ng-container>
     </div>
   </div>
 
+
   <div class="dialog-actions">
-    <sl-button title="Gem" [disabled]="createSectionModel.Name == '' || createSectionModel.DataId == 0 || createSectionModel.ProfilePageSectionType == 0" (onClick)="onSubmit()"></sl-button>
+    <sl-button 
+      title="Gem" 
+      [disabled]="createSectionModel.Name == '' || 
+      createSectionModel.DataId == 0 || 
+      createSectionModel.ProfilePageSectionType == 0" (onClick)="onSubmit()">
+    </sl-button>
   </div>
 </div>

@@ -45,6 +45,11 @@
         <ng-container *ngIf="pageSection.ProfilePageSectionType == 2">
           <product-group-grid [headline]="pageSection.Name" [productGroupId]="pageSection.DataId"></product-group-grid>
         </ng-container>
+
+        <!-- 3: WYSIWYG text content -->
+        <ng-container *ngIf="pageSection.ProfilePageSectionType == 3">
+          <sl-text-page-section [textPageSectionId]="pageSection.DataId"></sl-text-page-section>
+        </ng-container>
       </ng-container>
     </div>
   </ng-container>

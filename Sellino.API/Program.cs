@@ -59,6 +59,12 @@ builder.Services.AddDbContext<OrderDbContext>(options => options.UseSqlServer(co
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
+
+//Services for TextPageSection
+builder.Services.AddDbContext<TextPageSectionDbContext>(options => options.UseSqlServer(connectionString, assembly => assembly.MigrationsAssembly(typeof(TextPageSectionDbContext).Assembly.FullName)));
+builder.Services.AddScoped<ITextPageSectionService, TextPageSectionService>();
+builder.Services.AddScoped<ITextPageSectionRepository, TextPageSectionRepository>();
+
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.PropertyNamingPolicy = null;

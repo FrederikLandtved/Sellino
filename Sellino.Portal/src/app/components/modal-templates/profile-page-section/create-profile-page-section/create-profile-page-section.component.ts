@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DropdownOption } from 'src/app/components/ui-kit/dropdown/dropdown.component';
 import { ProductGroupService } from 'src/app/services/product-group/product-group.service';
 import { ProfilePageSectionModel, ProfilePageService, ProfilePageWithSectionsModel } from 'src/app/services/profile/profile-page.service';
+import { TextPageSectionService } from 'src/app/services/text-page-section/text-page-section.service';
 
 @Component({
   selector: 'app-create-profile-page-section',
@@ -16,7 +17,7 @@ export class CreateProfilePageSectionComponent implements OnInit {
   textEditor: string = '';
 
   constructor(private dialog: MatDialogRef<CreateProfilePageSectionComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private productGroupService: ProductGroupService, private profilePageService: ProfilePageService) {}
+    @Inject(MAT_DIALOG_DATA) public data: any, private productGroupService: ProductGroupService, private profilePageService: ProfilePageService, private textPageSectionService: TextPageSectionService) {}
 
 
   ngOnInit(): void {
@@ -41,14 +42,26 @@ export class CreateProfilePageSectionComponent implements OnInit {
     this.dialog.close();
   }
 
-  onCreateNewSection(model: ProfilePageSectionModel, item: ProfilePageWithSectionsModel) {    
-    this.profilePageService.CreatePageSection(model, item).subscribe(data => {
-      console.log(data);
-    });
-  }
-
   onSubmit() {
     this.onCreateNewSection(this.createSectionModel, this.profile!);
     this.dialog.close(this.profile);
+  }
+
+  onCreateNewSection(model: ProfilePageSectionModel, item: ProfilePageWithSectionsModel) {
+    if(model.ProfilePageSectionType == 3){
+      return this.textPageSectionService.CreateTextPageSection(this.textEditor).subscribe(data => {
+        model.DataId = data;
+
+        this.profilePageService.CreatePageSection(model, item).subscribe(data => {
+          console.log(data);
+        });
+
+        return;
+      });
+    }
+
+    return this.profilePageService.CreatePageSection(model, item).subscribe(data => {
+      console.log(data);
+    });
   }
 }

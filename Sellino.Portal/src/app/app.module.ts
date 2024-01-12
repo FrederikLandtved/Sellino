@@ -42,7 +42,8 @@ import { CreateProfilePageSectionComponent } from './components/modal-templates/
 import { DeleteProfilePageComponent } from './components/modal-templates/profile-page/delete-profile-page/delete-profile-page.component';
 import { EditProfilePageComponent } from './components/modal-templates/profile-page/edit-profile-page/edit-profile-page.component';
 import { OrdersComponent } from './pages/main/orders/orders.component';
-import { QuillConfigModule, QuillModule } from 'ngx-quill'
+import { QuillConfigModule, QuillModule } from 'ngx-quill';
+import { TextPageSectionComponent } from './components/ui-kit/text-page-section/text-page-section.component'
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { QuillConfigModule, QuillModule } from 'ngx-quill'
     CreateProfilePageSectionComponent,
     DeleteProfilePageComponent,
     EditProfilePageComponent,
-    OrdersComponent
+    OrdersComponent,
+    TextPageSectionComponent
   ],
   imports: [
     BrowserModule,

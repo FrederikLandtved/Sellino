@@ -66,9 +66,7 @@
   <div class="dialog-actions">
     <sl-button 
       title="Gem" 
-      [disabled]="createSectionModel.Name == '' || 
-      createSectionModel.DataId == 0 || 
-      createSectionModel.ProfilePageSectionType == 0" (onClick)="onSubmit()">
+      [disabled]="createSectionModel.Name == '' || (createSectionModel.ProfilePageSectionType == 3 && textEditor == '') || (createSectionModel.ProfilePageSectionType == 1 && createSectionModel.DataId == 0) || (createSectionModel.ProfilePageSectionType == 2 && createSectionModel.DataId == 0)" (onClick)="onSubmit()">
     </sl-button>
   </div>
 </div>

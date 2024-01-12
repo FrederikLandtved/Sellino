@@ -1,0 +1,9 @@
+:host::ng-deep {
+  .text-render{
+    margin-bottom: 30px;
+  }
+
+  * {
+    color: var(--text-on-company-color) !important;
+  }
+}

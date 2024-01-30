@@ -14,7 +14,7 @@
       </tr>
       <tr *ngFor="let order of orders" [ngClass]="{'unactive' : order.IsCompleted}">
         <td>{{ order.OrderId }}</td>
-        <td>Jakke</td>
+        <td>{{ order.ProductName }}</td>
         <td>{{ order.Amount }}</td>
         <td>{{ order.FullPrice }} kr.</td>
         <td>{{ order.FullName }}</td>

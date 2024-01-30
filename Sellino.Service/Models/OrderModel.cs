@@ -9,6 +9,7 @@ namespace Sellino.Domain.Models
         public int ProfileId { get; set; }
         public int ProductId { get; set; }
         public int Amount { get; set; }
+        public string ProductName { get; set; }
         public int FullPrice { get; set; }
         public string FullName { get; set; }
         public string Address { get; set; }

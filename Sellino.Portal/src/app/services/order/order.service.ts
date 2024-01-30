@@ -31,5 +31,6 @@ export interface Order {
   Address: string,
   ZipCode: number,
   City: string,
-  IsCompleted: boolean
+  IsCompleted: boolean,
+  ProductName: string
 }

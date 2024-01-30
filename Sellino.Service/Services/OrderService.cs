@@ -56,7 +56,8 @@ namespace Sellino.Service.Services
                         OrderToken = order.OrderToken,
                         ProductId = order.ProductId,
                         ProfileId = order.ProfileId,
-                        FullPrice = orderedProduct.Price * order.Amount
+                        FullPrice = orderedProduct.Price * order.Amount,
+                        ProductName = orderedProduct.Name
                     };
 
                     orderModels.Add(orderModel);
